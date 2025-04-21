@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# 🌬️ Zepyur
 
-First, run the development server:
+**Zepyur** is a modern multilingual website built with **Next.js v15**, **TypeScript**, and **i18next**.  
+The project showcases best practices in UI development, internationalization, and component architecture.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+![Zepyur Preview](./public/preview.png)
+
+---
+
+## 🚀 Technologies
+
+- [Next.js 15](https://nextjs.org/) — React framework with SSR and SSG support  
+- [TypeScript](https://www.typescriptlang.org/) — Typed JavaScript  
+- [i18next](https://www.i18next.com/) — Internationalization and localization  
+- [Tailwind CSS](https://tailwindcss.com/) — Utility-first CSS framework  
+- [Geist](https://vercel.com/fonts/geist) — Modern font by Vercel  
+
+---
+
+## 📦 Installation and Running
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/adlermore/zepyur.git
+   cd zepyur
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. Start the development server:
+
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+## 🌍 Internationalization
+
+This project supports multiple languages using **i18next**.  
+Translation files are located in the `messages/` directory.  
+You can easily add new languages or edit existing translations.
+
+---
+
+## 🧱 Project Structure
+
+```
+├── app/                # Pages and routes
+├── components/         # Reusable components
+├── i18n/               # i18next configuration
+├── messages/           # Translation files
+├── public/             # Static assets
+├── styles/             # Global styles
+├── next.config.ts      # Next.js configuration
+├── tsconfig.json       # TypeScript configuration
+└── ...
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command         | Description                        |
+|-----------------|------------------------------------|
+| `npm run dev`   | Start the development server       |
+| `npm run build` | Build the project                  |
+| `npm run start` | Start the production server        |
+| `npm run lint`  | Run ESLint to check code quality   |
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🤝 Contribution
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Contributions are welcome!  
+If you have suggestions, bug reports, or want to improve the project, feel free to open an [Issue](https://github.com/adlermore/zepyur/issues) or submit a Pull Request.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 📄 License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the [MIT License](LICENSE).
