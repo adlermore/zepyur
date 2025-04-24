@@ -2,7 +2,7 @@ import { useTranslations } from 'next-intl';
 import React from 'react'
 
 function Contacts() {
-    const t = useTranslations('contacts');
+  const t = useTranslations('contacts');
   return (
     <div>
       <div className='title_text'>{t('title')}</div>
