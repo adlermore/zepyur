@@ -3,7 +3,6 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { EmblaOptionsType } from 'embla-carousel'
 import EmblaCarousel from '@/components/EmblaCarousel/EmblaCarousel';
-import '../globals.scss'
 
 export default function HomePage() {
   const t = useTranslations('home');
@@ -18,9 +17,7 @@ export default function HomePage() {
 
   return (
     <div>
-      <h1>{t('title')}</h1>
-      <Link href="/" locale="am">Հայերեն</Link>
-      <Link href="/" locale="en">English</Link>
+      <h1>{t('title')}</h1>Test
 
       <EmblaCarousel slides={SLIDES} options={OPTIONS} />
       <div className='custom_slide'>

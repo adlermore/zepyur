@@ -5,6 +5,15 @@ import { Toaster } from "react-hot-toast";
 import Header from "@/components/layout/Header";
 import Footer from '@/components/layout/Footer';
 import { JsonContextProvider } from "@/context/JsonContext";
+import "@/styles/globals.scss";
+import { Poppins } from 'next/font/google';
+
+const poppins = Poppins({
+  subsets: ['latin'], // or ['latin-ext'] depending on your needs
+  weight: ['400', '600', '700'], // select weights you need
+  style: ['normal', 'italic'], // optional, if you need different styles
+  display: 'swap', // recommended
+});
 
 export default async function LocaleLayout({
   children,
@@ -21,7 +30,7 @@ export default async function LocaleLayout({
   return (
     <JsonContextProvider>
       <html lang={locale}>
-        <body>
+        <body className={poppins.className}>
           <NextIntlClientProvider>
             <Toaster containerStyle={{ zIndex: 9999 }} position="bottom-right" />
             <Header />
