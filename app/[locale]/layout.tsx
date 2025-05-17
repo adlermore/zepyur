@@ -6,14 +6,22 @@ import Header from "@/components/layout/Header";
 import Footer from '@/components/layout/Footer';
 import { JsonContextProvider } from "@/context/JsonContext";
 import "@/styles/globals.scss";
-import { Poppins } from 'next/font/google';
+import { Poppins, Montserrat } from 'next/font/google';
 
 const poppins = Poppins({
-  subsets: ['latin'], // or ['latin-ext'] depending on your needs
-  weight: ['400', '600', '700'], // select weights you need
-  style: ['normal', 'italic'], // optional, if you need different styles
-  display: 'swap', // recommended
+  subsets: ['latin'], 
+  weight: ['400', '600', '700'], 
+  style: ['normal', 'italic'], 
+  display: 'swap', 
 });
+
+const montserrat = Montserrat({
+  subsets: ['latin',],
+  weight: ['400', '600', '700'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+});
+export { montserrat };
 
 export default async function LocaleLayout({
   children,

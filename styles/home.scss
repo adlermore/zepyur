@@ -1,0 +1,51 @@
+.home_page{
+  .zepyur_area{
+    position: relative;
+  }
+  .main_description{
+   padding-top: 50px;
+   background: white;
+   color: black; 
+   border-radius: 50px 50px 0 0 ;
+   margin-top: -50px;
+   position: relative;
+   z-index: 1;
+   .desc{
+    max-width: 1140px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 16px;
+   }
+  }
+  .grid_block{
+    background: #8D9744;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+    &:nth-child(5n){
+      background: #5B5D2C;
+    }
+  }
+  .block_title{
+    font-size: 24px;
+    line-height: 1.6;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: white;
+  }
+  .block_desc{
+    font-size: 14px;
+    line-height: 1.6;
+    color: white;
+    margin-top: 10px;
+    max-width: 270px;
+  }
+}

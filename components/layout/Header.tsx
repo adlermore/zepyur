@@ -6,13 +6,14 @@ import Image from 'next/image';
 import headerLogo from '@/public/images/header_logo.png'
 import { usePathname } from 'next/navigation';
 import { Link } from '@/i18n/navigation';
+import { useTranslations } from 'next-intl';
 
 function Header() {
 
   const [isOpen, setOpen] = useState(false);
   const pathname = usePathname();
   const currentLocale = pathname.split('/')[1];
-
+  const t = useTranslations();
 
   useEffect(() => {
     if (document.body.classList.contains('menu_opened')) {
@@ -48,28 +49,28 @@ function Header() {
             <div className='header_menu'>
               <ul className='menu_list'>
                 <li className='menu_item'>
-                  <Link href="/about" className='menu_link'>About Us</Link>
+                  <Link href="/about" className='menu_link'>{t('menu.about')}</Link>
                 </li>
                 <li className='menu_item'>
-                  <Link href="/homes" className='menu_link'>Homes</Link>
+                  <Link href="/homes" className='menu_link'>{t('menu.homes')}</Link>
                 </li>
                 <li className='menu_item'>
-                  <Link href="/" className='menu_link'>Amenities</Link>
+                  <Link href="/" className='menu_link'>{t('menu.amenities')}</Link>
                 </li>
                 <li className='menu_item'>
-                  <Link href="/" className='menu_link'>Zepyur Complex</Link>
+                  <Link href="/" className='menu_link'>{t('menu.complex')}</Link>
                 </li>
                 <li className='menu_item'>
-                  <Link href="/" className='menu_link'>Gallery</Link>
+                  <Link href="/" className='menu_link'>{t('menu.gallery')}</Link>
                 </li>
                 <li className='menu_item'>
-                  <Link href="/" className='menu_link menu_btn'>COMMUNITY</Link>
+                  <Link href="/" className='menu_link menu_btn'>{t('menu.community')}</Link>
                 </li>
                 <li className='menu_item'>
-                  <Link href="/" className='menu_link '>News</Link>
+                  <Link href="/" className='menu_link'>{t('menu.news')}</Link>
                 </li>
                 <li className='menu_item'>
-                  <Link href="/" className='menu_link '>Contacts</Link>
+                  <Link href="/" className='menu_link'>{t('menu.contacts')}</Link>
                 </li>
               </ul>
             </div>
