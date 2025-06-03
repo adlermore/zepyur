@@ -5,26 +5,43 @@ import { EmblaOptionsType } from 'embla-carousel'
 import EmblaCarousel from '@/components/EmblaCarousel/EmblaCarousel';
 import homeBottomBanner from '@/public/images/homeBottomBanner.png';
 import Image from 'next/image';
-import ZepyurArea from '@/components/ZepyurArea/ZepyurArea';
 import '@/styles/home.scss'
 import homegrid1 from '@/public/images/homegrid1.png';
 import homegrid2 from '@/public/images/homegrid2.png';
 import homegrid3 from '@/public/images/homegrid3.png';
 import ComunitySlider from '@/components/EmblaCarousel/ComunitySlider';
+import ZepyurAreaSVG from '@/components/ZepyurArea/ZepyurAreaSVG';
+import TestArea from '@/components/ZepyurArea/TestArea';
+import ChooseSlider from '@/components/EmblaCarousel/ChooseSlider';
+import LayoutSlider from '@/components/EmblaCarousel/LayoutSlider';
+import AmentiesSlider from '@/components/EmblaCarousel/AmentiesSlider';
+import test1 from '@/public/images/area/test1.png';
+import ZepyurSvg from '@/components/ZepyurArea/ZepyurSvg';
+
 
 export default function HomePage() {
   const t = useTranslations('home');
 
-  const OPTIONS: EmblaOptionsType = { align: 'start' }
-  const SLIDE_COUNT = 6
-  const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
-
-  const SLIDE_COUNT2 = 7
-  const SLIDES2 = Array.from(Array(SLIDE_COUNT2).keys())
+  const handleApartamentClick = (id: string) => {
+    console.log('apartament', id);
+  }
 
   return (
     <div className='home_page'>
-      <ZepyurArea />
+      <div className='test_area'>
+        {/* <ZepyurAreaSVG handleApartamentClick={handleApartamentClick} /> */}
+        <ZepyurSvg />
+        {/* <Image
+          src={test1}
+          alt="test1"
+          className="w-full h-auto"
+          unoptimized
+          fill
+          // style={{ objectFit: '' }}
+        />
+        <TestArea handleApartamentClick={handleApartamentClick} /> */}
+      </div>
+
       <div className='main_description'>
         <div className='custom_container'>
           <div className='desc'>{t('mainDescription1')}</div>
@@ -93,15 +110,28 @@ export default function HomePage() {
         <ComunitySlider />
         <Link href="/community" className='more_btn'>{t('showMore')}</Link>
       </div>
-
-        <EmblaCarousel slides={SLIDES} options={OPTIONS} />
-
-      <div className='custom_slide'>
-        <EmblaCarousel slides={SLIDES2} options={OPTIONS} />
+      <div className='choose_section'>
+        <div className='section_title'>
+          CHOOSE YOUR HOME
+        </div>
+        <ChooseSlider />
+        <Link href="/community" className='more_btn'>{t('showMore')}</Link>
       </div>
-
-      <Link href="/contact">{t('contact')}</Link>
-      <div className='home_bottom_banner relative h-[900px]'>
+      <div className='layout_section'>
+        <div className='section_title'>
+          LAYOUT OPTIONS
+        </div>
+        <LayoutSlider />
+        {/* <Link href="/community" className='more_btn'>{t('showMore')}</Link> */}
+      </div>
+      <div className='amenties_section'>
+        <div className='section_title'>
+          AMENTIES
+        </div>
+        <AmentiesSlider />
+        <Link href="/community" className='more_btn'>{t('showMore')}</Link>
+      </div>
+      <div className='home_bottom_banner relative mt-[50px] h-[900px]'>
         <Image
           src={homeBottomBanner}
           alt="homeBottomBanner"
@@ -111,7 +141,6 @@ export default function HomePage() {
           style={{ objectFit: 'cover' }}
         />
       </div>
-
     </div>
   );
 }
