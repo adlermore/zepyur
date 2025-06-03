@@ -42,6 +42,11 @@ a {
   justify-content: center;
   svg{
     position: absolute;
+    // top: 0;
+    .upToTop{
+      position: absolute !important;
+      top: -10px !important;
+    }
     g{
       opacity: 1;
     }

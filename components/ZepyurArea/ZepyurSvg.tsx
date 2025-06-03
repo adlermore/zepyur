@@ -1613,9 +1613,10 @@ const ZepyurSvg = () => (
         }}
         fontFamily="Poppins"
         fontSize={8}
+        className="upToTop"
         letterSpacing="0em"
       >
-        <tspan x={0.0854492} y={7.95}>
+        <tspan x={0.0854492} y={4.95}>
           {"C25"}
         </tspan>
       </text>
@@ -1629,8 +1630,9 @@ const ZepyurSvg = () => (
         fontFamily="Poppins"
         fontSize={8}
         letterSpacing="0em"
+        className="upToTop"
       >
-        <tspan x={0.0615234} y={7.95}>
+        <tspan x={0.0615234} y={4.95}>
           {"C26"}
         </tspan>
       </text>
@@ -1644,8 +1646,9 @@ const ZepyurSvg = () => (
         fontFamily="Poppins"
         fontSize={8}
         letterSpacing="0em"
+        className="upToTop"
       >
-        <tspan x={0.372559} y={7.95}>
+        <tspan x={0.372559} y={4.95}>
           {"C27"}
         </tspan>
       </text>
@@ -1659,8 +1662,9 @@ const ZepyurSvg = () => (
         fontFamily="Poppins"
         fontSize={8}
         letterSpacing="0em"
+        className="upToTop"
       >
-        <tspan x={0.0751953} y={7.95}>
+        <tspan x={0.0751953} y={4.95}>
           {"C28"}
         </tspan>
       </text>
@@ -1674,8 +1678,9 @@ const ZepyurSvg = () => (
         fontFamily="Poppins"
         fontSize={8}
         letterSpacing="0em"
+        className="upToTop"
       >
-        <tspan x={0.0786133} y={7.95}>
+        <tspan x={0.0786133} y={4.95}>
           {"C29"}
         </tspan>
       </text>
@@ -1689,8 +1694,9 @@ const ZepyurSvg = () => (
         fontFamily="Poppins"
         fontSize={8}
         letterSpacing="0em"
+        className="upToTop"
       >
-        <tspan x={0.0375977} y={7.95}>
+        <tspan x={0.0375977} y={4.95}>
           {"C30"}
         </tspan>
       </text>
@@ -1704,8 +1710,9 @@ const ZepyurSvg = () => (
         fontFamily="Poppins"
         fontSize={8}
         letterSpacing="0em"
+        className="upToTop"
       >
-        <tspan x={0.114258} y={7.95}>
+        <tspan x={0.114258} y={4.95}>
           {"C31"}
         </tspan>
       </text>
@@ -1719,8 +1726,9 @@ const ZepyurSvg = () => (
         fontFamily="Poppins"
         fontSize={8}
         letterSpacing="0em"
+        className="upToTop"
       >
-        <tspan x={0.222168} y={7.95}>
+        <tspan x={0.222168} y={4.95}>
           {"C32"}
         </tspan>
       </text>
@@ -1734,8 +1742,9 @@ const ZepyurSvg = () => (
         fontFamily="Poppins"
         fontSize={8}
         letterSpacing="0em"
+        className="upToTop"
       >
-        <tspan x={0.174316} y={7.95}>
+        <tspan x={0.174316} y={4.95}>
           {"C33"}
         </tspan>
       </text>
@@ -1748,9 +1757,10 @@ const ZepyurSvg = () => (
         }}
         fontFamily="Poppins"
         fontSize={8}
+        className="upToTop"
         letterSpacing="0em"
       >
-        <tspan x={0.0341797} y={7.95}>
+        <tspan x={0.0341797} y={4.95}>
           {"C34"}
         </tspan>
       </text>
@@ -1763,9 +1773,10 @@ const ZepyurSvg = () => (
         }}
         fontFamily="Poppins"
         fontSize={8}
+        className="upToTop"
         letterSpacing="0em"
       >
-        <tspan x={0.0375977} y={7.95}>
+        <tspan x={0.0375977} y={4.95}>
           {"C35"}
         </tspan>
       </text>
@@ -1778,9 +1789,10 @@ const ZepyurSvg = () => (
         }}
         fontFamily="Poppins"
         fontSize={8}
+        className="upToTop"
         letterSpacing="0em"
       >
-        <tspan x={0.0136719} y={7.95}>
+        <tspan x={0.0136719} y={4.95}>
           {"C36"}
         </tspan>
       </text>
@@ -1792,10 +1804,11 @@ const ZepyurSvg = () => (
           whiteSpace: "pre",
         }}
         fontFamily="Poppins"
+        className="upToTop"
         fontSize={8}
         letterSpacing="0em"
       >
-        <tspan x={0.324707} y={7.95}>
+        <tspan x={0.324707} y={4.95}>
           {"C37"}
         </tspan>
       </text>
@@ -1806,11 +1819,12 @@ const ZepyurSvg = () => (
         style={{
           whiteSpace: "pre",
         }}
+        className="upToTop"
         fontFamily="Poppins"
         fontSize={8}
         letterSpacing="0em"
       >
-        <tspan x={0.0273438} y={7.95}>
+        <tspan x={0.0273438} y={4.95}>
           {"C38"}
         </tspan>
       </text>
@@ -1821,11 +1835,12 @@ const ZepyurSvg = () => (
         style={{
           whiteSpace: "pre",
         }}
+        className="upToTop"
         fontFamily="Poppins"
         fontSize={8}
         letterSpacing="0em"
       >
-        <tspan x={0.0307617} y={7.95}>
+        <tspan x={0.0307617} y={4.95}>
           {"C39"}
         </tspan>
       </text>
