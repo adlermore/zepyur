@@ -34,7 +34,7 @@ a {
 
 
 .test_area {
-  background: url('../public/images/testBG.svg') no-repeat center center;
+  background: url('../public/images/area/mainSvgBg.svg') no-repeat center center;
   position: relative;
   height: 900px;
   display: flex;
@@ -42,15 +42,21 @@ a {
   justify-content: center;
   svg{
     position: absolute;
-    top: -47px;
+    g{
+      opacity: 1;
+    }
+    g path {
+      stroke: none;
+      fill: transparent;
+    }
   }
+
   svg path {
     cursor: pointer;
     transition: all 0.3s ease;
 
     &:hover {
-      fill: red;
-      // background: url('../public/images/area/B06.svg');
+      fill: #3E3F1A;
     }
   }
 
