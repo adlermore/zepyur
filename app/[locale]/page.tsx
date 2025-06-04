@@ -94,6 +94,8 @@ export default function HomePage() {
         </div>
         <ComunitySlider />
         <Link href="/community" className='more_btn'>{t('showMore')}</Link>
+        <Link href="http://192.168.100.178:3000/" className='more_btn'>GO TO IRP</Link>
+
       </div>
       <div className='choose_section'>
         <div className='section_title'>
