@@ -12,21 +12,29 @@ import ChooseSlider from '@/components/EmblaCarousel/ChooseSlider';
 import LayoutSlider from '@/components/EmblaCarousel/LayoutSlider';
 import AmentiesSlider from '@/components/EmblaCarousel/AmentiesSlider';
 import ZepyurSvg from '@/components/ZepyurArea/ZepyurSvg';
+import { useState } from 'react';
+import AreaBook from '@/components/ZepyurArea/AreaBook';
 
 
 export default function HomePage() {
   const t = useTranslations('home');
 
-  const handleApartamentClick = (id: string) => {
-    console.log('apartament', id);
-  }
+  const [selectedArea, setSelectedArea] = useState<string | null>(null);
+
+  const handleSvgClick = (value: unknown) => {
+    setSelectedArea(value as string);
+  };
+
+  const onClose = () => {
+    setSelectedArea(null);
+  };
 
   return (
     <div className='home_page'>
       <div className='test_area'>
-        <ZepyurSvg />
+        <ZepyurSvg handleClick={handleSvgClick} />
       </div>
-
+      <AreaBook selectedArea={selectedArea} onClose={onClose} />
       <div className='main_description'>
         <div className='custom_container'>
           <div className='desc'>{t('mainDescription1')}</div>
@@ -94,7 +102,6 @@ export default function HomePage() {
         </div>
         <ComunitySlider />
         <Link href="/community" className='more_btn'>{t('showMore')}</Link>
-        <Link href="http://192.168.100.178:3000/" className='more_btn'>GO TO IRP</Link>
 
       </div>
       <div className='choose_section'>
@@ -109,7 +116,6 @@ export default function HomePage() {
           LAYOUT OPTIONS
         </div>
         <LayoutSlider />
-        {/* <Link href="/community" className='more_btn'>{t('showMore')}</Link> */}
       </div>
       <div className='amenties_section'>
         <div className='section_title'>
