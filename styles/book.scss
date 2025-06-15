@@ -24,9 +24,11 @@
 
   .book_step {
     height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
 
     >div {
-      height: 100%;
+      height: -webkit-fill-available;
       display: flex;
       flex-direction: column;
     }
@@ -59,7 +61,6 @@
 
   .book_inner {
     padding: 56px 30px;
-    overflow-y: auto;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -276,6 +277,7 @@
     width: 100%;
     max-width: 220px;
     height: 47px;
+    min-height: 45px;
     border-radius: 5px;
     border: none;
     cursor: pointer;
@@ -414,6 +416,7 @@
   justify-content: center;
   margin-top: 50px;
   padding-bottom: 50px;
+
   .last_image {
     display: flex;
     align-items: center;
@@ -438,19 +441,21 @@
     font-weight: 600;
     text-align: center;
   }
-  .button_line{
+
+  .button_line {
     flex: 1;
     display: flex;
     width: 100%;
     align-items: flex-end;
   }
+
   .description {
     font-size: 13px;
     text-align: center;
     margin-top: 40px;
   }
 
-  button{
+  button {
     background: #353D0E;
     transition: 0.3s ease;
     color: white;
@@ -486,4 +491,72 @@
 
 .book_fade-out {
   opacity: 0;
+}
+
+@media (max-width: 1199px) {
+  .area_book {
+    .book_inner {
+      padding: 36px 15px;
+    }
+
+    .book_type {
+      margin-top: 10px;
+      gap: 10px;
+      font-size: 24px;
+    }
+
+    .type_desc span {
+      font-size: 20px;
+      padding: 3px 5px;
+    }
+
+    .type_item ul {
+    padding-left: 25px;
+    }
+    .select_type{
+      margin-top: 15px;
+    }
+    .type_desc {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    .third_line {
+    background: #3E4018;
+    margin: 15px auto;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 18px;
+    }
+    .step_3_desc{
+      margin-top: 20px;
+    }
+    .form_container {
+      margin-top: 30px;
+
+      input,
+      textarea {
+        font-size: 12px;
+      }
+
+      .submit_btn {
+        max-width: 180px;
+        height: 40px;
+        font-size: 14px;
+      }
+    }
+    .form_row{
+      gap: 20px;
+    }
+  }
+  .embla.simple_area_slider .slide_image {
+    height: 240px;
+  }
+  .step_4 .main_title {
+    color: #5B5D2C;
+    font-size: 24px;
+    margin-top: 20px;
+  }
+  .step_4 .description{
+    margin-top: 20px;
+  }
 }

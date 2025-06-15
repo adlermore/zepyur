@@ -1,5 +1,5 @@
 import IconClose from '@/public/icons/IconClose'
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import '@/styles/book.scss'
 import Image from 'next/image'
 import z01type from '@/public/images/z01type.png'
@@ -10,20 +10,22 @@ import IconRoomWhash from '@/public/icons/IconRoomWhash'
 import IconCar from '@/public/icons/IconCar'
 import successImg from '@/public/images/successImg.png';
 import Link from 'next/link'
-
+import { useTranslations } from 'next-intl';
 
 const AreaBook: React.FC<{ selectedArea: any; onClose: () => void }> = ({ selectedArea, onClose }) => {
+
+  const t = useTranslations();
 
   const steps = [
     {
       key: "step1",
       content: (nextStep: () => void, prevStep: () => void, step: number) => (
         <div className='step_1'>
-          <div className='book_title'>ընտրեք ձեր տունը</div>
+          <div className='book_title'>{t('book.chose')}</div>
           <div className='book_type'>
             <div className='area_number'>{selectedArea}</div>
             <span></span>
-            <div className='title'>ՏԱՐԲԵՐԱԿՆԵՐ</div>
+            <div className='title'>{t('book.options')}</div>
           </div>
           <div className='type_line'>
             {[z01type, z02type].map((img, idx) => (
@@ -39,23 +41,23 @@ const AreaBook: React.FC<{ selectedArea: any; onClose: () => void }> = ({ select
                   />
                 </div>
                 <div className='type_desc'>
-                  Bհողամաս` <br />
-                  <span> 350.3</span>քմ <br />
-                  բնակելի մակերես` <br />
-                  <span> 92.6</span>քմ <br />
+                  {t('book.area')} <br />
+                  <span> 350.3</span>{t('book.sqm')} <br />
+                  {t('book.liveArea')} <br />
+                  <span> 92.6</span>{t('book.sqm')} <br />
                   <ul>
-                    <li>ննջասենյակ (x2)</li>
-                    <li>սանհանգույց(x1)</li>
-                    <li>Հյուրասենյակ</li>
-                    <li>խոհանոց</li>
-                    <li>կայանատեղ (x2)</li>
-                    <li>հետնաբակ</li>
+                    <li>{t('book.bedroom')} (x2)</li>
+                    <li>{t('book.bathroom')} (x1)</li>
+                    <li>{t('book.guestRoom')}</li>
+                    <li>{t('book.ketchen')}</li>
+                    <li>{t('book.parking')} (x2)</li>
+                    <li>{t('book.beckarea')}</li>
                   </ul>
                   <div className='price'>
                     <span>52,918,447 ֏</span>
                   </div>
                 </div>
-                <button className='select_type' onClick={nextStep}>MORE</button>
+                <button className='select_type' onClick={nextStep}>{t('book.more')}</button>
               </div>
             ))}
           </div>
@@ -84,7 +86,7 @@ const AreaBook: React.FC<{ selectedArea: any; onClose: () => void }> = ({ select
               <div>
                 350.3 | 129.6
               </div>
-              <span className='text-[#5B5D2C]'>քմ</span>
+              <span className='text-[#5B5D2C]'>{t('book.sqm')}</span>
             </div>
             <div className='property_item'>
               x3 <IconSleepRoom />
@@ -93,11 +95,11 @@ const AreaBook: React.FC<{ selectedArea: any; onClose: () => void }> = ({ select
             </div>
           </div>
           <div className='step_desc'>
-            Հարմարավետ միջին չափի տուն` նախատեսված ժամանակա-կից ապրելու համար: Ունենալով երեք ննջասենյակ, ընդարձակ հյուրասենյակ և ճկուն խոհանոցային տարածք` այս տունը համա-պատասխանում է ժամանակակից ընտանիքի կարիքներին:
+            {t('book.desc')}
             <br />
           </div>
           <button className='second_step_btn' onClick={nextStep}>
-            Reserve your home
+            {t('book.reserveYourHome')}
           </button>
         </div>
       ),
@@ -106,23 +108,23 @@ const AreaBook: React.FC<{ selectedArea: any; onClose: () => void }> = ({ select
       key: "step3",
       content: (nextStep: () => void, prevStep: () => void, step: number) => (
         <div className='step_3'>
-          <div className='book_title'>ընտրեք ձեր տունը</div>
+          <div className='book_title'>{t('book.chose')}</div>
           <div className='book_type'>
             <div className='area_number'>{selectedArea}</div>
             <span></span>
-            <div className='title'>ՏԱՐԲԵՐԱԿ</div>
+            <div className='title'>{t('book.options')}</div>
           </div>
           <div className='property_line third_line'>
             <div className='property_item areaSize'>
               <div>
                 350.3 | 129.6
               </div>
-              <span className='text-[#5B5D2C]'>քմ</span>
+              <span className='text-[#5B5D2C]'>{t('book.sqm')}</span>
               <div className='price'>58,743,689 <span>֏</span></div>
             </div>
           </div>
-          <div className='mt-[40px] text-[13px] text-center px-[30px]'>
-            Շնորհակալություն հետաքրքրության համար: Խնդրում ենք լրացնել և ուղարկել ստորև բերված ձևաթուղթը` Ձեր ամրագրումն ավարտելու համար:
+          <div className='mt-[40px] text-[13px] text-center px-[30px] step_3_desc'>
+            {t('book.thanksDesc')}
           </div>
           <div className='form_container'>
             <form onSubmit={handleSubmit}>
@@ -171,7 +173,7 @@ const AreaBook: React.FC<{ selectedArea: any; onClose: () => void }> = ({ select
               <button type="submit" className='submit_btn'>SUBMIT</button>
             </form>
             <div className='step_footer'>
-              in case of further assistnace/guidance needed, please <Link href='/'>contact us</Link>
+              {t('book.bookFooter')}
             </div>
           </div>
         </div>
@@ -190,24 +192,44 @@ const AreaBook: React.FC<{ selectedArea: any; onClose: () => void }> = ({ select
               height={135}
             />
           </div>
-          <div className='main_title'>շնորհավոր</div>
-          <div className='second_title'>{selectedArea}-ը վերապահված է ձեզ համար</div>
+          <div className='main_title'>{t('book.congrats')}</div>
+          <div className='second_title'>{selectedArea}- {t('book.reserved')}</div>
           <div className='description'>
-            Մեր վաճառքի թիմը շուտով կապի մեջ կլինի Ձեզ հետ: Խնդրում ենք ներկայանալ առաջիկա երեք աշխատանքային օրվա ընթացքում և տրամադրել բոլոր անհրաժեշտ փաստաթղթերը` ամրագրման ընթացակարգն ավարտելու համար:
+            {t('book.successInfo')}
           </div>
           <div className='button_line'>
             <button className='last_back' onClick={prevStep}>
-              BACK
+              {t('book.back')}
             </button>
           </div>
 
           <div className='step_footer'>
-            in case of further assistnace/guidance needed, please <Link href='/'>contact us</Link>
+            {t('book.bookFooter')}
           </div>
         </div>
       ),
     },
   ];
+
+  const containerRef = useRef<HTMLDivElement>(null);
+
+
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        setStep(0);
+        onClose();
+      }
+    };
+
+    if (selectedArea) {
+      document.addEventListener('mousedown', handleOutsideClick);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, [selectedArea]);
 
   const [step, setStep] = useState(0);
   const [fade, setFade] = useState(true);
@@ -235,7 +257,7 @@ const AreaBook: React.FC<{ selectedArea: any; onClose: () => void }> = ({ select
     setTimeout(() => {
       setStep(n);
       setFade(true);
-    }, 250); // duration matches CSS
+    }, 250); 
   };
 
   const nextStep = () => {
@@ -248,7 +270,7 @@ const AreaBook: React.FC<{ selectedArea: any; onClose: () => void }> = ({ select
 
   return (
     <div className={`area_book ${selectedArea ? "active" : ""}`}>
-      <div className='book_container'>
+      <div className='book_container' ref={containerRef}>
         <div className='book_inner'>
           <button className='close_book' onClick={() => {
             setStep(0);

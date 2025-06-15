@@ -17,7 +17,7 @@ import AreaBook from '@/components/ZepyurArea/AreaBook';
 
 
 export default function HomePage() {
-  const t = useTranslations('home');
+  const t = useTranslations();
 
   const [selectedArea, setSelectedArea] = useState<string | null>(null);
 
@@ -31,22 +31,24 @@ export default function HomePage() {
 
   return (
     <div className='home_page'>
-      <div className='test_area'>
-        <ZepyurSvg handleClick={handleSvgClick} />
+      <div className='area_section'>
+        <div className='zepyur_area'>
+          <ZepyurSvg handleClick={handleSvgClick} />
+        </div>
       </div>
       <AreaBook selectedArea={selectedArea} onClose={onClose} />
       <div className='main_description'>
         <div className='custom_container'>
-          <div className='desc'>{t('mainDescription1')}</div>
-          <div className='desc'>{t('mainDescription2')}</div>
+          <div className='desc'>{t('home.mainDescription1')}</div>
+          <div className='desc'>{t('home.mainDescription2')}</div>
           <div className='main_grid mt-[50px] grid grid-cols-3 gap-[15px]'>
             <div className='grid_block'>
-              <div className='block_title'>107 HOUSES</div>
+              <div className='block_title'>{t('mainGrid.107house')}</div>
               <div className='block_desc'>
-                Discover single-level living with our range of houses, featuring a private backyard and 2 parking sport.
+                {t('mainGrid.blockdesc1')}
                 <br />
                 <br />
-                Choose from small (2 bedrooms), medium (3 bedroom), or large (4 bedrooms) layouts, designed for style and functionality.
+                {t('mainGrid.blockdesc2')}
               </div>
             </div>
             <div className='grid_block'>
@@ -60,11 +62,13 @@ export default function HomePage() {
               />
             </div>
             <div className='grid_block'>
-              <div className='block_title'>45 TOWNHOUSES</div>
+              <div className='block_title'>{t('mainGrid.45townhouse')}</div>
               <div className='block_desc'>
-                Experience elegant living in our two-story townhouses, uniformly designed for sophistication & space.                <br />
+                {t('mainGrid.blockdesc3')}
                 <br />
-                Experience elegant living in our two-story townhouses, uniformly designed for sophistication & space.              </div>
+                <br />
+                {t('mainGrid.blockdesc4')}
+              </div>
             </div>
             <div className='grid_block'>
               <Image
@@ -77,11 +81,13 @@ export default function HomePage() {
               />
             </div>
             <div className='grid_block'>
-              <div className='block_title'>45 TOWNHOUSES</div>
+              <div className='block_title'>{t('mainGrid.45townhouse')}</div>
               <div className='block_desc'>
-                Experience elegant living in our two-story townhouses, uniformly designed for sophistication & space.                <br />
+                {t('mainGrid.blockdesc5')}
                 <br />
-                Experience elegant living in our two-story townhouses, uniformly designed for sophistication & space.              </div>
+                <br />
+                {t('mainGrid.blockdesc6')}
+              </div>
             </div>
             <div className='grid_block'>
               <Image
@@ -98,18 +104,17 @@ export default function HomePage() {
       </div>
       <div className='comunity_section'>
         <div className='section_title'>
-          COMMUNITY AMENTITIES
+          {t('home.communityAmenities')}
         </div>
         <ComunitySlider />
-        <Link href="/community" className='more_btn'>{t('showMore')}</Link>
-
+        <Link href="/community" className='more_btn'>{t('home.showMore')}</Link>
       </div>
       <div className='choose_section'>
         <div className='section_title'>
           CHOOSE YOUR HOME
         </div>
         <ChooseSlider />
-        <Link href="/community" className='more_btn'>{t('showMore')}</Link>
+        <Link href="/community" className='more_btn'>{t('home.showMore')}</Link>
       </div>
       <div className='layout_section'>
         <div className='section_title'>
@@ -122,7 +127,7 @@ export default function HomePage() {
           AMENTIES
         </div>
         <AmentiesSlider />
-        <Link href="/community" className='more_btn'>{t('showMore')}</Link>
+        <Link href="/community" className='more_btn'>{t('home.showMore')}</Link>
       </div>
       <div className='home_bottom_banner relative mt-[50px] h-[900px]'>
         <Image

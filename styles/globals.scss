@@ -21,6 +21,11 @@
   }
 }
 
+body{
+  // background: red !important;
+  height: 100vh;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -33,14 +38,14 @@ a {
 }
 
 
-.test_area {
+.zepyur_area {
   background: url('../public/images/area/mainSvgBg.svg') no-repeat center center;
   position: relative;
   height: 900px;
   display: flex;
   align-items: center;
   justify-content: center;
-
+  overflow: hidden;
   svg {
     position: absolute;
 

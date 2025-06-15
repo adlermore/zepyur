@@ -1,10 +1,12 @@
 import * as React from "react";
+import { useTranslations } from 'next-intl';
 
 type ZepyurSvgProps = {
   handleClick?: (value: string | null) => void;
 };
 
 const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
+  const t = useTranslations();
 
   const handlePathClick = (e: React.MouseEvent<SVGPathElement>) => {
     const value = e.currentTarget.getAttribute("data-value");
@@ -12,6 +14,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
       handleClick(value);
     }
   };
+ 
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -1177,7 +1180,8 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0.108398} y={14.55}>
-            {"2nd phase"}
+            
+             {t('svg.phase')}
           </tspan>
         </text>
         <text
@@ -1192,7 +1196,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0.348145} y={14.55}>
-            {"ZEPYUR COMPLEX"}
+            {t('svg.zepyurComplex')}
           </tspan>
         </text>
         <text
@@ -1207,7 +1211,8 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0.108398} y={14.55}>
-            {"2nd phase"}
+            
+             {t('svg.phase')}
           </tspan>
         </text>
         <text
@@ -1222,7 +1227,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={5.47593} y={14.55}>
-            {"SUPERMARKET"}
+            {t('svg.supermarket')}
           </tspan>
         </text>
         <text
@@ -1237,7 +1242,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0} y={14.55}>
-            {"BLOCK [E]"}
+             {t('svg.block')}{" [E]"}
           </tspan>
         </text>
         <text
@@ -1252,7 +1257,8 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0.108398} y={14.55}>
-            {"2nd phase"}
+            
+             {t('svg.phase')}
           </tspan>
         </text>
         <text
@@ -1267,7 +1273,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0} y={14.55}>
-            {"BLOCK [E]"}
+             {t('svg.block')}{"[E]"}
           </tspan>
         </text>
         <text
@@ -1282,7 +1288,8 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0.108398} y={14.55}>
-            {"2nd phase"}
+            
+             {t('svg.phase')}
           </tspan>
         </text>
         <text
@@ -1297,7 +1304,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0} y={14.55}>
-            {"BLOCK [D]"}
+             {t('svg.block')}{" [D]"}
           </tspan>
         </text>
         <text
@@ -1312,7 +1319,8 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0.108398} y={14.55}>
-            {"2nd phase"}
+            
+             {t('svg.phase')}
           </tspan>
         </text>
         <text
@@ -1327,7 +1335,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0} y={14.55}>
-            {"BLOCK [D]"}
+             {t('svg.block')}{" [D]"}
           </tspan>
         </text>
         <text
@@ -1342,7 +1350,8 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0.108398} y={14.55}>
-            {"2nd phase"}
+            
+             {t('svg.phase')}
           </tspan>
         </text>
         <text
@@ -1357,7 +1366,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0} y={14.55}>
-            {"BLOCK [D]"}
+             {t('svg.block')}{" [D]"}
           </tspan>
         </text>
         <text
@@ -1372,7 +1381,8 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0.108398} y={14.55}>
-            {"2nd phase"}
+            
+             {t('svg.phase')}
           </tspan>
         </text>
         <text
@@ -1387,7 +1397,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0} y={14.55}>
-            {"BLOCK [E]"}
+             {t('svg.block')}{"[E]"}
           </tspan>
         </text>
         <text
@@ -1402,7 +1412,8 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0.108398} y={14.55}>
-            {"2nd phase"}
+            
+             {t('svg.phase')}
           </tspan>
         </text>
         <text
@@ -1417,7 +1428,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0} y={14.55}>
-            {"BLOCK [E]"}
+             {t('svg.block')}{"[E]"}
           </tspan>
         </text>
         <text
@@ -1432,7 +1443,8 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0.108398} y={14.55}>
-            {"2nd phase"}
+            
+             {t('svg.phase')}
           </tspan>
         </text>
         <text
@@ -2347,7 +2359,8 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0.108398} y={14.55}>
-            {"2nd phase"}
+            
+             {t('svg.phase')}
           </tspan>
         </text>
         <text
@@ -2362,10 +2375,10 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0.0249023} y={11.05}>
-            {"SPORTS\n"}
+            {t('svg.sports')}
           </tspan>
           <tspan x={3.38281} y={24.05}>
-            {"ARENA"}
+            {t('svg.area')}
           </tspan>
         </text>
         <text
@@ -2380,10 +2393,10 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0.182129} y={11.05}>
-            {"WELLNESS\n"}
+            {t('svg.wellness')}
           </tspan>
           <tspan x={1.33105} y={24.05}>
-            {"COMPLEX"}
+            {t('svg.complex')}
           </tspan>
         </text>
         <text
@@ -2398,7 +2411,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0.236328} y={11.05}>
-            {"LOUNGE"}
+            {t('svg.lounge')}
           </tspan>
         </text>
         <text
@@ -2413,7 +2426,8 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0.108398} y={14.55}>
-            {"2nd phase"}
+            
+             {t('svg.phase')}
           </tspan>
         </text>
         <text
@@ -2428,7 +2442,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0} y={14.55}>
-            {"BLOCK [A]"}
+             {t('svg.block')}{" [A]"}
           </tspan>
         </text>
         <text
@@ -2443,7 +2457,8 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0.108398} y={14.55}>
-            {"2nd phase"}
+            
+             {t('svg.phase')}
           </tspan>
         </text>
         <text
@@ -2458,7 +2473,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0} y={14.55}>
-            {"FAMILY PARK"}
+            {t('svg.familyPark')}
           </tspan>
         </text>
         <text
@@ -2472,7 +2487,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={563.225} y={351.55}>
-            {"BLOCK"}
+             {t('svg.block')}{""}
           </tspan>
         </text>
         <text
@@ -2500,7 +2515,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={1267.34} y={233.55}>
-            {"BLOCK"}
+             {t('svg.block')}{""}
           </tspan>
         </text>
         <text

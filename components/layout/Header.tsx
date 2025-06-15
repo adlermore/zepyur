@@ -45,7 +45,7 @@ function Header() {
               />
             </Link>
           </div>
-          <div className={isOpen ? 'menu-open ' : 'menu-close'}>
+          <div className={isOpen ? 'menu-open menu_wrapper ' : 'menu-close menu_wrapper'}>
             <div className='header_menu'>
               <ul className='menu_list'>
                 <li className='menu_item'>
@@ -76,11 +76,11 @@ function Header() {
             </div>
           </div>
           <div className='lg_block'>
-            <Link href="/" locale="am" className={currentLocale === 'am' ? 'active' : ''}>ՀԱՅ</Link>
+            <Link href="/" locale="am" scroll={false} className={currentLocale === 'am' ? 'active' : ''}>ՀԱՅ</Link>
             <span className='lg_decor'></span>
-            <Link href="/" locale="en" className={currentLocale === 'en' ? 'active' : ''}>ENG</Link>
+            <Link href="/" locale="en" scroll={false} className={currentLocale === 'en' ? 'active' : ''}>ENG</Link>
           </div>
-          <div className="hidden">
+          <div className="hamburger_block">
             <Hamburger
               toggled={isOpen}
               toggle={setOpen}

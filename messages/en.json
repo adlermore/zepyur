@@ -1,26 +1,71 @@
 {
-	"home": {
-		"title": "Welcome to ",
-		"contact": "Contact Us",
+  "home": {
+    "title": "Welcome to ",
+    "contact": "Contact Us",
     "mainDescription1": "Welcome to ZEPYUR Residential Area, a pioneering development that fuses contemporary living with natural serenity. Located within a distance of 21km from Yerevan, in the picturesque region of Kotayq - Nor Geghi village of Nor Hachn community - This meticulously planned project spans an expansive area of 10 hectares, offering a blend of comfort and style.",
     "mainDescription2": "This expansive project is planned in two phases and will provide a diverse array of residential options. Phase One sets the groundwork with 59 houses, establishing a benchmark of architectual excellence and environmental harmony. Phase Two will complete the vision, covering the remaining residential units and the amentities the area offers, each designed for uniqueness and personalization.",
-    "showMore": "Show More"
-	},
-	"contacts": {
-		"title": "asdasdasd",
-		"description": "asdasd asdas asd"
-	},
-	"menu": {
-		"about": "About Us",
-		"homes": "Homes",
-		"amenities": "Amenities",
-		"complex": "Zepyur Complex",
-		"gallery": "Gallery",
-		"community": "Community",
-		"news": "News",
-		"contacts": "Contacts"
-	},
-	"footer": {
+    "showMore": "Show More",
+    "communityAmenities": "COMMUNITY AMENITIES"
+  },
+  "book": {
+    "chose": "Choose your home",
+    "options": "OPTIONS",
+    "area": "land area",
+    "sqm": "m²",
+    "liveArea": "living area",
+    "bedroom": "bedroom",
+    "bathroom": "bathroom",
+    "guestRoom": "guest room",
+    "ketchen": "kitchen",
+    "parking": "parking space",
+    "beckarea": "backyard",
+    "more": "More",
+    "desc": "A comfortable medium-sized house designed for modern living. With three bedrooms, a spacious living room, and a flexible kitchen area, this home meets the needs of a contemporary family.",
+    "reserveYourHome": "Reserve Your Home",
+    "thanksDesc": "Thank you for your interest! Please fill out and submit the form below to complete your reservation.",
+    "bookFooter": "in case of further assistnace/guidance needed, please contact us",
+    "successInfo": "Our sales team will be in touch with you shortly. Please present yourself within the next three working days and provide all necessary documents to complete the reservation process.",
+    "back": "Back",
+    "congrats": "Congratulations",
+    "reserved": "is reserved for you"
+  },
+  "svg": {
+    "block": "BLOCK",
+    "phase": "2nd Phase",
+    "supermarket": "SUPERMARKET",
+    "zepyurComplex": "ZEPYUR COMPLEX",
+    "lounge": "LOUNGE",
+    "wellness": "WELLNESS",
+    "complex": "COMPLEX",
+    "sports": "SPORTS",
+    "area": "AREA",
+    "familyPark": "FAMILY PARK"
+  },
+  "contacts": {
+    "title": "asdasdasd",
+    "description": "asdasd asdas asd"
+  },
+  "menu": {
+    "about": "About Us",
+    "homes": "Homes",
+    "amenities": "Amenities",
+    "complex": "Zepyur Complex",
+    "gallery": "Gallery",
+    "community": "Community",
+    "news": "News",
+    "contacts": "Contacts"
+  },
+  "mainGrid": {
+    "107house": "107 HOUSES",
+    "blockdesc1": " Discover single-level living with our range of houses, featuring a private backyard and 2 parking sport.",
+    "blockdesc2": " Choose from small (2 bedrooms), medium (3 bedroom), or large (4 bedrooms) layouts, designed for style and functionality.",
+    "blockdesc3": " Experience elegant living in our two-story townhouses, uniformly designed for sophistication & space.",
+    "blockdesc4": " Experience elegant living in our two-story townhouses, uniformly designed for sophistication & space.",
+    "45townhouse": "45 TOWNHOUSES",
+    "blockdesc5": " Experience elegant living in our two-story townhouses, uniformly designed for sophistication & space. ",
+    "blockdesc6": " Enjoy the convenience of modern apartments, offering a blend of comfort and urban living."
+  },
+  "footer": {
     "about": {
       "title": "About Us",
       "vision": "Vision & Mission",

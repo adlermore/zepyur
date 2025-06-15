@@ -20,7 +20,7 @@ function Footer() {
     <div className='footer'>
       <div className='custom_container'>
         <div className='footer_menu'>
-          <div className='footer_line py-[30px]'>
+          <div className='footer_line py-[30px] mobile:py-[10px]'>
             <Image
               src={footerLogo}
               alt='footerLogo'
@@ -57,7 +57,7 @@ function Footer() {
             <Link href='/'>{t('footer.amenities.cine')}</Link>
           </div>
 
-          <div className='footer_line'>
+          <div className='footer_line complex'>
             <div className='footer_title'>{t('footer.complex.title')}</div>
             <Link href='/'>{t('footer.complex.event')}</Link>
             <Link href='/'>{t('footer.complex.gallery')}</Link>
@@ -66,26 +66,29 @@ function Footer() {
             <Link href='/'>{t('footer.complex.support')}</Link>
           </div>
 
-          <div className='footer_line'>
-            <div className='footer_title'>{t('footer.latest.title')}</div>
-            <Link href='/'>{t('footer.latest.announcements')}</Link>
-            <Link href='/'>{t('footer.latest.news')}</Link>
-            <Link href='/'>{t('footer.latest.process')}</Link>
+          <div className='footer_line inline'>
+            <div>
+              <div className='footer_title'>{t('footer.latest.title')}</div>
+              <Link href='/'>{t('footer.latest.announcements')}</Link>
+              <Link href='/'>{t('footer.latest.news')}</Link>
+              <Link href='/'>{t('footer.latest.process')}</Link>
+            </div>
+            <div>
+              <div className='footer_title secount'>{t('footer.contacts.title')}</div>
+              <span>{t('footer.contacts.address')}</span>
 
-            <div className='footer_title secount'>{t('footer.contacts.title')}</div>
-            <span>{t('footer.contacts.address')}</span>
-
-            <div className='contact_inline'>
-              <Link href='tel:+37455106100' className='footer_phone'>
-                <IconPhone /> {t('footer.contacts.phone')}
-              </Link>
-              <Link href='mailto:info@zepyur.am' className='footer_email'>
-                <IconMail /> {t('footer.contacts.email')}
-              </Link>
+              <div className='contact_inline'>
+                <Link href='tel:+37455106100' className='footer_phone'>
+                  <IconPhone /> {t('footer.contacts.phone')}
+                </Link>
+                <Link href='mailto:info@zepyur.am' className='footer_email'>
+                  <IconMail /> {t('footer.contacts.email')}
+                </Link>
+              </div>
             </div>
           </div>
         </div>
-        <div className='foorer_social mt-[50px]'>
+        <div className='foorer_social mt-[50px] mobile:mt-[30px]'>
           <div className='social_list flex justify-center items-center'>
             <Link href='/'><IconFb /></Link>
             <Link href='/'><IconInsta /></Link>
