@@ -61,7 +61,6 @@ const AmentiesSlider: React.FC<PropType> = (props) => {
                   </div>
                   <Link href="/community" className='moreLink'>Show More</Link>
                 </div>
-
               </div>
             </div>
           ))}

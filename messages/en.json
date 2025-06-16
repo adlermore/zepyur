@@ -5,7 +5,12 @@
     "mainDescription1": "Welcome to ZEPYUR Residential Area, a pioneering development that fuses contemporary living with natural serenity. Located within a distance of 21km from Yerevan, in the picturesque region of Kotayq - Nor Geghi village of Nor Hachn community - This meticulously planned project spans an expansive area of 10 hectares, offering a blend of comfort and style.",
     "mainDescription2": "This expansive project is planned in two phases and will provide a diverse array of residential options. Phase One sets the groundwork with 59 houses, establishing a benchmark of architectual excellence and environmental harmony. Phase Two will complete the vision, covering the remaining residential units and the amentities the area offers, each designed for uniqueness and personalization.",
     "showMore": "Show More",
-    "communityAmenities": "COMMUNITY AMENITIES"
+    "communityAmenities": "COMMUNITY AMENITIES",
+    "layoutOptions": "LAYOUT OPTIONS",
+    "chooseYourHome": "CHOOSE YOUR HOME",
+    "amenties" : "AMENITIES",
+    "gallery" : "GALLERY QUICK PEAKS",
+    "partners": "PARTNERS & AFFILIATES"
   },
   "book": {
     "chose": "Choose your home",
@@ -64,6 +69,16 @@
     "45townhouse": "45 TOWNHOUSES",
     "blockdesc5": " Experience elegant living in our two-story townhouses, uniformly designed for sophistication & space. ",
     "blockdesc6": " Enjoy the convenience of modern apartments, offering a blend of comfort and urban living."
+  },
+    "communitySlider": {
+    "foodCourtTitle": "FOOD COURT",
+    "foodCourtDesc": "A blend of local and international cuisines served in a contemporary setting, ideal for any meal.",
+    "wellnessComplexTitle": "WELLNESS COMPLEX",
+    "wellnessComplexDesc": "State-of-the-art gym, pool, and steam room designed for ultimate fitness and deep relaxation.",
+    "supermarketTitle": "SUPERMARKET",
+    "supermarketDesc": "Stocked with fresh produce and daily essentials, meeting all your grocery shopping needs efficiently.",
+    "sportsArenaTitle": "SPORTS ARENA",
+    "sportsArenaDesc": "Courts for football, basketball, volleyball, and tennis, perfect for maintaining an active lifestyle."
   },
   "footer": {
     "about": {

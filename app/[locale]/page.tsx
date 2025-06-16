@@ -14,6 +14,8 @@ import AmentiesSlider from '@/components/EmblaCarousel/AmentiesSlider';
 import ZepyurSvg from '@/components/ZepyurArea/ZepyurSvg';
 import { useState } from 'react';
 import AreaBook from '@/components/ZepyurArea/AreaBook';
+import GallerySlider from '@/components/EmblaCarousel/GallerySlider';
+import PartnersSlider from '@/components/EmblaCarousel/PartnersSlider';
 
 
 export default function HomePage() {
@@ -111,23 +113,36 @@ export default function HomePage() {
       </div>
       <div className='choose_section'>
         <div className='section_title'>
-          CHOOSE YOUR HOME
+          {t('home.chooseYourHome')}
         </div>
         <ChooseSlider />
         <Link href="/community" className='more_btn'>{t('home.showMore')}</Link>
       </div>
       <div className='layout_section'>
         <div className='section_title'>
-          LAYOUT OPTIONS
+          {t('home.layoutOptions')}
         </div>
         <LayoutSlider />
       </div>
       <div className='amenties_section'>
         <div className='section_title'>
-          AMENTIES
+          {t('home.amenties')}
         </div>
         <AmentiesSlider />
         <Link href="/community" className='more_btn'>{t('home.showMore')}</Link>
+      </div>
+      <div className='gallery_section'>
+        <div className='section_title'>
+          {t('home.gallery')}
+        </div>
+        <GallerySlider />
+        <Link href="/gallery" className='more_btn'>{t('home.showMore')}</Link>
+      </div>
+         <div className='partners_section'>
+        <div className='section_title'>
+          {t('home.partners')}
+        </div>
+        <PartnersSlider />
       </div>
       <div className='home_bottom_banner relative mt-[50px] h-[900px]'>
         <Image

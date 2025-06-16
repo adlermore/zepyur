@@ -10,6 +10,7 @@ import IconCom1 from '@/public/icons/IconCom1'
 import IconCom2 from '@/public/icons/IconCom2'
 import IconCom3 from '@/public/icons/IconCom3'
 import IconCom4 from '@/public/icons/IconCom4'
+import { useTranslations } from 'next-intl'
 
 type PropType = {
   options?: EmblaOptionsType
@@ -18,6 +19,7 @@ type PropType = {
 const ComunitySlider: React.FC<PropType> = (props) => {
 
   const options: EmblaOptionsType = { align: 'start' }
+  const t = useTranslations('communitySlider');
 
   const [emblaRef, emblaApi] = useEmblaCarousel(options)
 
@@ -29,13 +31,37 @@ const ComunitySlider: React.FC<PropType> = (props) => {
   } = usePrevNextButtons(emblaApi)
 
   const sliders = [
-    { icon: <IconCom1 />, title: 'FOOD COURT', desc: 'A blend of local and international cuisines served in a contemporary setting, ideal for any meal.' },
-    { icon: <IconCom2 />, title: 'WELLNESS COMPLEX', desc: 'State-of-the-art gym, pool, and steam room designed for ultimate fitness and deep relaxation.' },
-    { icon: <IconCom4 />, title: 'SUPERMARKET', desc: 'Stocked with fresh produce and daily essentials, meeting all your grocery shopping needs efficiently.' },
-    { icon: <IconCom3 />, title: 'SPORTS ARENA', desc: 'Courts for football, basketball, volleyball, and tennis, perfect for maintaining an active lifestyle.' },
-    { icon: <IconCom1 />, title: 'FOOD COURT', desc: 'A blend of local and international cuisines served in a contemporary setting, ideal for any meal.' },
-    { icon: <IconCom2 />, title: 'WELLNESS COMPLEX', desc: 'State-of-the-art gym, pool, and steam room designed for ultimate fitness and deep relaxation.' }
-  ]
+    {
+      icon: <IconCom1 />,
+      title: t('foodCourtTitle'),
+      desc: t('foodCourtDesc'),
+    },
+    {
+      icon: <IconCom2 />,
+      title: t('wellnessComplexTitle'),
+      desc: t('wellnessComplexDesc'),
+    },
+    {
+      icon: <IconCom4 />,
+      title: t('supermarketTitle'),
+      desc: t('supermarketDesc'),
+    },
+    {
+      icon: <IconCom3 />,
+      title: t('sportsArenaTitle'),
+      desc: t('sportsArenaDesc'),
+    },
+    {
+      icon: <IconCom1 />,
+      title: t('foodCourtTitle'),
+      desc: t('foodCourtDesc'),
+    },
+    {
+      icon: <IconCom2 />,
+      title: t('wellnessComplexTitle'),
+      desc: t('wellnessComplexDesc'),
+    }
+  ];
 
   return (
     <section className="embla comunity_slider">
