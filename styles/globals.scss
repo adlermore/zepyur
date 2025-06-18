@@ -108,6 +108,11 @@ a {
     cursor: pointer;
     transition: all 0.3s ease;
 
+    &.status_1 {
+      fill: #3E3F1A;
+      pointer-events: none;
+    }
+
     &:hover {
       fill: #3E3F1A;
     }
@@ -582,4 +587,54 @@ ul {
 
 .embla__dot--selected:after {
   box-shadow: inset 0 0 0 0.2rem var(--text-body);
+}
+
+@media (max-width: 575px) {
+  .section_title {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+
+  .comunity_slider .slide_block {
+    background: #F2F1EF;
+    padding: 10px 20px;
+  }
+
+  .embla .embla__buttons button {
+    width: 35px;
+    height: 35px;
+  }
+
+  .embla .embla__buttons button.embla__button--prev {
+    left: 35px;
+  }
+
+  .embla .embla__buttons button.embla__button--next {
+    right: 35px;
+  }
+
+  .more_btn {
+    height: 40px;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  .chose_slider .slide_block {
+    height: 300px;
+
+  }
+
+  .amenties_slider .slide_block .slide_image {
+    position: relative;
+    height: 300px;
+  }
+
+  .home_bottom_banner {
+    height: 400px;
+  }
+
+  .embla.partners_slider {
+    padding-bottom: 0;
+  }
 }

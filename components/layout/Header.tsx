@@ -76,9 +76,9 @@ function Header() {
             </div>
           </div>
           <div className='lg_block'>
-            <Link href="/" locale="am" scroll={false} className={currentLocale === 'am' ? 'active' : ''}>ՀԱՅ</Link>
+            <Link href="/" locale="am" scroll={false}  shallow={true} className={currentLocale === 'am' ? 'active' : ''}>ՀԱՅ</Link>
             <span className='lg_decor'></span>
-            <Link href="/" locale="en" scroll={false} className={currentLocale === 'en' ? 'active' : ''}>ENG</Link>
+            <Link href="/" locale="en" scroll={false} shallow={true} className={currentLocale === 'en' ? 'active' : ''}>ENG</Link>
           </div>
           <div className="hamburger_block">
             <Hamburger

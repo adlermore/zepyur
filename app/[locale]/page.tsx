@@ -17,14 +17,14 @@ import AreaBook from '@/components/ZepyurArea/AreaBook';
 import GallerySlider from '@/components/EmblaCarousel/GallerySlider';
 import PartnersSlider from '@/components/EmblaCarousel/PartnersSlider';
 import PageLoader from '@/components/PageLoader/PageLoader';
-
+import SearchBlock from '@/components/SearchBlock/SearchBlock';
 
 export default function HomePage() {
   const t = useTranslations();
 
   const [selectedArea, setSelectedArea] = useState<string | null>(null);
   const [lands, setLands] = useState<any[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     async function fetchLands() {
@@ -49,7 +49,9 @@ export default function HomePage() {
       }
     }
 
-    fetchLands();
+    if (lands.length === 0) {
+      fetchLands();
+    }
   }, []);
 
   const handleSvgClick = (value: unknown) => {
@@ -66,10 +68,13 @@ export default function HomePage() {
 
   return (
     <div className='home_page'>
+      <div className='banner_wrapp'>
       <div className='area_section'>
         <div className='zepyur_area'>
           <ZepyurSvg lands={lands} handleClick={handleSvgClick} />
         </div>
+      </div>
+      <SearchBlock />
       </div>
       <AreaBook selectedArea={selectedArea} onClose={onClose} />
       <div className='main_description'>

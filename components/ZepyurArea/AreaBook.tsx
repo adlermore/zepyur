@@ -212,7 +212,7 @@ const AreaBook: React.FC<{ selectedArea: any; onClose: () => void }> = ({ select
   ];
 
   const containerRef = useRef<HTMLDivElement>(null);
-
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
@@ -249,6 +249,37 @@ const AreaBook: React.FC<{ selectedArea: any; onClose: () => void }> = ({ select
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     // Handle form submission logic
+
+    setLoading(true);
+    try {
+      const res = fetch('https://admin.zepyur.am/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData?.name,
+          surname: formData?.surname,
+          phone: formData?.contact,
+          email: formData?.email,
+          message: formData?.message,
+          land_id : selectedArea,
+          apartment_id: "Z01",
+        }),
+      });
+
+      const data = res.then(response => response.json());
+      console.log('Form submission response:', data);
+
+    } catch (error: any) {
+      console.error(error.message || 'Unknown error');
+    } finally {
+      setLoading(false);
+    }
+
+    // Reset form data
+    // return
     nextStep();
   };
 
@@ -257,7 +288,7 @@ const AreaBook: React.FC<{ selectedArea: any; onClose: () => void }> = ({ select
     setTimeout(() => {
       setStep(n);
       setFade(true);
-    }, 250); 
+    }, 250);
   };
 
   const nextStep = () => {
