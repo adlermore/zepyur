@@ -12,16 +12,45 @@ import ChooseSlider from '@/components/EmblaCarousel/ChooseSlider';
 import LayoutSlider from '@/components/EmblaCarousel/LayoutSlider';
 import AmentiesSlider from '@/components/EmblaCarousel/AmentiesSlider';
 import ZepyurSvg from '@/components/ZepyurArea/ZepyurSvg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AreaBook from '@/components/ZepyurArea/AreaBook';
 import GallerySlider from '@/components/EmblaCarousel/GallerySlider';
 import PartnersSlider from '@/components/EmblaCarousel/PartnersSlider';
+import PageLoader from '@/components/PageLoader/PageLoader';
 
 
 export default function HomePage() {
   const t = useTranslations();
 
   const [selectedArea, setSelectedArea] = useState<string | null>(null);
+  const [lands, setLands] = useState<any[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    async function fetchLands() {
+      setIsLoading(true);
+      try {
+        const res = await fetch('https://admin.zepyur.am/api/getLands', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+        if (!res.ok) {
+          throw new Error('Failed to fetch lands');
+        }
+        const data = await res.json();
+        console.log('Fetched lands:', data?.lands);
+        setLands(data?.lands || []);
+      } catch (error: any) {
+        console.error(error.message || 'Unknown error');
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    fetchLands();
+  }, []);
 
   const handleSvgClick = (value: unknown) => {
     setSelectedArea(value as string);
@@ -31,11 +60,15 @@ export default function HomePage() {
     setSelectedArea(null);
   };
 
+  if (isLoading) {
+    return <PageLoader />;
+  }
+
   return (
     <div className='home_page'>
       <div className='area_section'>
         <div className='zepyur_area'>
-          <ZepyurSvg handleClick={handleSvgClick} />
+          <ZepyurSvg lands={lands} handleClick={handleSvgClick} />
         </div>
       </div>
       <AreaBook selectedArea={selectedArea} onClose={onClose} />
@@ -138,7 +171,7 @@ export default function HomePage() {
         <GallerySlider />
         <Link href="/gallery" className='more_btn'>{t('home.showMore')}</Link>
       </div>
-         <div className='partners_section'>
+      <div className='partners_section'>
         <div className='section_title'>
           {t('home.partners')}
         </div>

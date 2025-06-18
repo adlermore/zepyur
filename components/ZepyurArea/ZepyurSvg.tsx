@@ -1,12 +1,24 @@
 import * as React from "react";
 import { useTranslations } from 'next-intl';
 
-type ZepyurSvgProps = {
-  handleClick?: (value: string | null) => void;
+type Land = {
+  code: string;
+  status: number;
 };
 
-const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
+type ZepyurSvgProps = {
+  handleClick?: (value: string | null) => void;
+  lands: Land[];
+};
+
+const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ lands, handleClick }) => {
   const t = useTranslations();
+
+  const getStatusClass = (code: string) => {
+    const land = lands.find(l => l.code === code);
+    if (!land) return '';
+    return `status_${land.status}`;
+  };
 
   const handlePathClick = (e: React.MouseEvent<SVGPathElement>) => {
     const value = e.currentTarget.getAttribute("data-value");
@@ -14,7 +26,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
       handleClick(value);
     }
   };
- 
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -41,70 +53,80 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             fill="#C7C7C7"
             stroke="#C7C7C7"
             data-value="B19"
-          onClick={handlePathClick}
+            onClick={handlePathClick}
+            className={getStatusClass("B19")}
           />
           <path
             d="M790.5 384L769 395.5L790 438L803.413 429.321C805.797 427.778 808.341 426.497 811 425.5L790.5 384Z"
             fill="#C7C7C7"
             stroke="#C7C7C7"
             data-value="B17"
-          onClick={handlePathClick}
+            onClick={handlePathClick}
+            className={getStatusClass("B17")}
           />
           <path
             d="M767 396.5L745.5 408L767 452.5L788 439L767 396.5Z"
             fill="#C7C7C7"
             stroke="#C7C7C7"
             data-value="B15"
-          onClick={handlePathClick}
+            onClick={handlePathClick}
+            className={getStatusClass("B15")}
           />
           <path
             d="M743.5 409L722 420.5L744.5 466.5L765 453.5L743.5 409Z"
             fill="#C7C7C7"
             stroke="#C7C7C7"
             data-value="B13"
-          onClick={handlePathClick}
+            onClick={handlePathClick}
+            className={getStatusClass("B13")}
           />
           <path
             d="M720 421.5L699 433L721.5 479L742.5 467.5L720 421.5Z"
             fill="#C7C7C7"
             stroke="#C7C7C7"
             data-value="B11"
-          onClick={handlePathClick}
+            onClick={handlePathClick}
+            className={getStatusClass("B11")}
           />
           <path
             d="M697 434L677 445.5L698.5 491.5L719.5 480L697 434Z"
             fill="#C7C7C7"
             stroke="#C7C7C7"
             data-value="B09"
-          onClick={handlePathClick}
+            onClick={handlePathClick}
+            className={getStatusClass("B09")} 
           />
           <path
             d="M652.5 458.5L632 469.5L653.5 516L674.5 505L652.5 458.5Z"
             fill="#C7C7C7"
             stroke="#C7C7C7"
             data-value="B05"
-          onClick={handlePathClick}
+            onClick={handlePathClick}
+            className={getStatusClass("B05")}
           />
           <path
             d="M630 470.5L609.5 482L631.5 528C639.506 523.509 652 517 652 517L630 470.5Z"
             fill="#C7C7C7"
             stroke="#C7C7C7"
             data-value="B03"
-          onClick={handlePathClick}
+            onClick={handlePathClick}
+            className={getStatusClass("B03")}
           />
           <path
             d="M608 483L588 494.5L589 552.5L630 529L608 483Z"
             fill="#C7C7C7"
             stroke="#C7C7C7"
             data-value="B01"
-          onClick={handlePathClick}
+            onClick={handlePathClick}
+            className={getStatusClass("B01")}
           />
           <path
             d="M675 446.5L654.5 457.5L676.5 504L696.5 492.5L675 446.5Z"
             fill="#C7C7C7"
             stroke="#C7C7C7"
             data-value="B07"
-          onClick={handlePathClick}
+            onClick={handlePathClick}
+            className={getStatusClass("B07")}
           />
         </g>
         <g opacity={0.35}>
@@ -115,6 +137,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="B20"
             onClick={handlePathClick}
+            className={getStatusClass("B20")}
           />
           <path
             d="M772.5 272.5L755 292L788.5 359.5L809.5 348L772.5 272.5Z"
@@ -123,6 +146,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="B18"
             onClick={handlePathClick}
+            className={getStatusClass("B18")}
           />
           <path
             d="M753 294L735.5 313L765 372.5L786.5 361L753 294Z"
@@ -131,6 +155,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="B16"
             onClick={handlePathClick}
+            className={getStatusClass("B16")}
           />
           <path
             d="M733.5 315L716.5 334L741.5 385.5L763 374L733.5 315Z"
@@ -139,6 +164,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="B14"
             onClick={handlePathClick}
+            className={getStatusClass("B14")}
           />
           <path
             d="M709.5 342.5L696 351.5L718.5 398L739.5 387L714.5 336.5L709.5 342.5Z"
@@ -147,6 +173,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="B12"
             onClick={handlePathClick}
+            className={getStatusClass("B12")}
           />
           <path
             d="M694 353L674.5 367L695.5 410.5L716.5 399.5L694 353Z"
@@ -155,6 +182,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="B10"
             onClick={handlePathClick}
+            className={getStatusClass("B10")}
           />
           <path
             d="M672.5 368.5L653.5 382L673.5 423L693.5 412L672.5 368.5Z"
@@ -163,6 +191,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="B08"
             onClick={handlePathClick}
+            className={getStatusClass("B08")}
           />
           <path
             d="M651.5 383.5L632.5 397L650.5 435.5L671.5 424.5L651.5 383.5Z"
@@ -171,6 +200,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="B06"
             onClick={handlePathClick}
+            className={getStatusClass("B06")}
           />
           <path
             d="M630.5 398.5L611.5 412L628.5 448L648.5 437L630.5 398.5Z"
@@ -179,6 +209,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="B04"
             onClick={handlePathClick}
+            className={getStatusClass("B04")}
           />
           <path
             d="M605 416H587L588 470.5L626.5 449.5L609.5 413L605 416Z"
@@ -187,6 +218,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="B02"
             onClick={handlePathClick}
+            className={getStatusClass("B02")}
           />
         </g>
         <g opacity={0.35}>
@@ -197,6 +229,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="C39"
             onClick={handlePathClick}
+            className={getStatusClass("C39")}
           />
           <path
             d="M1304 292.5L1274 290.5L1280.5 372L1310.5 369.5L1304 292.5Z"
@@ -205,6 +238,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="C38"
             onClick={handlePathClick}
+            className={getStatusClass("C38")}
           />
           <path
             d="M1255 307.5L1243.5 320L1248 375L1278 372.5L1271.5 290L1252.5 288.5L1255 307.5Z"
@@ -213,6 +247,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="C37"
             onClick={handlePathClick}
+            className={getStatusClass("C37")}
           />
           <path
             d="M1241 321.043L1212.5 323.482L1216.5 377.482L1245 375.543L1241 321.043Z"
@@ -221,6 +256,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="C36"
             onClick={handlePathClick}
+            className={getStatusClass("C36")}
           />
           <path
             d="M1210 324L1181 327L1185.5 380.5L1214 378L1210 324Z"
@@ -229,6 +265,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="C35"
             onClick={handlePathClick}
+            className={getStatusClass("C35")}
           />
           <path
             d="M1178.5 327.5L1150 329.5L1154.5 383L1183 381L1178.5 327.5Z"
@@ -237,6 +274,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="C34"
             onClick={handlePathClick}
+            className={getStatusClass("C34")}
           />
           <path
             d="M1147.5 330L1119.5 332.5L1123.5 385L1152 383.5L1147.5 330Z"
@@ -245,6 +283,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="C33"
             onClick={handlePathClick}
+            className={getStatusClass("C33")}
           />
           <path
             d="M1087 335.5L1060 338.5L1063.5 390L1091 388L1087 335.5Z"
@@ -253,6 +292,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="C31"
             onClick={handlePathClick}
+            className={getStatusClass("C31")}
           />
           <path
             d="M1117 333L1089.5 335L1093.5 387.5L1121 385.5L1117 333Z"
@@ -261,6 +301,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="C32"
             onClick={handlePathClick}
+            className={getStatusClass("C32")}
           />
           <path
             d="M1247 264L1208 268L1212 321L1241.5 318.5L1252 306.5L1247 264Z"
@@ -269,6 +310,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="C23"
             onClick={handlePathClick}
+            className={getStatusClass("C23")}
           />
           <path
             d="M1205.5 268.5L1177 271L1180.5 324.5L1209.5 321.5L1205.5 268.5Z"
@@ -277,6 +319,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="C21"
             onClick={handlePathClick}
+            className={getStatusClass("C21")}
           />
           <path
             d="M1174.5 271.5L1145.5 274.5L1149.5 327L1178 325L1174.5 271.5Z"
@@ -285,6 +328,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="C19"
             onClick={handlePathClick}
+            className={getStatusClass("C19")}
           />
           <path
             d="M1143 275L1115.5 277.5L1119 330L1147 327L1143 275Z"
@@ -293,6 +337,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="C17"
             onClick={handlePathClick}
+            className={getStatusClass("C17")}
           />
           <path
             d="M1082.5 281L1056 283.5L1059.5 335.5L1086.5 332.5L1082.5 281Z"
@@ -301,6 +346,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="C13"
             onClick={handlePathClick}
+            className={getStatusClass("C13")}
           />
           <path
             d="M1112.5 278L1085.5 280.5L1089.5 332.5L1116.5 330L1112.5 278Z"
@@ -309,6 +355,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="C15"
             onClick={handlePathClick}
+            className={getStatusClass("C15")}
           />
         </g>
         <g opacity={0.35}>
@@ -319,6 +366,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="C24"
             onClick={handlePathClick}
+            className={getStatusClass("C24")}
           />
           <path
             d="M1208 228L1179.5 211L1182 245.5L1209 242L1208 228Z"
@@ -327,6 +375,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="C22"
             onClick={handlePathClick}
+            className={getStatusClass("C22")}
           />
           <path
             d="M1177 209.5L1150.5 193.5L1154.5 248.5L1179.5 246L1177 209.5Z"
@@ -335,6 +384,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="C20"
             onClick={handlePathClick}
+            className={getStatusClass("C20")}
           />
           <path
             d="M1137.5 186L1120 187L1125 252.27L1152 248.77L1148 192L1137.5 186Z"
@@ -343,6 +393,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="C18"
             onClick={handlePathClick}
+            className={getStatusClass("C18")}
           />
           <path
             d="M1117.28 187.5L1091 189.5L1096.5 255.175L1122.78 252.175L1117.28 187.5Z"
@@ -351,6 +402,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="C16"
             onClick={handlePathClick}
+            className={getStatusClass("C16")}
           />
           <path
             d="M1088.5 190L1061 192.501L1066.5 258.001L1093.5 255.194L1088.5 190Z"
@@ -359,6 +411,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="C14"
             onClick={handlePathClick}
+            className={getStatusClass("C14")}
           />
           <path
             d="M1058.5 193L1031.5 195L1037 261.5L1063.5 258.5L1058.5 193Z"
@@ -367,6 +420,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="C12"
             onClick={handlePathClick}
+            className={getStatusClass("C12")}
           />
           <path
             d="M1029 195.5L1002.5 198L1007.83 264.5L1034 261.72L1029 195.5Z"
@@ -375,6 +429,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="C10"
             onClick={handlePathClick}
+            className={getStatusClass("C10")}
           />
           <path
             d="M1000 198.5L974 200.5L979.5 267.5L1005 265L1000 198.5Z"
@@ -383,6 +438,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="C08"
             onClick={handlePathClick}
+            className={getStatusClass("C08")}
           />
           <path
             d="M971.5 201L945 203L950 270.5L976.5 268L971.5 201Z"
@@ -391,6 +447,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="C06"
             onClick={handlePathClick}
+            className={getStatusClass("C06")}
           />
           <path
             d="M942.5 203.5L917 205L922 273.5L947.5 271L942.5 203.5Z"
@@ -399,6 +456,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="C04"
             onClick={handlePathClick}
+            className={getStatusClass("C04")}
           />
           <path
             d="M914 206L890 214L894.5 276.5L919.5 274L914 206Z"
@@ -407,6 +465,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
             strokeWidth={1.5}
             data-value="C02"
             onClick={handlePathClick}
+            className={getStatusClass("C02")}
           />
         </g>
         <path
@@ -415,8 +474,9 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           fill="#C7C7C7"
           stroke="#C7C7C7"
           strokeWidth={1.5}
-                      data-value="C30"
-            onClick={handlePathClick}
+          data-value="C30"
+          onClick={handlePathClick}
+          className={getStatusClass("C30")}
         />
         <path
           opacity={0.35}
@@ -424,8 +484,9 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           fill="#C7C7C7"
           stroke="#C7C7C7"
           strokeWidth={1.5}
-                        data-value="C29"
-            onClick={handlePathClick}
+          data-value="C29"
+          onClick={handlePathClick}
+          className={getStatusClass("C29")}
         />
         <path
           opacity={0.35}
@@ -433,8 +494,9 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           fill="#C7C7C7"
           stroke="#C7C7C7"
           strokeWidth={1.5}
-                           data-value="C28"
-            onClick={handlePathClick}
+          data-value="C28"
+          onClick={handlePathClick}
+          className={getStatusClass("C28")}
         />
         <path
           opacity={0.35}
@@ -442,8 +504,9 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           fill="#C7C7C7"
           stroke="#C7C7C7"
           strokeWidth={1.5}
-                           data-value="C27"
-            onClick={handlePathClick}
+          data-value="C27"
+          onClick={handlePathClick}
+          className={getStatusClass("C27")}
         />
         <path
           opacity={0.35}
@@ -451,8 +514,9 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           fill="#C7C7C7"
           stroke="#C7C7C7"
           strokeWidth={1.5}
-            data-value="C26"
-            onClick={handlePathClick}
+          data-value="C26"
+          onClick={handlePathClick}
+          className={getStatusClass("C26")}
         />
         <path
           opacity={0.35}
@@ -462,6 +526,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           strokeWidth={1.5}
           data-value="C25"
           onClick={handlePathClick}
+          className={getStatusClass("C25")}
         />
         <path
           opacity={0.35}
@@ -471,6 +536,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           strokeWidth={1.5}
           data-value="C11"
           onClick={handlePathClick}
+          className={getStatusClass("C11")} 
         />
         <path
           opacity={0.35}
@@ -478,8 +544,9 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           fill="#C7C7C7"
           stroke="#C7C7C7"
           strokeWidth={1.5}
-            data-value="C09"
-            onClick={handlePathClick}
+          data-value="C09"
+          onClick={handlePathClick}
+          className={getStatusClass("C09")}
         />
         <path
           opacity={0.35}
@@ -489,6 +556,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           strokeWidth={1.5}
           data-value="C07"
           onClick={handlePathClick}
+          className={getStatusClass("C07")}
         />
         <path
           opacity={0.35}
@@ -498,6 +566,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           strokeWidth={1.5}
           data-value="C05"
           onClick={handlePathClick}
+          className={getStatusClass("C05")}
         />
         <path
           opacity={0.35}
@@ -507,6 +576,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           strokeWidth={1.5}
           data-value="C03"
           onClick={handlePathClick}
+          className={getStatusClass("C03")}
         />
         <path
           opacity={0.35}
@@ -516,6 +586,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           strokeWidth={1.5}
           data-value="C01"
           onClick={handlePathClick}
+          className={getStatusClass("C01")}
         />
         <path
           opacity={0.35}
@@ -1180,8 +1251,8 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0.108398} y={14.55}>
-            
-             {t('svg.phase')}
+
+            {t('svg.phase')}
           </tspan>
         </text>
         <text
@@ -1211,8 +1282,8 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0.108398} y={14.55}>
-            
-             {t('svg.phase')}
+
+            {t('svg.phase')}
           </tspan>
         </text>
         <text
@@ -1242,7 +1313,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0} y={14.55}>
-             {t('svg.block')}{" [E]"}
+            {t('svg.block')}{" [E]"}
           </tspan>
         </text>
         <text
@@ -1257,8 +1328,8 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0.108398} y={14.55}>
-            
-             {t('svg.phase')}
+
+            {t('svg.phase')}
           </tspan>
         </text>
         <text
@@ -1273,7 +1344,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0} y={14.55}>
-             {t('svg.block')}{"[E]"}
+            {t('svg.block')}{"[E]"}
           </tspan>
         </text>
         <text
@@ -1288,8 +1359,8 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0.108398} y={14.55}>
-            
-             {t('svg.phase')}
+
+            {t('svg.phase')}
           </tspan>
         </text>
         <text
@@ -1304,7 +1375,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0} y={14.55}>
-             {t('svg.block')}{" [D]"}
+            {t('svg.block')}{" [D]"}
           </tspan>
         </text>
         <text
@@ -1319,8 +1390,8 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0.108398} y={14.55}>
-            
-             {t('svg.phase')}
+
+            {t('svg.phase')}
           </tspan>
         </text>
         <text
@@ -1335,7 +1406,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0} y={14.55}>
-             {t('svg.block')}{" [D]"}
+            {t('svg.block')}{" [D]"}
           </tspan>
         </text>
         <text
@@ -1350,8 +1421,8 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0.108398} y={14.55}>
-            
-             {t('svg.phase')}
+
+            {t('svg.phase')}
           </tspan>
         </text>
         <text
@@ -1366,7 +1437,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0} y={14.55}>
-             {t('svg.block')}{" [D]"}
+            {t('svg.block')}{" [D]"}
           </tspan>
         </text>
         <text
@@ -1381,8 +1452,8 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0.108398} y={14.55}>
-            
-             {t('svg.phase')}
+
+            {t('svg.phase')}
           </tspan>
         </text>
         <text
@@ -1397,7 +1468,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0} y={14.55}>
-             {t('svg.block')}{"[E]"}
+            {t('svg.block')}{"[E]"}
           </tspan>
         </text>
         <text
@@ -1412,8 +1483,8 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0.108398} y={14.55}>
-            
-             {t('svg.phase')}
+
+            {t('svg.phase')}
           </tspan>
         </text>
         <text
@@ -1428,7 +1499,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0} y={14.55}>
-             {t('svg.block')}{"[E]"}
+            {t('svg.block')}{"[E]"}
           </tspan>
         </text>
         <text
@@ -1443,8 +1514,8 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0.108398} y={14.55}>
-            
-             {t('svg.phase')}
+
+            {t('svg.phase')}
           </tspan>
         </text>
         <text
@@ -2359,8 +2430,8 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0.108398} y={14.55}>
-            
-             {t('svg.phase')}
+
+            {t('svg.phase')}
           </tspan>
         </text>
         <text
@@ -2426,8 +2497,8 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0.108398} y={14.55}>
-            
-             {t('svg.phase')}
+
+            {t('svg.phase')}
           </tspan>
         </text>
         <text
@@ -2442,7 +2513,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0} y={14.55}>
-             {t('svg.block')}{" [A]"}
+            {t('svg.block')}{" [A]"}
           </tspan>
         </text>
         <text
@@ -2457,8 +2528,8 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={0.108398} y={14.55}>
-            
-             {t('svg.phase')}
+
+            {t('svg.phase')}
           </tspan>
         </text>
         <text
@@ -2487,7 +2558,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={563.225} y={351.55}>
-             {t('svg.block')}{""}
+            {t('svg.block')}{""}
           </tspan>
         </text>
         <text
@@ -2515,7 +2586,7 @@ const ZepyurSvg: React.FC<ZepyurSvgProps> = ({ handleClick }) => {
           letterSpacing="0em"
         >
           <tspan x={1267.34} y={233.55}>
-             {t('svg.block')}{""}
+            {t('svg.block')}{""}
           </tspan>
         </text>
         <text

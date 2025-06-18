@@ -37,6 +37,36 @@ a {
   color: black;
 }
 
+.page_loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loader {
+  font-size: 48px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+  animation: smokeOut 1s ease-in-out infinite alternate;
+  text-shadow: 0 0 1px white;
+}
+
+@keyframes smokeOut {
+  100% {
+    opacity: 0.08;
+    filter: blur(5px);
+    letter-spacing: 4px;
+  }
+}
 
 .zepyur_area {
   background: url('../public/images/area/mainSvgBg.svg') no-repeat center center;
@@ -274,6 +304,7 @@ ul {
     --slide-spacing-lg: 10px;
     margin-top: 30px;
     padding-bottom: 50px;
+
     .slide_block {
       height: 75px;
       position: relative;
