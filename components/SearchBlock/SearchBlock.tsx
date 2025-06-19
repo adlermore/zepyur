@@ -1,4 +1,5 @@
 import IconDown from '@/public/icons/IconDown'
+import { useRouter } from 'next/navigation'
 import React, { useState, useRef } from 'react'
 
 const DROPDOWNS = [
@@ -20,6 +21,8 @@ const DROPDOWNS = [
 ]
 
 function SearchBlock() {
+  const router = useRouter()
+
   const [openedIndex, setOpenedIndex] = useState<null | number>(null)
   const [selected, setSelected] = useState<{ [key: string]: string }>({
     propertyType: '',
@@ -57,10 +60,16 @@ function SearchBlock() {
   }
 
   const handleSearch = () => {
-    // Here you can handle the collected selected values
-    // For example: send them to an API or log them
     console.log('Selected values:', selected)
-    // You can add your logic here
+    const params = new URLSearchParams()
+
+    Object.entries(selected).forEach(([key, value]) => {
+      if (value) params.set(key, value)
+    })
+
+    const queryString = params.toString()
+    router.push(`homes?${queryString}`)
+
   }
 
   return (
@@ -86,9 +95,8 @@ function SearchBlock() {
               <ul>
                 {dropdown.options.map((option) => (
                   <li
-                    className={`drop_item${
-                      selected[dropdown.key] === option ? ' selected' : ''
-                    }`}
+                    className={`drop_item${selected[dropdown.key] === option ? ' selected' : ''
+                      }`}
                     key={option}
                     onClick={() => handleSelect(dropdown.key, option)}
                   >

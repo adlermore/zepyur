@@ -589,6 +589,26 @@ ul {
   box-shadow: inset 0 0 0 0.2rem var(--text-body);
 }
 
+.homes_page{
+  .banner_img{
+    position: relative;
+    height: 430px;
+    display: flex;
+    flex-direction: column;
+  }
+  .custom_container{
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 60px;
+  }
+  h1{
+    font-size: 48px;
+    font-weight: 700;
+    color: white;
+  }
+}
+
 @media (max-width: 575px) {
   .section_title {
     margin-top: 30px;
