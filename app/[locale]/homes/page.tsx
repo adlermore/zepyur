@@ -1,144 +1,139 @@
 'use client'
 import Image from 'next/image'
-import { useSearchParams } from 'next/navigation'
+import { useSearchParams, useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import homesBaner from '@/public/images/homesBaner.png'
-import IconClose from '@/public/icons/IconClose'
+import Iconfilter from '@/public/icons/Iconfilter'
+import IconChecked from '@/public/icons/IconChecked'
 
-const filterSubCategory = [
-  'women',
-  'men',
-  'kids',
-  'accessories'
+const fetchHomes = async (filters: any, page: number) => {
+
+  return new Promise<{ id: number; title: string; price: number; rooms: number }[]>(resolve => {
+    setTimeout(() => {
+      resolve(
+        Array.from({ length: 6 }, (_, i) => ({
+          id: i + 1 + (page - 1) * 6,
+          title: `Home #${i + 1 + (page - 1) * 6}`,
+          price: 100000 * (i + 1),
+          rooms: (i % 3) + 1,
+        }))
+      )
+    }, 700)
+  })
+}
+
+const ROOMS = [
+  { label: '1 room', value: '1' },
+  { label: '2 room', value: '2' },
+  { label: '3 room', value: '3' },
 ]
 
-const filterType = [
-  'earring',
-  'ring',
-  'set',
-  'pendant',
-  'cross',
-  'necklace',
-  'chain',
-  'hard_bracelet',
-  'chain_bracelet',
-  'bracelets',
-  'accessories',
-  'pendant',
-  'watches',
-  'brooch',
-  'bars',
-  'book',
-  'other',
+const LAND_AREAS = [
+  { label: 'up to 50 m2', value: '0-50' },
+  { label: '50-100 m2', value: '50-100' },
+  { label: '100-150 m2', value: '100-150' },
+  { label: '150-200 m2', value: '150-200' },
 ]
 
-const filterFineness = [
-  'g999',
-  'g995',
-  'g958',
-  'g916',
-  'g900',
-  'g875',
-  'g750',
+const RESIDENTIAL_AREAS = [
+  { label: 'up to 50 m2', value: '0-50' },
+  { label: '50-100 m2', value: '50-100' },
+  { label: '100-150 m2', value: '100-150' },
+  { label: '150-200 m2', value: '150-200' },
 ]
 
-
-const filterOrigin = [
-  'armenian',
-  'imported',
+const PAYMENT_FORMS = [
+  { label: 'cash', value: 'cash' },
+  { label: 'mortgage', value: 'mortgage' },
 ]
 
-// colors=yellow,white,red,rose,two_tone,three_tone
-const filterColors = [
-  'gold_plated',
-  'silver',
-  'pink'
-]
-
+const MIN_PRICE = 0
+const MAX_PRICE = 1000000
 
 function Homes() {
   const searchParams = useSearchParams()
+  const router = useRouter()
 
-  const [selected, setSelected] = React.useState<{
-    propertyType: string
-    rooms: string
-    priceRange: string
+  const [selected, setSelected] = useState<{
+    priceRange: [number, number]
+    rooms: string[]
+    landArea: string[]
+    residentialArea: string[]
+    paymentForm: string[]
   }>({
-    propertyType: '',
-    rooms: '',
-    priceRange: '',
+    priceRange: [MIN_PRICE, MAX_PRICE],
+    rooms: [],
+    landArea: [],
+    residentialArea: [],
+    paymentForm: [],
   })
 
+  const [page, setPage] = useState(1)
+  const [homes, setHomes] = useState<any[]>([])
+  const [loading, setLoading] = useState(false)
+  const [hasMore, setHasMore] = useState(true)
+
+  // Prefill from search params on mount
   useEffect(() => {
-    const prefill = {
-      propertyType: searchParams.get('propertyType') || '',
-      rooms: searchParams.get('rooms') || '',
-      priceRange: searchParams.get('priceRange') || '',
-    }
-    setSelected(prefill)
+    // (Optional: Add prefill from searchParams if needed)
   }, [])
 
-
-  const [activeFilter, setActiveFilter] = useState(false);
-
-  const initialSubcategory = searchParams.get('subcategory') || '';
-  const initialType = searchParams.get('type') || '';
-
-  const [filters, setFilters] = useState({
-    subcategory: initialSubcategory,
-    type: initialType,
-    origin: [],
-    fineness: [],
-    colors: [],
-    stoneLine: []
-  });
-
+  // Fetch homes on filters/page change
   useEffect(() => {
-    if (initialSubcategory || initialType) {
-      setFilters(prevFilters => ({
-        ...prevFilters,
-        subcategory: initialSubcategory,
-        type: initialType,
-      }));
-    }
-  }, [initialSubcategory, initialType]);
-
-  const handleFilterChange = (filterType, value) => {
-    setFilters(prevFilters => {
-      if (filterType === 'origin' || filterType === 'fineness' || filterType === 'colors' || filterType === 'stoneLine') {
-        const currentValues = prevFilters[filterType];
-        if (currentValues.includes(value)) {
-          return { ...prevFilters, [filterType]: currentValues.filter(item => item !== value) };
-        } else {
-          return { ...prevFilters, [filterType]: [...currentValues, value] };
-        }
-      } else {
-        return { ...prevFilters, [filterType]: value };
+    let isCancelled = false
+    setLoading(true)
+    fetchHomes(selected, page).then(newHomes => {
+      if (!isCancelled) {
+        setHomes(prev =>
+          page === 1 ? newHomes : [...prev, ...newHomes]
+        )
+        setHasMore(newHomes.length > 0)
+        setLoading(false)
       }
-    });
-  };
+    })
+    return () => {
+      isCancelled = true
+    }
+  }, [selected, page])
 
-  const clearAllFilters = () => {
-    setFilters({
-      subcategory: '',
-      type: '',
-      origin: [],
-      fineness: [],
-      colors: [],
-      stoneLine: []
-    });
-    setActiveFilter(false)
-  };
-
-  const handleFilterToggle = () => {
-    setActiveFilter(!activeFilter)
+  // Handlers
+  const onPriceRangeChange = (e: React.ChangeEvent<HTMLInputElement>, idx: 0 | 1) => {
+    const val = Number(e.target.value)
+    setSelected(prev => {
+      const next = [...prev.priceRange] as [number, number]
+      next[idx] = val
+      return { ...prev, priceRange: next }
+    })
   }
 
-  const handleCloseFilter = () => {
-    setActiveFilter(false)
+  const onCheckboxChange = (type: keyof typeof selected, value: string) => {
+    setSelected(prev => {
+      const arr = prev[type] as string[]
+      return {
+        ...prev,
+        [type]: arr.includes(value)
+          ? arr.filter(v => v !== value)
+          : [...arr, value],
+      }
+    })
   }
 
+  const resetFilters = () => {
+    setSelected({
+      priceRange: [MIN_PRICE, MAX_PRICE],
+      rooms: [],
+      landArea: [],
+      residentialArea: [],
+      paymentForm: [],
+    })
+    setPage(1)
+  }
 
+  const applyFilters = () => {
+    setPage(1)
+  }
+
+  const loadMore = () => setPage(p => p + 1)
 
   return (
     <div className='homes_page'>
@@ -155,112 +150,139 @@ function Homes() {
           <h1>Homes</h1>
         </div>
       </div>
-      <div className='homes_container'>
-        <div className='product_page pb-[50px] laptopHorizontal:pb-[30px]'>
-          <div className='cover_container !mt-[150px] tablet:!mt-[140px] tablet:text-[18px] laptopHorizontal:!mt-[120px] text-[24px] laptopHorizontal:text-[22px] laptop:!pl-[30px] laptopHorizontal:!pl-[280px] uppercase !pl-[335px]'>
-            PRODUCTS
-          </div>
-          <button className='filter_toggle' onClick={handleFilterToggle}>Filter</button>
-          <div className='cover_container laptop:flex-col-reverse relative flex gap-[25px] !mt-[70px] laptopHorizontal:!mt-[40px]'>
-            <div className={`filter_block border border-1 border-[#F8F6F5] p-[25px] max-w-[290px] h-fit w-full ${activeFilter ? 'filter_opened' : ''}`}>
-              <div className='mb-[30px]' >
-                <div className='text-xl  inline_categoryy text-[#333333] mb-20'>Category <span className='icon_closee' onClick={handleCloseFilter}><IconClose /></span></div>
-                {filterSubCategory.map((filter, index) => (
-                  <div key={index} className="mb-[10px] filter_line radio_line">
-                    <label htmlFor={`filter1${filter}`}>
-                      <input type="radio" name='filterSubCategory'
-                        checked={filters.subcategory === filter}
-                        onChange={() => handleFilterChange('subcategory', filter)}
-                        id={`filter1${filter}`} />
-                      <span className="square_block">
-                        <span className='opacity-0 duration-300'></span>
-                      </span>
-                      <span className="check_label ">{filter.charAt(0).toUpperCase() + filter.slice(1)}</span>
-                    </label>
-                  </div>
-                ))}
-              </div>
-              <div className='mb-[30px]' >
-                <div className='text-xl  text-[#333333] mb-20'>Type</div>
-                {filterType.map((filter, index) => (
-                  <div key={index} className="mb-[10px] filter_line radio_line">
-                    <label htmlFor={`filter2${filter}`}>
-                      <input type="radio" name='filterSubCategoryType'
-                        checked={filters.type === filter}
-                        onChange={() => handleFilterChange('type', filter)}
-                        id={`filter2${filter}`} />
-                      <span className="square_block">
-                        <span className='opacity-0 duration-300'></span>
-                      </span>
-                      <span className="check_label ">{filter.charAt(0).toUpperCase() + filter.slice(1)}</span>
-                    </label>
-                  </div>
-                ))}
-              </div>
-              <div className='mb-[30px]' >
-                <div className='text-xl  text-[#333333] mb-20'>Origin</div>
-                {filterOrigin.map((filter, index) => (
-                  <div key={index} className="mb-[10px] filter_line">
-                    <label htmlFor={`filter1${index}`}>
-                      <input type="checkbox"
-                        checked={filters.origin.includes(filter)}
-                        onChange={() => handleFilterChange('origin', filter)}
-                        id={`filter1${index}`} />
-                      <span className="square_block">
-                        <span className='opacity-0 duration-300'></span>
-                      </span>
-                      <span className="check_label ">{filter.charAt(0).toUpperCase() + filter.slice(1)}</span>
-                    </label>
-                  </div>
-                ))}
-              </div>
-              <div className='mb-[30px]' >
-                <div className='text-xl  text-[#333333] mb-20'>Fineness</div>
-                {filterFineness.map((filter, index) => (
-                  <div key={index} className="mb-[10px] filter_line">
-                    <label htmlFor={`filterFienness${index}`}>
-                      <input type="checkbox"
-                        checked={filters.fineness.includes(filter)}
-                        onChange={() => handleFilterChange('fineness', filter)}
-                        id={`filterFienness${index}`} />
-                      <span className="square_block">
-                        <span className='opacity-0 duration-300'></span>
-                      </span>
-                      <span className="check_label ">{filter.charAt(0).toUpperCase() + filter.slice(1)}</span>
-                    </label>
-                  </div>
-                ))}
-              </div>
-              <div className='mb-[30px]' >
-                <div className='text-xl text-[#333333] mb-[25px]'>Color</div>
-                <div className='filter_color_line'>
-                  {filterColors.map((filter, index) => (
-                    <div key={index} className="mb-[10px] ">
-                      <label htmlFor={`filterColor${index}`}>
-                        <input type="checkbox"
-                          checked={filters.colors.includes(filter)}
-                          onChange={() => handleFilterChange('colors', filter)}
-                          id={`filterColor${index}`} />
-                        <span className={`square_block ${filter}`}>
-                          <span className=' duration-300'></span>
-                        </span>
-                      </label>
-                    </div>
-                  ))}
+      <div className='custom_container'>
+        <div className='homes_container'>
+          <div className='filter_block'>
+            <form
+              onSubmit={e => {
+                e.preventDefault()
+                applyFilters()
+              }}
+              className="filters_form"
+            >
+              <div className="filter_section">
+                <span className="filter_label">Price</span>
+                <div className="price_slider">
+                  <label>
+                    Up to ${' '}
+                  </label>
+                  <input
+                    type="number"
+                    min={MIN_PRICE}
+                    max={selected.priceRange[1]}
+                    value={selected.priceRange[0]}
+                    onChange={e => onPriceRangeChange(e, 0)}
+                  />
+                  <span> - </span>
+                  <label>
+                    From ${' '}
+                    <input
+                      type="number"
+                      min={selected.priceRange[0]}
+                      max={MAX_PRICE}
+                      value={selected.priceRange[1]}
+                      onChange={e => onPriceRangeChange(e, 1)}
+                    />
+                  </label>
                 </div>
               </div>
-              <div className='flex w-full btn_line'>
-                <button className='clear_btn ' onClick={clearAllFilters}>Clear</button>
+              <div className="filter_section">
+                <span className="filter_label">Rooms</span>
+                {ROOMS.map(opt => (
+                  <label key={opt.value}>
+                    <input
+                      type="checkbox"
+                      checked={selected.rooms.includes(opt.value)}
+                      onChange={() => onCheckboxChange('rooms', opt.value)}
+                    />
+                    {opt.label}
+                  </label>
+                ))}
               </div>
-            </div>
-            <div className='w-full'>
-              {/* <Suspense fallback={<PageLoader />}>
-                <ProductList filters={filters} />
-              </Suspense> */}
-            </div>
+              <div className="filter_section">
+                <span className="filter_label">Land Area</span>
+                {LAND_AREAS.map(opt => (
+                  <label key={opt.value}>
+                    <input
+                      type="checkbox"
+                      checked={selected.landArea.includes(opt.value)}
+                      onChange={() => onCheckboxChange('landArea', opt.value)}
+                    />
+                    {opt.label}
+                  </label>
+                ))}
+              </div>
+              <div className="filter_section">
+                <span className="filter_label">Residential Area</span>
+                {RESIDENTIAL_AREAS.map(opt => (
+                  <label key={opt.value}>
+                    <input
+                      type="checkbox"
+                      checked={selected.residentialArea.includes(opt.value)}
+                      onChange={() => onCheckboxChange('residentialArea', opt.value)}
+                    />
+                    {opt.label}
+                  </label>
+                ))}
+              </div>
+              <div className="filter_section">
+                <span className="filter_label">Payment Form</span>
+                {PAYMENT_FORMS.map(opt => (
+                  <label key={opt.value} className='checkbox_label'>
+                    <input
+                      type="checkbox"
+                      checked={selected.paymentForm.includes(opt.value)}
+                      onChange={() => onCheckboxChange('paymentForm', opt.value)}
+                    />
+                    <span className="square_block">
+                      <span className='square_check'><IconChecked /></span>
+                    </span>
+                    <span className='checkbox_label_text'>
+                      {opt.label}
+                    </span>
+                  </label>
+                ))}
+              </div>
+              <div className="filter_buttons">
+                <button type="button" className="reset_btn" onClick={resetFilters}>
+                  <Iconfilter />
+                  Reset filters
+                </button>
+              </div>
+            </form>
+          </div>
+          <div className='homes_results'>
+            {loading && page === 1 ? (
+              <div className="loading">Fetching homes result...</div>
+            ) : (
+              <>
+                <div className="homes_list">
+                  {homes.length === 0 && !loading ? (
+                    <div>No homes found</div>
+                  ) : (
+                    homes.map(home => (
+                      <div className="home_card" key={home.id}>
+                        <div className="home_title">{home.title}</div>
+                        <div className="home_price">${home.price.toLocaleString()}</div>
+                        <div className="home_rooms">{home.rooms} rooms</div>
+                      </div>
+                    ))
+                  )}
+                </div>
+                {loading && page > 1 && (
+                  <div className="loading">Loading more...</div>
+                )}
+                {hasMore && !loading && (
+                  <button className="load_more_btn" onClick={loadMore}>
+                    Load More
+                  </button>
+                )}
+              </>
+            )}
           </div>
         </div>
       </div>
+
     </div>
   )
 }

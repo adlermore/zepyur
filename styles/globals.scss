@@ -609,6 +609,68 @@ ul {
   }
 }
 
+
+.homes_container{
+  display: flex;
+  gap: 35px;
+  margin-top: 50px;
+  .filter_block{
+    width: 266px;
+    padding: 20px;
+  }
+  .filter_section{
+    padding-bottom: 20px;
+    border-bottom: 1px solid #CCCCCC;
+    margin-bottom: 30px;
+    label{
+      display: flex;
+    }
+  }
+  .filter_label{
+    font-size: 16px;
+    font-weight: 600;
+    color: #27221D;
+    margin-bottom: 20px; 
+  }
+  .reset_btn{
+    border: none;
+    background: transparent;
+    transition: 0.3s;
+    cursor: pointer;
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .checkbox_label{
+    display: flex;
+    gap: 10px;
+    
+    margin-bottom: 10px;
+    input{
+      display: none;
+    }
+    .checkbox_label_text{
+      display: block;
+    }
+    .square_block{
+      width: 25px;
+      height: 25px;
+      border: 1px solid #CECECE;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin-right: 10px;
+      cursor: pointer;
+      .square_check{
+        transform: scale(1.2);
+      }
+    }
+  }
+}
+
 @media (max-width: 575px) {
   .section_title {
     margin-top: 30px;
