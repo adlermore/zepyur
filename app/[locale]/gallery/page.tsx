@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import React, { useEffect } from 'react'
 import galleryBanner from '@/public/images/galleryBanner.png'
 import galler1 from '@/public/images/gallery/gallery1.png'
@@ -15,11 +15,7 @@ import '@fancyapps/ui/dist/fancybox/fancybox.css'
 
 function Gallery() {
   useEffect(() => {
-    Fancybox.bind('[data-fancybox="gallery"]', {
-      Toolbar: {
-        display: ['close'],
-      },
-    });
+    Fancybox.bind('[data-fancybox="gallery"]', {});
 
     return () => {
       Fancybox.destroy();
