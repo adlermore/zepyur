@@ -69,8 +69,8 @@ function Footer() {
           <div className='footer_line inline'>
             <div>
               <div className='footer_title'>{t('footer.latest.title')}</div>
-              <Link href='/'>{t('footer.latest.announcements')}</Link>
-              <Link href='/'>{t('footer.latest.news')}</Link>
+              <Link className='block' href='/'>{t('footer.latest.announcements')}</Link>
+              <Link className='block' href='/'>{t('footer.latest.news')}</Link>
               <Link href='/'>{t('footer.latest.process')}</Link>
             </div>
             <div>

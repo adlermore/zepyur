@@ -55,28 +55,28 @@ function Header() {
                   <Link href="/homes" className='menu_link'>{t('menu.homes')}</Link>
                 </li>
                 <li className='menu_item'>
-                  <Link href="/" className='menu_link'>{t('menu.amenities')}</Link>
+                  <Link href="/amenities" className='menu_link'>{t('menu.amenities')}</Link>
+                </li>
+                <li className='menu_item disabled'>
+                  <Link href="/zepyurComplex" className='menu_link'>{t('menu.complex')}</Link>
                 </li>
                 <li className='menu_item'>
-                  <Link href="/" className='menu_link'>{t('menu.complex')}</Link>
+                  <Link href="/gallery" className='menu_link'>{t('menu.gallery')}</Link>
                 </li>
-                <li className='menu_item'>
-                  <Link href="/" className='menu_link'>{t('menu.gallery')}</Link>
-                </li>
-                <li className='menu_item'>
+                <li className='menu_item disabled'>
                   <Link href="/" className='menu_link menu_btn'>{t('menu.community')}</Link>
                 </li>
-                <li className='menu_item'>
+                <li className='menu_item disabled'>
                   <Link href="/" className='menu_link'>{t('menu.news')}</Link>
                 </li>
                 <li className='menu_item'>
-                  <Link href="/" className='menu_link'>{t('menu.contacts')}</Link>
+                  <Link href="/contact" className='menu_link'>{t('menu.contacts')}</Link>
                 </li>
               </ul>
             </div>
           </div>
           <div className='lg_block'>
-            <Link href="/" locale="am" scroll={false}  shallow={true} className={currentLocale === 'am' ? 'active' : ''}>ՀԱՅ</Link>
+            <Link href="/" locale="am" scroll={false} shallow={true} className={currentLocale === 'am' ? 'active' : ''}>ՀԱՅ</Link>
             <span className='lg_decor'></span>
             <Link href="/" locale="en" scroll={false} shallow={true} className={currentLocale === 'en' ? 'active' : ''}>ENG</Link>
           </div>
