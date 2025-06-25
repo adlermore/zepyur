@@ -12,7 +12,6 @@ import galler6 from '@/public/images/gallery/gallery6.png'
 import { Fancybox } from '@fancyapps/ui'
 import '@fancyapps/ui/dist/fancybox/fancybox.css'
 
-
 function Gallery() {
   useEffect(() => {
     Fancybox.bind('[data-fancybox="gallery"]', {});
