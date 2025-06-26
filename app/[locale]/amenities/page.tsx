@@ -5,7 +5,6 @@ import React from 'react'
 import amenitiesBanner from '@/public/images/amenitiesBanner.png'
 import amenBig1 from '@/public/images/amenBig1.png'
 import amenBig2 from '@/public/images/amenBig2.png'
-import aboutSvg from '@/public/images/about_svg.png'
 
 
 function Amenities() {

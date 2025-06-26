@@ -41,7 +41,6 @@ export default function HomePage() {
           throw new Error('Failed to fetch lands');
         }
         const data = await res.json();
-        console.log('Fetched lands:', data?.lands);
         setLands(data?.lands || []);
       } catch (error: any) {
         console.error(error.message || 'Unknown error');
@@ -70,15 +69,15 @@ export default function HomePage() {
   return (
     <div className='home_page'>
       <div className='banner_wrapp'>
-      <div className='area_section'>
-        <div className='zepyur_area'>
-          <ZepyurSvg lands={lands} handleClick={handleSvgClick} />
+        <div className='area_section'>
+          <div className='zepyur_area'>
+            <ZepyurSvg lands={lands} handleClick={handleSvgClick} />
+          </div>
+          <div className='home_mobile_slider'>
+            <HomeMobileSlider />
+          </div>
         </div>
-        <div className='home_mobile_slider'>
-          <HomeMobileSlider />
-        </div>
-      </div>
-      <SearchBlock />
+        <SearchBlock />
       </div>
       <AreaBook selectedArea={selectedArea} onClose={onClose} />
       <div className='main_description'>

@@ -9,6 +9,7 @@ import '@/styles/homes.scss'
 import { Range } from 'react-range'
 import apartament1 from '@/public/images/apartament1.png'
 import IconClose from '@/public/icons/IconClose'
+import Link from 'next/link'
 
 const API_URL = 'https://admin.zepyur.am/api/searchLands'
 
@@ -377,7 +378,7 @@ function Homes() {
                     <div>No homes found</div>
                   ) : (
                     homes.map((home, i) => (
-                      <div className="home_card" key={`home_card_${home.id + i}`}>
+                      <Link href={`/home/${home.id}`} className="home_card" key={`home_card_${home.id + i}`}>
                         <div className='home_image_container'>
                           <div className='home_image'>
                             <Image
@@ -412,7 +413,7 @@ function Homes() {
                             </div>
                           </div>
                         </div>
-                      </div>
+                      </Link>
                     ))
                   )}
                 </div>
