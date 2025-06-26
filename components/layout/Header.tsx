@@ -11,6 +11,7 @@ import { useTranslations } from 'next-intl';
 function Header() {
 
   const [isOpen, setOpen] = useState(false);
+
   const pathname = usePathname();
   const currentLocale = pathname.split('/')[1];
   const t = useTranslations();
@@ -27,7 +28,7 @@ function Header() {
       document.body.style.overflow = "visible";
     }
 
-  }, [isOpen]);
+  }, [isOpen, pathname]);
 
   return (
     <header className='header'>

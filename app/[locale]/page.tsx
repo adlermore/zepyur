@@ -18,6 +18,7 @@ import GallerySlider from '@/components/EmblaCarousel/GallerySlider';
 import PartnersSlider from '@/components/EmblaCarousel/PartnersSlider';
 import PageLoader from '@/components/PageLoader/PageLoader';
 import SearchBlock from '@/components/SearchBlock/SearchBlock';
+import HomeMobileSlider from '@/components/EmblaCarousel/HomeMobileSlider';
 
 export default function HomePage() {
   const t = useTranslations();
@@ -72,6 +73,9 @@ export default function HomePage() {
       <div className='area_section'>
         <div className='zepyur_area'>
           <ZepyurSvg lands={lands} handleClick={handleSvgClick} />
+        </div>
+        <div className='home_mobile_slider'>
+          <HomeMobileSlider />
         </div>
       </div>
       <SearchBlock />

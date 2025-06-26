@@ -235,7 +235,15 @@
 
     .search_inner {
       flex-direction: column;
-      background: wheat;
+      background: white;
+      border: none;
+      .search_dropdown{
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        border-right: none;
+      }
+      .search_button{
+        margin-top: 30px;
+      }
     }
 
     .search_block {
@@ -247,6 +255,12 @@
   }
 
   @media (max-width: 575px) {
+    .zepyur_area{
+      display: none;
+    }
+    .home_mobile_slider{
+      display: flex;
+    }
     .drop_title {
         min-width: auto;
         padding: 15px 0px;
