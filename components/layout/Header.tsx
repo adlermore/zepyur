@@ -4,7 +4,7 @@ import { Twirl as Hamburger } from 'hamburger-react'
 import "@/styles/header.scss"
 import Image from 'next/image';
 import headerLogo from '@/public/images/header_logo.png'
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 
@@ -13,8 +13,17 @@ function Header() {
   const [isOpen, setOpen] = useState(false);
 
   const pathname = usePathname();
+  const router = useRouter();
   const currentLocale = pathname.split('/')[1];
   const t = useTranslations();
+
+  const switchLocale = (locale: string) => {
+    const segments = pathname.split('/');
+    segments[1] = locale;
+    const newPath = segments.join('/') || '/';
+    router.replace(newPath);
+  };
+
 
   useEffect(() => {
     if (document.body.classList.contains('menu_opened')) {
@@ -77,9 +86,19 @@ function Header() {
             </div>
           </div>
           <div className='lg_block'>
-            <Link href="/" locale="am" scroll={false} shallow={true} className={currentLocale === 'am' ? 'active' : ''}>ՀԱՅ</Link>
+            <button
+              onClick={() => switchLocale('am')}
+              className={currentLocale === 'am' ? 'active' : ''}
+            >
+              ՀԱՅ
+            </button>
             <span className='lg_decor'></span>
-            <Link href="/" locale="en" scroll={false} shallow={true} className={currentLocale === 'en' ? 'active' : ''}>ENG</Link>
+            <button
+              onClick={() => switchLocale('en')}
+              className={currentLocale === 'en' ? 'active' : ''}
+            >
+              ENG
+            </button>
           </div>
           <div className="hamburger_block">
             <Hamburger

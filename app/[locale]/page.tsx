@@ -79,7 +79,7 @@ export default function HomePage() {
         </div>
         <SearchBlock />
       </div>
-      <AreaBook selectedArea={selectedArea} onClose={onClose} />
+      <AreaBook lands={lands} selectedArea={selectedArea} onClose={onClose} />
       <div className='main_description'>
         <div className='custom_container'>
           <div className='desc'>{t('home.mainDescription1')}</div>
@@ -150,14 +150,14 @@ export default function HomePage() {
           {t('home.communityAmenities')}
         </div>
         <ComunitySlider />
-        <Link href="/community" className='more_btn'>{t('home.showMore')}</Link>
+        <Link href="/community" className='more_btn disabled'>{t('home.showMore')}</Link>
       </div>
       <div className='choose_section'>
         <div className='section_title'>
           {t('home.chooseYourHome')}
         </div>
         <ChooseSlider />
-        <Link href="/community" className='more_btn'>{t('home.showMore')}</Link>
+        <Link href="/homes" className='more_btn'>{t('home.showMore')}</Link>
       </div>
       <div className='layout_section'>
         <div className='section_title'>
@@ -170,7 +170,7 @@ export default function HomePage() {
           {t('home.amenties')}
         </div>
         <AmentiesSlider />
-        <Link href="/community" className='more_btn'>{t('home.showMore')}</Link>
+        <Link href="/amenities" className='more_btn'>{t('home.showMore')}</Link>
       </div>
       <div className='gallery_section'>
         <div className='section_title'>

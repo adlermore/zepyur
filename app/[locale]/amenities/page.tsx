@@ -5,9 +5,12 @@ import React from 'react'
 import amenitiesBanner from '@/public/images/amenitiesBanner.png'
 import amenBig1 from '@/public/images/amenBig1.png'
 import amenBig2 from '@/public/images/amenBig2.png'
+import { useTranslations } from 'next-intl'
 
 
 function Amenities() {
+  const t = useTranslations('amenities');
+
   return (
     <div className='amenties_page pb-[40px]'>
       <div className='banner_img'>
@@ -20,13 +23,13 @@ function Amenities() {
           unoptimized
         />
         <div className='custom_container'>
-          <h1>Our Amentities</h1>
+          <h1>{t('title')}</h1>
         </div>
       </div>
       <div className='amenities_section'>
         <div className='custom_container'>
           <div className='amenties_desc'>
-            «ԶԵՓՅՈՒՌ»-ի բնակիչները հնարավորություն կունենան օգտվելու մտածված հարմարություններից, որոնք նախատեսված են ապրե- լակերպը բարելավելու և հարմարավետություն ապահովելու համար.
+            <p>{t('blockDesc1')}</p>
           </div>
           <div className='amenties_inline'>
             <div className='bigImage'>
@@ -43,9 +46,9 @@ function Amenities() {
               />
             </div>
             <div className='amenties_content'>
-              <div className='title'>Zepyur Commercial Complex</div>
+              <div className='title'>{t('blocktitle1')}</div>
               <div className='desc'>
-                Residents of  ZEPYUR will enjoy access to thoughtfully curated amenities designed to enhance lifestyle and provide convenience. The project has a Marketplace, Dining plaza, Events hall, Wellness complex, Sports arena, Community cafe, Cine lounge, Game hub.
+                {t('blockDesc1')}
               </div>
             </div>
           </div>
@@ -64,9 +67,9 @@ function Amenities() {
               />
             </div>
             <div className='amenties_content'>
-              <div className='title'>Zepyur Commercial Units</div>
+              <div className='title'>{t('blocktitle2')}</div>
               <div className='desc'>
-                Full-service supermarket stocked with fresh produce and daily essentials. Diverse food court offering a mix of local and international flavors. Outdoor sports facilities include a universal court for football, basketball, volleyball, and tennis, encouraging active and social lifestyles and others.
+                {t('blockDesc2')}
               </div>
             </div>
           </div>

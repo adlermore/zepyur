@@ -1,4 +1,5 @@
 import IconDown from '@/public/icons/IconDown'
+import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/navigation'
 import React, { useState, useRef } from 'react'
 
@@ -22,7 +23,7 @@ const DROPDOWNS = [
 
 function SearchBlock() {
   const router = useRouter()
-
+  const t = useTranslations('searchBlock')
   const [openedIndex, setOpenedIndex] = useState<null | number>(null)
   const [selected, setSelected] = useState<{ [key: string]: string }>({
     propertyType: '',
@@ -109,7 +110,7 @@ function SearchBlock() {
         ))}
         <div className='search_button'>
           <button className='search_btn' onClick={handleSearch}>
-            Search
+            {t('button')}
           </button>
         </div>
       </div>

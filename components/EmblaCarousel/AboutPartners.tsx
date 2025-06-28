@@ -24,7 +24,7 @@ type PropType = {
 const AboutPartners: React.FC<PropType> = (props) => {
 
   const options: EmblaOptionsType = { align: 'start' }
-  const t = useTranslations('communitySlider');
+  const t = useTranslations('partnersSlider');
 
   const [emblaRef, emblaApi] = useEmblaCarousel(options)
 
@@ -36,31 +36,12 @@ const AboutPartners: React.FC<PropType> = (props) => {
   } = usePrevNextButtons(emblaApi)
 
   const sliders = [
-    {
-      image: partners1,
-      desc : 'Brief descriptive text about the organization and the industry, highliting specialty, experience, and anything important to include in this introductory text.'
-    },
-    {
-      image: partners2,
-      desc : 'Brief descriptive text about the organization and the industry, highliting specialty, experience, and anything important to include in this introductory text.'
-    },
-    {
-      image: partners3,
-      desc : 'Brief descriptive text about the organization and the industry, highliting specialty, experience, and anything important to include in this introductory text.'
-    },
-    {
-      image: partners4,
-      desc : 'Brief descriptive text about the organization and the industry, highliting specialty, experience, and anything important to include in this introductory text.'
-    },
-    {
-      image: partners5,
-      desc : 'Brief descriptive text about the organization and the industry, highliting specialty, experience, and anything important to include in this introductory text.'
-    },
-    {
-      image: partners6,
-      desc : 'Brief descriptive text about the organization and the industry, highliting specialty, experience, and anything important to include in this introductory text.'
-    }
-    
+    { image: partners1, descKey: 'partner1Desc' },
+    { image: partners2, descKey: 'partner2Desc' },
+    { image: partners3, descKey: 'partner3Desc' },
+    { image: partners4, descKey: 'partner4Desc' },
+    { image: partners5, descKey: 'partner5Desc' },
+    { image: partners6, descKey: 'partner6Desc' }
   ];
 
   return (
@@ -79,8 +60,8 @@ const AboutPartners: React.FC<PropType> = (props) => {
                     unoptimized
                   />
                 </div>
-                <div className="slide_desc">{item.desc}</div>
-                <div className='more'>LEARN MORE</div>
+                <div className="slide_desc">{t(item.descKey)}</div>
+                <div className='more'>{t('learnMore')}</div>
               </div>
             </div>
           ))}

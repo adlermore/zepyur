@@ -12,9 +12,132 @@ import successImg from '@/public/images/successImg.png';
 import Link from 'next/link'
 import { useTranslations } from 'next-intl';
 
-const AreaBook: React.FC<{ selectedArea: any; onClose: () => void }> = ({ selectedArea, onClose }) => {
+interface AreaBookProps {
+  lands: any[];
+  selectedArea: string | null;
+  onClose: () => void;
+}
+
+const AreaBook: React.FC<AreaBookProps> = ({ lands, selectedArea, onClose }) => {
 
   const t = useTranslations();
+  const [selectedAreaLandData, setSelectedAreaLandData] = useState<any | null>(null);
+
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  const [step, setStep] = useState(0);
+  const [fade, setFade] = useState(true);
+
+  const [formData, setFormData] = useState({
+    name: '',
+    surname: '',
+    contact: '',
+    email: '',
+    message: ''
+  });
+  const [selectedType, setSelectedType] = useState<'z01' | 'z02' | null>(null);
+
+  useEffect(() => {
+    if (lands && selectedArea) {
+      const found = lands.find((land) => land.code === selectedArea);
+      setSelectedAreaLandData(found || null);
+    }
+  }, [lands, selectedArea]);
+
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        setStep(0);
+        onClose();
+      }
+    };
+
+    if (selectedArea) {
+      document.addEventListener('mousedown', handleOutsideClick);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, [selectedArea]);
+
+  const handleChange = (e: { target: { name: any; value: any } }) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    // Handle form submission logic
+
+    setLoading(true);
+    try {
+      const res = fetch('https://admin.zepyur.am/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData?.name,
+          surname: formData?.surname,
+          phone: formData?.contact,
+          email: formData?.email,
+          message: formData?.message,
+          land_id: selectedArea,
+          apartment_id: selectedType === 'z01' ? 'Z01' : selectedType === 'z02' ? 'Z02' : '',
+        }),
+      });
+
+      const data = res.then(response => response.json());
+      console.log('Form submission response:', data);
+
+    } catch (error: any) {
+      console.error(error.message || 'Unknown error');
+    } finally {
+      setLoading(false);
+    }
+
+    // Reset form data
+    // return
+    nextStep();
+  };
+
+  const goToStep = (n: number) => {
+    setFade(false);
+    setTimeout(() => {
+      setStep(n);
+      setFade(true);
+    }, 250);
+  };
+
+  const nextStep = () => {
+    if (step < steps.length - 1) goToStep(step + 1);
+  };
+
+  const prevStep = () => {
+    if (step > 0) goToStep(step - 1);
+  };
+
+  // Debug
+  console.log("selectedAreaLandData", selectedAreaLandData);
+
+  if (!selectedAreaLandData) {
+    return (
+      <div className='area_book'>
+        <div className='book_container'>
+          <div className='book_inner'>
+            <div className='no_data'>No data available</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  const z01Option = selectedAreaLandData?.types[0].apartment[0] || '';
+  const z02Option = selectedAreaLandData?.types[0].apartment[1] || '';
+  const chosenOption = selectedType === 'z01' ? z01Option : selectedType === 'z02' ? z02Option : null;
 
   const steps = [
     {
@@ -28,12 +151,15 @@ const AreaBook: React.FC<{ selectedArea: any; onClose: () => void }> = ({ select
             <div className='title'>{t('book.options')}</div>
           </div>
           <div className='type_line'>
-            {[z01type, z02type].map((img, idx) => (
+            {[
+              { img: z01type, option: z01Option, type: 'z01' },
+              { img: z02type, option: z02Option, type: 'z02' },
+            ].map(({ img, option, type }, idx) => (
               <div className='type_item' key={idx}>
                 <div className='image'>
                   <Image
                     src={img}
-                    alt="type1"
+                    alt={`type${idx + 1}`}
                     className="w-full h-auto"
                     unoptimized
                     width={112}
@@ -42,22 +168,30 @@ const AreaBook: React.FC<{ selectedArea: any; onClose: () => void }> = ({ select
                 </div>
                 <div className='type_desc'>
                   {t('book.area')} <br />
-                  <span> 350.3</span>{t('book.sqm')} <br />
+                  <span>{option?.area || 350.3}</span>{t('book.sqm')} <br />
                   {t('book.liveArea')} <br />
-                  <span> 92.6</span>{t('book.sqm')} <br />
+                  <span>{option?.liveArea || 92.6}</span>{t('book.sqm')} <br />
                   <ul>
-                    <li>{t('book.bedroom')} (x2)</li>
-                    <li>{t('book.bathroom')} (x1)</li>
+                    <li>{t('book.bedroom')} (x{option?.bedroom_count || 1})</li>
+                    <li>{t('book.bathroom')} (x{option?.bathroom_count || 1})</li>
                     <li>{t('book.guestRoom')}</li>
                     <li>{t('book.ketchen')}</li>
-                    <li>{t('book.parking')} (x2)</li>
+                    <li>{t('book.parking')} (x{option?.parking_count || 1})</li>
                     <li>{t('book.beckarea')}</li>
                   </ul>
                   <div className='price'>
-                    <span>52,918,447 ֏</span>
+                    <span>{option?.price ? option.price.toLocaleString() : 52918447} ֏</span>
                   </div>
                 </div>
-                <button className='select_type' onClick={nextStep}>{t('book.more')}</button>
+                <button
+                  className='select_type'
+                  onClick={() => {
+                    setSelectedType(type as 'z01' | 'z02');
+                    nextStep();
+                  }}
+                >
+                  {t('book.more')}
+                </button>
               </div>
             ))}
           </div>
@@ -71,8 +205,8 @@ const AreaBook: React.FC<{ selectedArea: any; onClose: () => void }> = ({ select
           <div className='book_type second_line'>
             <div className='area_number'>{selectedArea}</div>
             <Image
-              src={z01type}
-              alt="type1"
+              src={selectedType === 'z02' ? z02type : z01type}
+              alt={selectedType === 'z02' ? "type2" : "type1"}
               unoptimized
               width={112}
               height={42}
@@ -84,14 +218,14 @@ const AreaBook: React.FC<{ selectedArea: any; onClose: () => void }> = ({ select
           <div className='property_line'>
             <div className='property_item areaSize'>
               <div>
-                350.3 | 129.6
+                {chosenOption?.area || '350.3'} | {chosenOption?.liveArea || '129.6'}
               </div>
               <span className='text-[#5B5D2C]'>{t('book.sqm')}</span>
             </div>
             <div className='property_item'>
-              x3 <IconSleepRoom />
-              x2 <IconRoomWhash />
-              x2 <IconCar />
+              x{chosenOption?.bedroom_count || 3} <IconSleepRoom />
+              x{chosenOption?.bathroom_count || 2} <IconRoomWhash />
+              x{chosenOption?.parking_count || 2} <IconCar />
             </div>
           </div>
           <div className='step_desc'>
@@ -117,10 +251,12 @@ const AreaBook: React.FC<{ selectedArea: any; onClose: () => void }> = ({ select
           <div className='property_line third_line'>
             <div className='property_item areaSize'>
               <div>
-                350.3 | 129.6
+                {chosenOption?.area || '350.3'} | {chosenOption?.liveArea || '129.6'}
               </div>
               <span className='text-[#5B5D2C]'>{t('book.sqm')}</span>
-              <div className='price'>58,743,689 <span>֏</span></div>
+              <div className='price'>
+                {chosenOption?.price ? chosenOption.price.toLocaleString() : '58,743,689'} <span>֏</span>
+              </div>
             </div>
           </div>
           <div className='mt-[40px] text-[13px] text-center px-[30px] step_3_desc'>
@@ -170,7 +306,9 @@ const AreaBook: React.FC<{ selectedArea: any; onClose: () => void }> = ({ select
                 value={formData.message}
                 onChange={handleChange}
               />
-              <button type="submit" className='submit_btn'>SUBMIT</button>
+              <button type="submit" className='submit_btn' disabled={loading}>
+                {loading ? 'Submitting...' : 'SUBMIT'}
+              </button>
             </form>
             <div className='step_footer'>
               {t('book.bookFooter')}
@@ -186,7 +324,7 @@ const AreaBook: React.FC<{ selectedArea: any; onClose: () => void }> = ({ select
           <div className='last_image' >
             <Image
               src={successImg}
-              alt="type1"
+              alt="success"
               unoptimized
               width={156}
               height={135}
@@ -211,100 +349,13 @@ const AreaBook: React.FC<{ selectedArea: any; onClose: () => void }> = ({ select
     },
   ];
 
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    const handleOutsideClick = (event: MouseEvent) => {
-      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
-        setStep(0);
-        onClose();
-      }
-    };
-
-    if (selectedArea) {
-      document.addEventListener('mousedown', handleOutsideClick);
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleOutsideClick);
-    };
-  }, [selectedArea]);
-
-  const [step, setStep] = useState(0);
-  const [fade, setFade] = useState(true);
-
-  const [formData, setFormData] = useState({
-    name: '',
-    surname: '',
-    contact: '',
-    email: '',
-    message: ''
-  });
-
-  const handleChange = (e: { target: { name: any; value: any } }) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
-    // Handle form submission logic
-
-    setLoading(true);
-    try {
-      const res = fetch('https://admin.zepyur.am/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData?.name,
-          surname: formData?.surname,
-          phone: formData?.contact,
-          email: formData?.email,
-          message: formData?.message,
-          land_id : selectedArea,
-          apartment_id: "Z01",
-        }),
-      });
-
-      const data = res.then(response => response.json());
-      console.log('Form submission response:', data);
-
-    } catch (error: any) {
-      console.error(error.message || 'Unknown error');
-    } finally {
-      setLoading(false);
-    }
-
-    // Reset form data
-    // return
-    nextStep();
-  };
-
-  const goToStep = (n: number) => {
-    setFade(false);
-    setTimeout(() => {
-      setStep(n);
-      setFade(true);
-    }, 250);
-  };
-
-  const nextStep = () => {
-    if (step < steps.length - 1) goToStep(step + 1);
-  };
-
-  const prevStep = () => {
-    if (step > 0) goToStep(step - 1);
-  };
-
   return (
     <div className={`area_book ${selectedArea ? "active" : ""}`}>
       <div className='book_container' ref={containerRef}>
         <div className='book_inner'>
           <button className='close_book' onClick={() => {
             setStep(0);
+            setSelectedType(null);
             onClose();
           }}>
             <IconClose />

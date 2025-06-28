@@ -18,7 +18,7 @@ type PropType = {
 const TeamSlider: React.FC<PropType> = (props) => {
 
   const options: EmblaOptionsType = { align: 'start' }
-  const t = useTranslations('communitySlider');
+  const t = useTranslations('teamSlider');
 
   const [emblaRef, emblaApi] = useEmblaCarousel(options)
 
@@ -32,41 +32,42 @@ const TeamSlider: React.FC<PropType> = (props) => {
   const sliders = [
     {
       image: image1,
-      position: 'Chief Executive Officer',
-      desc: 'Overall leadership and strategic direction.',
-      name: 'Hayk S.'
+      nameKey: 'team1Name',
+      positionKey: 'team1Position',
+      descKey: 'team1Desc'
     },
     {
       image: image2,
-      position: 'Chief Technology Officer',
-      desc: 'Management of daily operations and logistics.',
-      name: 'Margarita A.'
+      nameKey: 'team2Name',
+      positionKey: 'team2Position',
+      descKey: 'team2Desc'
     },
     {
       image: image1,
-      position: 'Chief Financial Officer',
-      desc: 'Financial planning and risk management.',
-      name: 'Armen T.'
+      nameKey: 'team3Name',
+      positionKey: 'team3Position',
+      descKey: 'team3Desc'
     },
     {
       image: image2,
-      position: 'Chief Marketing Officer',
-      desc: 'Marketing strategy and brand management.',
-      name: 'Anna K.'
+      nameKey: 'team4Name',
+      positionKey: 'team4Position',
+      descKey: 'team4Desc'
     },
     {
       image: image1,
-      position: 'Chief Operations Officer',
-      desc: 'Overseeing daily operations and logistics.',
-      name: 'Vardan P.'
+      nameKey: 'team5Name',
+      positionKey: 'team5Position',
+      descKey: 'team5Desc'
     },
     {
       image: image2,
-      position: 'Chief Technology Officer',
-      desc: 'Technology strategy and innovation.',
-      name: 'Lilit G.'
+      nameKey: 'team6Name',
+      positionKey: 'team6Position',
+      descKey: 'team6Desc'
     }
   ];
+
 
   return (
     <section className="embla team_slider">
@@ -78,15 +79,15 @@ const TeamSlider: React.FC<PropType> = (props) => {
                 <div className="slide_image">
                   <Image
                     src={item.image}
-                    alt={item.name}
+                    alt={'Team member image'}
                     fill
                     style={{ objectFit: 'cover' }}
                     unoptimized
                   />
                 </div>
-                <div className="slide_position">{item.position}</div>
-                <div className="slide_desc">{item.desc}</div>
-                <div className="slide_name">{item.name}</div>
+                <div className="slide_position">{t(item.positionKey)}</div>
+                <div className="slide_desc">{t(item.descKey)}</div>
+                <div className="slide_name">{t(item.nameKey)}</div>
               </div>
             </div>
           ))}

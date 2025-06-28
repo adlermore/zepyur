@@ -98,7 +98,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 24px;
+    font-size: 21px;
     font-weight: 600;
   }
 
@@ -216,6 +216,7 @@
         width: fit-content;
         width: 145px;
         text-align: left;
+        white-space: nowrap;
       }
     }
   }

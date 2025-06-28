@@ -32,38 +32,38 @@ function Footer() {
           </div>
           <div className='footer_line'>
             <div className='footer_title'>{t('footer.about.title')}</div>
-            <Link href='/'>{t('footer.about.vision')}</Link>
-            <Link href='/'>{t('footer.about.team')}</Link>
-            <Link href='/'>{t('footer.about.partners')}</Link>
-            <Link href='/'>{t('footer.about.faq')}</Link>
-            <Link href='/'>{t('footer.about.privacy')}</Link>
-            <Link href='/'>{t('footer.about.terms')}</Link>
+            <Link href='/about'>{t('footer.about.vision')}</Link>
+            <Link href='/about'>{t('footer.about.team')}</Link>
+            <Link href='/about'>{t('footer.about.partners')}</Link>
+            <Link href='/about'>{t('footer.about.faq')}</Link>
+            <Link href='/about'>{t('footer.about.privacy')}</Link>
+            <Link href='/about'>{t('footer.about.terms')}</Link>
           </div>
 
           <div className='footer_line'>
             <div className='footer_title'>{t('footer.homes.title')}</div>
-            <Link href='/'>{t('footer.homes.private')}</Link>
-            <Link href='/'>{t('footer.homes.townhouse')}</Link>
-            <Link href='/'>{t('footer.homes.apartment')}</Link>
+            <Link href='/homes'>{t('footer.homes.private')}</Link>
+            <Link href='/homes'>{t('footer.homes.townhouse')}</Link>
+            <Link href='/homes'>{t('footer.homes.apartment')}</Link>
           </div>
 
           <div className='footer_line'>
             <div className='footer_title'>{t('footer.amenities.title')}</div>
-            <Link href='/'>{t('footer.amenities.supermarket')}</Link>
-            <Link href='/'>{t('footer.amenities.foodCourt')}</Link>
-            <Link href='/'>{t('footer.amenities.wellness')}</Link>
-            <Link href='/'>{t('footer.amenities.arena')}</Link>
-            <Link href='/'>{t('footer.amenities.gaming')}</Link>
-            <Link href='/'>{t('footer.amenities.cine')}</Link>
+            <Link href='/amenities'>{t('footer.amenities.supermarket')}</Link>
+            <Link href='/amenities'>{t('footer.amenities.foodCourt')}</Link>
+            <Link href='/amenities'>{t('footer.amenities.wellness')}</Link>
+            <Link href='/amenities'>{t('footer.amenities.arena')}</Link>
+            <Link href='/amenities'>{t('footer.amenities.gaming')}</Link>
+            <Link href='/amenities'>{t('footer.amenities.cine')}</Link>
           </div>
 
           <div className='footer_line complex'>
             <div className='footer_title'>{t('footer.complex.title')}</div>
-            <Link href='/'>{t('footer.complex.event')}</Link>
-            <Link href='/'>{t('footer.complex.gallery')}</Link>
-            <Link href='/'>{t('footer.complex.calendar')}</Link>
-            <Link href='/'>{t('footer.complex.reservation')}</Link>
-            <Link href='/'>{t('footer.complex.support')}</Link>
+            <Link href='/gallery'>{t('footer.complex.event')}</Link>
+            <Link href='/gallery'>{t('footer.complex.gallery')}</Link>
+            <Link href='/gallery'>{t('footer.complex.calendar')}</Link>
+            <Link href='/gallery'>{t('footer.complex.reservation')}</Link>
+            <Link href='/gallery'>{t('footer.complex.support')}</Link>
           </div>
 
           <div className='footer_line inline'>

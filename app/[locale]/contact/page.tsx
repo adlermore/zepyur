@@ -16,7 +16,6 @@ function Contacts() {
   });
   const [loading, setLoading] = useState(false);
 
-
   const handleChange = (e: { target: { name: any; value: any } }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -53,6 +52,8 @@ function Contacts() {
     }
   };
 
+  const t = useTranslations();
+
   return (
     <div className='contacts_page'>
       <div className='banner_img'>
@@ -65,7 +66,7 @@ function Contacts() {
           unoptimized
         />
         <div className='custom_container'>
-          <h1>Contact Us</h1>
+          <h1>{t('contacts.mainTitle')}</h1>
         </div>
       </div>
       <div className='custom_container'>
@@ -86,7 +87,7 @@ function Contacts() {
                 />
               </svg>
             </div>
-            <div className='title'>Have A Question </div>
+            <div className='title'>{t('contacts.question')}</div>
             <div className='value'>+374 00 00 00 00</div>
           </div>
           <div className='contact_block'>
@@ -105,7 +106,7 @@ function Contacts() {
                 />
               </svg>
             </div>
-            <div className='title'>Need Support </div>
+            <div className='title'>{t('contacts.support')}</div>
             <div className='value'>zepyur@gmail.com</div>
           </div>
           <div className='contact_block'>
@@ -124,12 +125,12 @@ function Contacts() {
                 d="M11.497 4.81a3.445 3.445 0 0 0-3.435 3.436 3.45 3.45 0 0 0 3.435 3.441c1.89 0 3.441-1.55 3.441-3.44a3.45 3.45 0 0 0-3.44-3.436m0 1.376c1.148 0 2.066.913 2.066 2.06a2.057 2.057 0 0 1-2.066 2.066 2.053 2.053 0 0 1-2.06-2.066c0-1.147.913-2.06 2.06-2.06"
               />
             </svg></div>
-            <div className='title'>Our Address</div>
+            <div className='title'>{t('contacts.address')}</div>
             <div className='value'>Yerevan, Armenia</div>
           </div>
         </div>
         <div className='request_form'>
-          <div className='title'>Leave your contacts and we will contact you</div>
+          <div className='title'>{t('contacts.title1')}</div>
           <form>
             <input
               type="text"
@@ -149,13 +150,13 @@ function Contacts() {
               placeholder="Phone"
               required
             />
-            <button type="submit" className='submit_btn '>Leave a request</button>
+            <button type="submit" className='submit_btn '>{t('contacts.button1')}</button>
           </form>
 
         </div>
         <div className='form_container_line'>
           <div className='form_container'>
-            <div className='contact_title'>Leave your message</div>
+            <div className='contact_title'>{t('contacts.title2')}</div>
             <form onSubmit={handleSubmit}>
               <div className='form_row'>
                 <input
@@ -199,7 +200,7 @@ function Contacts() {
                 value={formData.message}
                 onChange={handleChange}
               />
-              <button type="submit" className='submit_btn'>SUBMIT</button>
+              <button type="submit" className='submit_btn'>{t('contacts.button2')}</button>
             </form>
           </div>
         </div>

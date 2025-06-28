@@ -11,6 +11,7 @@ import galler5 from '@/public/images/gallery/gallery5.png'
 import galler6 from '@/public/images/gallery/gallery6.png'
 import { Fancybox } from '@fancyapps/ui'
 import '@fancyapps/ui/dist/fancybox/fancybox.css'
+import { useTranslations } from 'next-intl'
 
 function Gallery() {
   useEffect(() => {
@@ -23,6 +24,8 @@ function Gallery() {
   const images: StaticImageData[] = [galler1, galler2, galler3];
   const images2: StaticImageData[] = [galler4, galler5, galler6];
 
+  const t = useTranslations('gallery');
+  
   return (
     <div className='amenties_page pb-[40px]'>
       <div className='banner_img'>
@@ -35,19 +38,19 @@ function Gallery() {
           unoptimized
         />
         <div className='custom_container'>
-          <h1>Gallery</h1>
+          <h1>{t('title')}</h1>
         </div>
       </div>
       <div className='amenities_section'>
         <div className='custom_container'>
           <div className='amenties_desc'>
-            «ԶԵՓՅՈՒՌ»-ը ապրելակերպ է, որը բացի հարմարավետ առանձ- նատներից ունի բազմաթիվ հագեցվածություն, օրը լիարժեք եւ առողջ անցկացնելու համար։ Յուրաքանչյուր փուլում մենք բացի բնակելի տարածքներից ստեղծում ենք ժամանակակից եւ հար- մարավետ միջավայր՝ լիարժեք համայնքի ձեւավորման համար։
+            {t('desc1')}
           </div>
           <div className='gallery_section'>
             <div className='gallery_container'>
-              <div className='section_title'>OVERVIEW</div>
+              <div className='section_title'>{t('overview')}</div>
               <div className='section_desc text-center'>
-                «ԶԵՓՅՈՒՌ»-ի բնակիչները հնարավորություն կունենան օգտվելու մտածված հարմարություններից, որոնք նախատեսված են ապրե- լակերպը բարելավելու եւ հարմարավետություն ապահովելու համար.
+                {t('desc2')}
               </div>
               <div className="gallery_grid">
                 {images.map((img, i) => (
@@ -69,9 +72,9 @@ function Gallery() {
               </div>
             </div>
             <div className='gallery_container'>
-              <div className='section_title'>EVENTS</div>
+              <div className='section_title'>{t('events')}</div>
               <div className='section_desc text-center'>
-                «ԶԵՓՅՈՒՌ»-ի բնակիչները հնարավորություն կունենան օգտվելու մտածված հարմարություններից, որոնք նախատեսված են ապրե- լակերպը բարելավելու եւ հարմարավետություն ապահովելու համար.
+                {t('desc3')}
               </div>
               <div className="gallery_grid reverse">
                 {images2.map((img, i) => (
@@ -93,9 +96,9 @@ function Gallery() {
               </div>
             </div>
             <div className='gallery_container'>
-              <div className='section_title'>ACTIVITIES</div>
+              <div className='section_title'>{t('activities')}</div>
               <div className='section_desc text-center'>
-                «ԶԵՓՅՈՒՌ»-ի բնակիչները հնարավորություն կունենան օգտվելու մտածված հարմարություններից, որոնք նախատեսված են ապրե- լակերպը բարելավելու եւ հարմարավետություն ապահովելու համար.
+                {t('desc4')}
               </div>
               <div className="gallery_grid">
                 {images.map((img, i) => (
@@ -117,9 +120,9 @@ function Gallery() {
               </div>
             </div>
             <div className='gallery_container'>
-              <div className='section_title'>MEDIA</div>
+              <div className='section_title'>{t('media')}</div>
               <div className='section_desc text-center'>
-                «ԶԵՓՅՈՒՌ»-ի բնակիչները հնարավորություն կունենան օգտվելու մտածված հարմարություններից, որոնք նախատեսված են ապրե- լակերպը բարելավելու եւ հարմարավետություն ապահովելու համար.
+                {t('desc5')}
               </div>
               <div className="gallery_grid reverse">
                 {images2.map((img, i) => (

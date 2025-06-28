@@ -8,8 +8,8 @@
     "communityAmenities": "COMMUNITY AMENITIES",
     "layoutOptions": "LAYOUT OPTIONS",
     "chooseYourHome": "CHOOSE YOUR HOME",
-    "amenties" : "AMENITIES",
-    "gallery" : "GALLERY QUICK PEAKS",
+    "amenties": "AMENITIES",
+    "gallery": "GALLERY QUICK PEAKS",
     "partners": "PARTNERS & AFFILIATES"
   },
   "book": {
@@ -46,10 +46,6 @@
     "area": "AREA",
     "familyPark": "FAMILY PARK"
   },
-  "contacts": {
-    "title": "asdasdasd",
-    "description": "asdasd asdas asd"
-  },
   "menu": {
     "about": "About Us",
     "homes": "Homes",
@@ -70,7 +66,7 @@
     "blockdesc5": " Experience elegant living in our two-story townhouses, uniformly designed for sophistication & space. ",
     "blockdesc6": " Enjoy the convenience of modern apartments, offering a blend of comfort and urban living."
   },
-    "communitySlider": {
+  "communitySlider": {
     "foodCourtTitle": "FOOD COURT",
     "foodCourtDesc": "A blend of local and international cuisines served in a contemporary setting, ideal for any meal.",
     "wellnessComplexTitle": "WELLNESS COMPLEX",
@@ -125,5 +121,77 @@
       "phone": "+374 (55) 106 100",
       "email": "info@zepyur.am"
     }
+  },
+  "about": {
+    "title": "Zepyur Residential Area",
+    "desc1": "ZEPYUR is a lifestyle that, in addition to comfortable houses, offers numerous amenities for a complete and healthy daily life. In each phase, we create not only residential spaces but also a modern and comfortable environment for the formation of a complete community.",
+    "desc2": "The ZEPYUR residential district is located 21 km from Yerevan, in the picturesque Kotayk region, in the village of Nor Geghi, in the Nor Hachn community. This meticulously planned project covers a spacious 10 hectares of land, offering a combination of style and tranquility.",
+    "desc3": "Residents of the 'Zepyur' residential district will discover that every detail has been thoughtfully designed to enhance the living experience.",
+    "desc4": "With land plots ranging from (200-600) sq.m and residential spaces of (50-100) sq.m, the project in its first phase offers a limited number of 59 houses with a unique architectural identity, combining modern design and elegance.",
+    "desc5": "Residents of the 'ZEPYUR' project will discover that every detail has been thoughtfully developed to improve living conditions. With land plots ranging from (200-600) sq.m and residential areas from (50-150) sq.m, the project (in its first phase) offers a limited number of 59 private houses with a unique architectural identity.",
+    "devTeam": "Development Team",
+    "partners": "Partners & Affiliates"
+  },
+  "teamSlider": {
+    "team1Name": "Hayk S.",
+    "team1Position": "Chief Executive Officer",
+    "team1Desc": "Overall leadership and strategic direction.",
+    "team2Name": "Margarita A.",
+    "team2Position": "Chief Technology Officer",
+    "team2Desc": "Management of daily operations and logistics.",
+    "team3Name": "Armen T.",
+    "team3Position": "Chief Financial Officer",
+    "team3Desc": "Financial planning and risk management.",
+    "team4Name": "Anna K.",
+    "team4Position": "Chief Marketing Officer",
+    "team4Desc": "Marketing strategy and brand management.",
+    "team5Name": "Vardan P.",
+    "team5Position": "Chief Operations Officer",
+    "team5Desc": "Overseeing daily operations and logistics.",
+    "team6Name": "Lilit G.",
+    "team6Position": "Chief Technology Officer",
+    "team6Desc": "Technology strategy and innovation."
+  },
+  "partnersSlider": {
+    "partner1Desc": "Brief descriptive text about the organization and the industry, highlighting specialty, experience, and anything important to include in this introductory text.",
+    "partner2Desc": "Brief descriptive text about the organization and the industry, highlighting specialty, experience, and anything important to include in this introductory text.",
+    "partner3Desc": "Brief descriptive text about the organization and the industry, highlighting specialty, experience, and anything important to include in this introductory text.",
+    "partner4Desc": "Brief descriptive text about the organization and the industry, highlighting specialty, experience, and anything important to include in this introductory text.",
+    "partner5Desc": "Brief descriptive text about the organization and the industry, highlighting specialty, experience, and anything important to include in this introductory text.",
+    "partner6Desc": "Brief descriptive text about the organization and the industry, highlighting specialty, experience, and anything important to include in this introductory text.",
+    "learnMore": "Learn More"
+  },
+  "amenities": {
+    "title": "Our Amenities",
+    "desc1": "Residents of ZEPYUR will have access to thoughtfully designed amenities aimed at enhancing lifestyle and providing comfort. These include a supermarket, food court, wellness complex, sports arena, gaming club, and cine lounge.",
+    "blocktitle1": "Zepyur Commercial Complex",
+    "blockDesc1": "Residents of ZEPYUR will enjoy access to thoughtfully curated amenities designed to enhance lifestyle and provide convenience. The project has a Marketplace, Dining plaza, Events hall, Wellness complex, Sports arena, Community cafe, Cine lounge, Game hub.",
+    "blocktitle2": "Zepyur Commercial Units",
+    "blockDesc2": "Full-service supermarket stocked with fresh produce and daily essentials. Diverse food court offering a mix of local and international flavors. Outdoor sports facilities include a universal court for football, basketball, volleyball, and tennis, encouraging active and social lifestyles and others."
+  },
+  "gallery": {
+    "title": "Gallery",
+    "desc1": "Zepyur is a lifestyle that, in addition to comfortable private houses, offers a variety of amenities to enjoy a full and healthy day. At each stage, we create not just residential spaces, but also a modern and convenient environment to foster a complete community.",
+    "overview": "Overview",
+    "desc2": "Residents of Zepyur will benefit from well-thought-out amenities designed to enhance lifestyle and provide maximum comfort.",
+    "events": "Events",
+    "desc3": "Residents can participate in community-organized events, fostering social connections and strengthening the sense of community.",
+    "activities": "Activities",
+    "desc4": "Zepyur offers a variety of activities for both relaxation and physical wellness, supporting a healthy and balanced lifestyle.",
+    "media": "Media",
+    "desc5": "The media section includes photos and videos that showcase life at Zepyur, the environment, and community-organized events."
+  },
+  "contacts": {
+    "mainTitle": "Contact Us",
+    "question": "Have A Question?",
+    "support": "Need Support?",
+    "address": "Our Address",
+    "title1": "Leave your contacts and we will contact you",
+    "button1": "Leave a request",
+    "title2": "Leave your message",
+    "button2": "Send Message"
+  },
+  "searchBlock": {
+    "button": "Search"
   }
 }

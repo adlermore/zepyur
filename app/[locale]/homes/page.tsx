@@ -10,6 +10,7 @@ import { Range } from 'react-range'
 import apartament1 from '@/public/images/apartament1.png'
 import IconClose from '@/public/icons/IconClose'
 import Link from 'next/link'
+import { parseSearchParams } from '@/utils/parseSearchParams'
 
 const API_URL = 'https://admin.zepyur.am/api/searchLands'
 
@@ -110,6 +111,8 @@ function Homes() {
   const [loading, setLoading] = useState(false)
   const [hasMore, setHasMore] = useState(true)
   const [error, setError] = useState<string | null>(null)
+    const searchParams = useSearchParams();
+
 
   // Fetch homes on filters/page change
   useEffect(() => {
@@ -132,8 +135,18 @@ function Homes() {
         }
       })
     return () => { isCancelled = true }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selected, page])
+
+  useEffect(() => {
+    if (!searchParams) return;
+    const parsed = parseSearchParams(searchParams);
+    setSelected(prev => ({
+      ...prev,
+      ...parsed,
+    }));
+    setPage(1);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams]);
 
   // Handlers
   const onPriceRangeChange = (e: React.ChangeEvent<HTMLInputElement>, idx: 0 | 1) => {
@@ -378,7 +391,7 @@ function Homes() {
                     <div>No homes found</div>
                   ) : (
                     homes.map((home, i) => (
-                      <Link href={`/home/${home.id}`} className="home_card" key={`home_card_${home.id + i}`}>
+                      <Link href={`/home/${home.id}`} className="home_card" key={`home_card_${home.id}_${i}`}>
                         <div className='home_image_container'>
                           <div className='home_image'>
                             <Image
