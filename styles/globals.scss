@@ -999,8 +999,8 @@ ul {
 
 .menu_item.disabled {
   pointer-events: none;
-
-  a {
+  opacity: 1;
+  a { 
     color: #9EA4B4 !important
   }
 
