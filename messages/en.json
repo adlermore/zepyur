@@ -58,13 +58,14 @@
   },
   "mainGrid": {
     "107house": "107 HOUSES",
-    "blockdesc1": " Discover single-level living with our range of houses, featuring a private backyard and 2 parking sport.",
-    "blockdesc2": " Choose from small (2 bedrooms), medium (3 bedroom), or large (4 bedrooms) layouts, designed for style and functionality.",
-    "blockdesc3": " Experience elegant living in our two-story townhouses, uniformly designed for sophistication & space.",
-    "blockdesc4": " Experience elegant living in our two-story townhouses, uniformly designed for sophistication & space.",
+    "blockdesc1": "Discover single-level living with our range of houses, featuring a private backyard and 2 parking spots.",
+    "blockdesc2": "Choose from small (2 bedrooms), medium (3 bedrooms), or large(4 bedrooms) layouts, designed for style and functionality.",
+    "blockdesc3": "Experience elegant living in our two-story townhouses, uniformly designed for sophistication & space. ",
+    "blockdesc4": "Each townhouse offers multi-level living, blending modern aesthetics with practical design, perfect for contemporary lifestyles.",
     "45townhouse": "45 TOWNHOUSES",
-    "blockdesc5": " Experience elegant living in our two-story townhouses, uniformly designed for sophistication & space. ",
-    "blockdesc6": " Enjoy the convenience of modern apartments, offering a blend of comfort and urban living."
+    "95apartment": "95 APARTMENTS",
+    "blockdesc5": "Our apartments come in three sizes: small (1 bedroom), medium (2 bedrooms), and large (3 bedrooms). ",
+    "blockdesc6": "Designed with a kitchen, living room, and up to two bathrooms, offering a stylish, compact living solution in a vibrant community."
   },
   "communitySlider": {
     "foodCourtTitle": "FOOD COURT",
@@ -151,6 +152,24 @@
     "team6Name": "Lilit G.",
     "team6Position": "Chief Technology Officer",
     "team6Desc": "Technology strategy and innovation."
+  },
+  "amentiesSlider": {
+    "amentiesTitle1": "Supermarket",
+    "amentiesDesc1": "Find all your daily essentials just around the corner.",
+
+    "amentiesTitle2": "Sports Complex",
+    "amentiesDesc2": "Stay active with modern sports facilities available to all residents.",
+
+    "amentiesTitle3": "Game Center",
+    "amentiesDesc3": "A fun-filled area with games for all ages.",
+
+    "amentiesTitle4": "Kids' Playground",
+    "amentiesDesc4": "Safe and entertaining play areas for your children.",
+
+    "amentiesTitle5": "Supermarket",
+    "amentiesDesc5": "Shop for groceries and more without leaving your community.",
+
+    "showMore": "Show More"
   },
   "partnersSlider": {
     "partner1Desc": "Brief descriptive text about the organization and the industry, highlighting specialty, experience, and anything important to include in this introductory text.",

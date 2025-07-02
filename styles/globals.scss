@@ -69,7 +69,7 @@ a {
 }
 
 .zepyur_area {
-  background: url('../public/images/area/mainSvgBg.svg') no-repeat center center;
+  background: url('/images/area/mainSvgBg.svg') no-repeat center center;
   position: relative;
   height: 900px;
   display: flex;
@@ -663,7 +663,7 @@ ul {
 
   .slide_block {
     position: relative;
-
+    height: 100%;
     .slide_image {
       position: relative;
       height: 478px;
@@ -676,9 +676,29 @@ ul {
         width: 100%;
         z-index: 1;
         height: 100%;
+        transition: 0.3s;
         background: rgba(0, 0, 0, 0.3);
       }
     }
+
+    &:hover {
+      .slide_image::before {
+        background: rgba(0, 0, 0, 0.5);
+      }
+      .slide_desc{
+        padding-bottom: 20px;
+      }
+      .slide_desc_text{
+        flex: 1;
+        height: auto;
+      }
+    }
+  }
+
+  .slide_desc_text{
+    height: 0;
+    transition: 0.3s;
+    overflow: hidden;
   }
 
   .slide_content {
@@ -688,9 +708,22 @@ ul {
     left: 20px;
     font-size: 16px;
     color: white;
-
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    max-height: 400px;
+    .slide_desc{
+      font-weight: 700;
+      transition: 0.3s;
+      padding-bottom: 5px;
+    }
     a {
       color: white;
+      transition: 0.3s;
+      &:hover {
+        color: #B59981;
+      }
     }
   }
 }
@@ -991,7 +1024,7 @@ ul {
   }
 }
 
-.disabled{
+.disabled {
   pointer-events: none;
   opacity: 0.5;
   cursor: default;
@@ -1000,7 +1033,8 @@ ul {
 .menu_item.disabled {
   pointer-events: none;
   opacity: 1;
-  a { 
+
+  a {
     color: #9EA4B4 !important
   }
 

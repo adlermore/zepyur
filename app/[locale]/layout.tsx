@@ -38,6 +38,17 @@ export default async function LocaleLayout({
   return (
     <JsonContextProvider>
       <html lang={locale}>
+        <head>
+          <meta charSet="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <meta name="theme-color" content="#ffffff" />
+          <meta name="description" content="Zepyur - Your gateway to luxury living in Armenia. Explore our exclusive real estate offerings, from stunning apartments to luxurious villas. Discover your dream home today!" />
+          <meta name="keywords" content="Zepyur, real estate, luxury apartments, villas, Armenia, luxury living, exclusive properties, dream home" />
+          <meta name="author" content="Zepyur" />
+          <meta name="robots" content="index, follow" />
+          <link rel="icon" href="/favicon.ico" />
+          <title>Zepyur - Residential Area in Armenia</title>
+        </head>
         <body className={poppins.className}>
           <NextIntlClientProvider>
             <Toaster containerStyle={{ zIndex: 9999 }} position="bottom-right" />

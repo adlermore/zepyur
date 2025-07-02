@@ -70,7 +70,7 @@
     display: flex;
     gap: 10px;
     align-items: center;
-    
+
     .lg_decor {
       width: 1.5px;
       height: 20px;
@@ -82,6 +82,8 @@
       transition: all 0.3s ease;
       cursor: pointer;
       border: none;
+      background: transparent;
+
       &:hover {
         opacity: 0.7;
       }
@@ -104,9 +106,11 @@
       width: 240px;
       overflow: hidden;
     }
+
     .menu_list li .menu_btn {
       padding: 10px;
     }
+
     .menu_list {
       gap: 15px;
     }
@@ -126,6 +130,7 @@
         text-decoration: none;
         font-size: 12px;
         white-space: nowrap;
+
         .menu_btn {
           padding: 6px 10px;
         }

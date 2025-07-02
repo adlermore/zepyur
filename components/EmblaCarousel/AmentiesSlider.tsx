@@ -12,6 +12,7 @@ import amenties2 from '@/public/images/amenties2.png'
 import amenties3 from '@/public/images/amenties3.png'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
 type PropType = {
   options?: EmblaOptionsType
@@ -20,6 +21,7 @@ type PropType = {
 const AmentiesSlider: React.FC<PropType> = (props) => {
 
   const options: EmblaOptionsType = { align: 'start' }
+  const t = useTranslations('amentiesSlider');
 
   const [emblaRef, emblaApi] = useEmblaCarousel(options)
 
@@ -31,12 +33,12 @@ const AmentiesSlider: React.FC<PropType> = (props) => {
   } = usePrevNextButtons(emblaApi)
 
   const sliders = [
-    { image: amenties1, title: 'ՍՈՒՊԵՐՄԱՐԿԵՏ' },
-    { image: amenties2, title: 'ՍՊՈՐՏԱՅԻՆ ՀԱՄԱԼԻՐ' },
-    { image: amenties3, title: 'ԽԱՂԱՅԻՆ ԿԵՆՏՐՈՆ' },
-    { image: amenties3, title: 'ՄԱՆԿԱԿԱՆ ԽՈՒՃԱՓԱՐ' },
-    { image: amenties1, title: 'ՍՈՒՊԵՐՄԱՐԿԵՏ' },
-  ]
+    { image: amenties1, title: t('amentiesTitle1'), desc: t('amentiesDesc1') },
+    { image: amenties2, title: t('amentiesTitle2'), desc: t('amentiesDesc2') },
+    { image: amenties3, title: t('amentiesTitle3'), desc: t('amentiesDesc3') },
+    { image: amenties3, title: t('amentiesTitle4'), desc: t('amentiesDesc4') },
+    { image: amenties1, title: t('amentiesTitle5'), desc: t('amentiesDesc5') },
+  ];
 
   return (
     <section className="embla amenties_slider">
@@ -48,7 +50,7 @@ const AmentiesSlider: React.FC<PropType> = (props) => {
                 <div className='slide_image'>
                   <Image
                     src={item.image}
-                    alt={`Choose Home ${index + 1}`}
+                    alt={`Slide ${index + 1}`}
                     className="w-full h-auto"
                     unoptimized
                     fill
@@ -56,10 +58,9 @@ const AmentiesSlider: React.FC<PropType> = (props) => {
                   />
                 </div>
                 <div className='slide_content'>
-                  <div className='slide_desc'>
-                    {item.title}
-                  </div>
-                  <Link href="/community" className='moreLink'>Show More</Link>
+                  <div className='slide_desc'>{item.title}</div>
+                  <div className='slide_desc_text'>{item.desc}</div>
+                  <Link href="/amenities" className='moreLink'>{t('showMore')}</Link>
                 </div>
               </div>
             </div>

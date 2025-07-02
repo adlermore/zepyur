@@ -124,7 +124,7 @@ export default function HomePage() {
               />
             </div>
             <div className='grid_block'>
-              <div className='block_title'>{t('mainGrid.45townhouse')}</div>
+              <div className='block_title'>{t('mainGrid.95apartment')}</div>
               <div className='block_desc'>
                 {t('mainGrid.blockdesc5')}
                 <br />
