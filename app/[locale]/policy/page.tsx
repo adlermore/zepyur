@@ -5,55 +5,59 @@ function Policy() {
   return (
     <div className='policy_page'>
       <div className='custom_container'>
-        <div className='page_title'>Terms & Conditions</div>
-        <div className='block_title'>Welcome to ZEPYUR.am - Know Your Right & Responsibilities</div>
+        <div className='page_title'>Pravicy Policy</div>
+        <div className='block_title'>Your Privacy, Our Responsibility</div>
         <div className='block_desc'>
-          By using the ZEPYUR website, you agree to abide by the following terms and conditions. These rules are designed to protect both our visitors and our community’s intergrity
+          At ZEPYUR, we are committed to protecting your personal information and ensuring transparency in how we collect, use, and store data. We believe that your trust begins with knowing exactly what happens behind the scenes when you visit our website or interact with our services.
         </div>
         <hr />
-        <div className='block_title'>1. Use of Content</div>
+        <div className='block_title'>1. What We Collect</div>
         <div className='block_desc'>
-          All website content, including text, images, logos, and design, is the property of ZEPYUR or its partners and may not be copied, redistributed, or republished without prior written consent.
-        </div>
-        <div className='block_title'>2. Submitting content</div>
-        <div className='block_desc'>
-          When you upload media through the «Share With Us» Feature, you agree that:
+          We may collect basic personal information when you:
           <ul>
-            <li> You own the rights to the content or have obtained permission to share it</li>
-            <li> The content may be used on the website or in ZEPYUR social media</li>
-            <li> We reserve the right to moderate, approve, or decline submissions</li>
+            <li>Fill out contact forms</li>
+            <li>Upload images to the “Share With Us” section</li>
+            <li>Subccribe to updates or register interest in a property</li>
           </ul>
         </div>
-        <div className='block_title'>3. Respectful Use</div>
         <div className='block_desc'>
-          All users are expected to:
+          This may include:
           <ul>
-            <li> Refrain from uploading offensive, misleading, or inappropriate content</li>
-            <li> Avoid submitting false or fraudulent information</li>
-            <li> Use the platform in good faith, with the community in mind</li>
+            <li>Your name and contact details (Phone/email)</li>
+            <li>Uploaded media (Photos or video)</li>
+            <li>Optional demographic information</li>
           </ul>
         </div>
-        <div className='block_title'>4. Service Modifications</div>
+
+        <div className='block_title'>2.How We Use Your Data</div>
         <div className='block_desc'>
-          We reserve the right to modify website features, update content, or discontinue services at any time, without notice.
-        </div>
-        <div className='block_title'>5. Legal Compliance</div>
-        <div className='block_desc'>
-          All users must comply with Armenian law when using this website. Any misuse of the platform may result in restricted access or legal action.
-        </div>
-        <div className='block_title'>6. Limitation of Liability</div>
-        <div className='block_desc'>
-          ZEPYUR is not liable for:
+          Your information is used solely for:
           <ul>
-            <li>User-generated content</li>
-            <li>Downtime or access interruptions </li>
-            <li> External links or third-party platforms</li>
+            <li>Responding to inquiries and providing support</li>
+            <li> Communicating updates about ZEPYUR</li>
+            <li> Featuring submitted images (with consent) on the website</li>
+            <li>Improving our community engagement</li>
           </ul>
+          We do not share or sell your information to third parties. Your data stays with us - safely stored, responsibly managed.
         </div>
-        <div className='block_title'>7.Contact</div>
+        <div className='block_title'>3.Data Protection</div>
         <div className='block_desc'>
-          For any legal or terms-related inquiries, contact our Compliance Office at: legal@zepyur.am
+          All data is stored securely, with restricted access and encryption where applicable. We use industry-standard protocols to safeguard against unauthorized access, alteration, or disclosure.
         </div>
+        <div className='block_title'>4. Your Rights</div>
+        <div className='block_desc'>
+          You may:
+          <ul>
+            <li>Request access to your personal data</li>
+            <li>Ask for corrections or deletion</li>
+            <li>Withdraw consent at any time</li>
+            <li>Opt-out of marketing communications</li>
+          </ul>
+          To exercise any of these rights, please contact our Data Compliance Officer at: privacy@zepyur.am
+        </div>
+        <div className='block_title'>5.Policy Updates</div>
+        <div className='block_desc'>
+          We may revise this policy from time to time. All updates will be posted on this page with an effective data. Continued use of our website implies acceptance of these terms.        </div>
       </div>
     </div>
   )

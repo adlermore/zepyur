@@ -36,8 +36,8 @@ function Footer() {
             <Link href='/about'>{t('footer.about.team')}</Link>
             <Link href='/about'>{t('footer.about.partners')}</Link>
             <Link href='/about'>{t('footer.about.faq')}</Link>
-            <Link href='/about'>{t('footer.about.privacy')}</Link>
-            <Link href='/about'>{t('footer.about.terms')}</Link>
+            <Link href='/policy'>{t('footer.about.privacy')}</Link>
+            <Link href='/terms'>{t('footer.about.terms')}</Link>
           </div>
 
           <div className='footer_line'>

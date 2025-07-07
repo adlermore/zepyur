@@ -13,6 +13,7 @@ import option3 from '@/public/images/option3.png'
 import option4 from '@/public/images/option4.png'
 import option5 from '@/public/images/option5.png'
 import Image from 'next/image'
+import Link from 'next/link'
 
 type PropType = {
   options?: EmblaOptionsType
@@ -35,10 +36,8 @@ const LayoutSlider: React.FC<PropType> = (props) => {
     { image: option1 },
     { image: option2 },
     { image: option3 },
-    { image: option2 },
     { image: option4 },
     { image: option5 },
-    { image: option2 },
   ]
 
   return (
@@ -47,7 +46,7 @@ const LayoutSlider: React.FC<PropType> = (props) => {
         <div className="embla__container">
           {sliders.map((item, index) => (
             <div className="embla__slide" key={index}>
-              <div className="slide_block">
+              <Link href={`/homes`} className="slide_block">
                 <Image
                   src={item.image}
                   alt={`Choose Home ${index + 1}`}
@@ -56,7 +55,7 @@ const LayoutSlider: React.FC<PropType> = (props) => {
                   fill
                   style={{ objectFit: 'cover' }}
                 />
-              </div>
+              </Link>
             </div>
           ))}
         </div>

@@ -10,6 +10,9 @@ import useEmblaCarousel from 'embla-carousel-react'
 import amenties1 from '@/public/images/amenties1.png'
 import amenties2 from '@/public/images/amenties2.png'
 import amenties3 from '@/public/images/amenties3.png'
+import amenties4 from '@/public/images/amenties4.png'
+import amenties5 from '@/public/images/amenties5.png'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
@@ -36,8 +39,8 @@ const AmentiesSlider: React.FC<PropType> = (props) => {
     { image: amenties1, title: t('amentiesTitle1'), desc: t('amentiesDesc1') },
     { image: amenties2, title: t('amentiesTitle2'), desc: t('amentiesDesc2') },
     { image: amenties3, title: t('amentiesTitle3'), desc: t('amentiesDesc3') },
-    { image: amenties3, title: t('amentiesTitle4'), desc: t('amentiesDesc4') },
-    { image: amenties1, title: t('amentiesTitle5'), desc: t('amentiesDesc5') },
+    { image: amenties4, title: t('amentiesTitle4'), desc: t('amentiesDesc4') },
+    { image: amenties5, title: t('amentiesTitle5'), desc: t('amentiesDesc5') },
   ];
 
   return (
