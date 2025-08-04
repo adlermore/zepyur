@@ -139,6 +139,9 @@ const AreaBook: React.FC<AreaBookProps> = ({ lands, selectedArea, onClose }) => 
   const z02Option = selectedAreaLandData?.types[0].apartment[1] || '';
   const chosenOption = selectedType === 'z01' ? z01Option : selectedType === 'z02' ? z02Option : null;
 
+  console.log('z01Option', z01Option);
+  console.log('z02Option', z02Option);
+
   const steps = [
     {
       key: "step1",
@@ -168,9 +171,9 @@ const AreaBook: React.FC<AreaBookProps> = ({ lands, selectedArea, onClose }) => 
                 </div>
                 <div className='type_desc'>
                   {t('book.area')} <br />
-                  <span>{option?.area || 350.3}</span>{t('book.sqm')} <br />
+                  <span>{selectedAreaLandData?.area || 350.3}</span>{t('book.sqm')} <br />
                   {t('book.liveArea')} <br />
-                  <span>{option?.liveArea || 92.6}</span>{t('book.sqm')} <br />
+                  <span>{ option?.area || 92.6}</span>{t('book.sqm')} <br />
                   <ul>
                     <li>{t('book.bedroom')} (x{option?.bedroom_count || 1})</li>
                     <li>{t('book.bathroom')} (x{option?.bathroom_count || 1})</li>
@@ -180,7 +183,7 @@ const AreaBook: React.FC<AreaBookProps> = ({ lands, selectedArea, onClose }) => 
                     <li>{t('book.beckarea')}</li>
                   </ul>
                   <div className='price'>
-                    <span>{option?.price ? option.price.toLocaleString() : 52918447} ֏</span>
+                    <span>{option?.price ? Number(option.price + selectedAreaLandData.price).toLocaleString() : '-'} ֏</span>
                   </div>
                 </div>
                 <button
@@ -218,7 +221,7 @@ const AreaBook: React.FC<AreaBookProps> = ({ lands, selectedArea, onClose }) => 
           <div className='property_line'>
             <div className='property_item areaSize'>
               <div>
-                {chosenOption?.area || '350.3'} | {chosenOption?.liveArea || '129.6'}
+                {selectedAreaLandData?.area || '350.3'} | {chosenOption?.area || '129.6'}
               </div>
               <span className='text-[#5B5D2C]'>{t('book.sqm')}</span>
             </div>
