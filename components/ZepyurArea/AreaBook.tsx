@@ -120,9 +120,6 @@ const AreaBook: React.FC<AreaBookProps> = ({ lands, selectedArea, onClose }) => 
     if (step > 0) goToStep(step - 1);
   };
 
-  // Debug
-  console.log("selectedAreaLandData", selectedAreaLandData);
-
   if (!selectedAreaLandData) {
     return (
       <div className='area_book'>
@@ -138,9 +135,6 @@ const AreaBook: React.FC<AreaBookProps> = ({ lands, selectedArea, onClose }) => 
   const z01Option = selectedAreaLandData?.types[0].apartment[0] || '';
   const z02Option = selectedAreaLandData?.types[0].apartment[1] || '';
   const chosenOption = selectedType === 'z01' ? z01Option : selectedType === 'z02' ? z02Option : null;
-
-  console.log('z01Option', z01Option);
-  console.log('z02Option', z02Option);
 
   const steps = [
     {
@@ -173,7 +167,7 @@ const AreaBook: React.FC<AreaBookProps> = ({ lands, selectedArea, onClose }) => 
                   {t('book.area')} <br />
                   <span>{selectedAreaLandData?.area || 350.3}</span>{t('book.sqm')} <br />
                   {t('book.liveArea')} <br />
-                  <span>{ option?.area || 92.6}</span>{t('book.sqm')} <br />
+                  <span>{option?.area || 92.6}</span>{t('book.sqm')} <br />
                   <ul>
                     <li>{t('book.bedroom')} (x{option?.bedroom_count || 1})</li>
                     <li>{t('book.bathroom')} (x{option?.bathroom_count || 1})</li>
@@ -205,6 +199,11 @@ const AreaBook: React.FC<AreaBookProps> = ({ lands, selectedArea, onClose }) => 
       key: "step2",
       content: (nextStep: () => void, prevStep: () => void, step: number) => (
         <div className='step_2 second_container'>
+          <div className='back_button_block'>
+            <button className='back_btn' onClick={prevStep}>
+              {t('book.back')}
+            </button>
+          </div>
           <div className='book_type second_line'>
             <div className='area_number'>{selectedArea}</div>
             <Image
@@ -245,6 +244,11 @@ const AreaBook: React.FC<AreaBookProps> = ({ lands, selectedArea, onClose }) => 
       key: "step3",
       content: (nextStep: () => void, prevStep: () => void, step: number) => (
         <div className='step_3'>
+          <div className='back_button_block'>
+            <button className='back_btn' onClick={prevStep}>
+              {t('book.back')}
+            </button>
+          </div>
           <div className='book_title'>{t('book.chose')}</div>
           <div className='book_type'>
             <div className='area_number'>{selectedArea}</div>

@@ -9,6 +9,15 @@ import galler3 from '@/public/images/gallery/gallery3.png'
 import galler4 from '@/public/images/gallery/gallery4.png'
 import galler5 from '@/public/images/gallery/gallery5.png'
 import galler6 from '@/public/images/gallery/gallery6.png'
+import galler7 from '@/public/images/gallery/gallery7.png'
+import galler8 from '@/public/images/gallery/gallery8.png'
+import galler9 from '@/public/images/gallery/gallery9.png'
+import galler10 from '@/public/images/gallery/gallery10.png'
+import galler11 from '@/public/images/gallery/gallery11.png'
+import galler12 from '@/public/images/gallery/gallery12.png'
+import galler13 from '@/public/images/gallery/gallery13.png'
+import galler14 from '@/public/images/gallery/gallery14.png'
+import galler15 from '@/public/images/gallery/gallery15.png'
 import { Fancybox } from '@fancyapps/ui'
 import '@fancyapps/ui/dist/fancybox/fancybox.css'
 import { useTranslations } from 'next-intl'
@@ -21,8 +30,10 @@ function Gallery() {
       Fancybox.destroy();
     };
   }, []);
-  const images: StaticImageData[] = [galler1, galler2, galler3];
-  const images2: StaticImageData[] = [galler4, galler5, galler6];
+  const images: StaticImageData[] = [
+    galler7 , galler8 , galler9, galler10 , galler11,galler13 , galler12, galler2, galler3
+  , galler4, galler5, galler6, galler1, galler14, galler15];
+  const images2: StaticImageData[] = [galler12, galler13];
 
   const t = useTranslations('gallery');
   
@@ -71,7 +82,7 @@ function Gallery() {
                 ))}
               </div>
             </div>
-            <div className='gallery_container'>
+            {/* <div className='gallery_container'>
               <div className='section_title'>{t('events')}</div>
               <div className='section_desc text-center'>
                 {t('desc3')}
@@ -94,8 +105,8 @@ function Gallery() {
                   </a>
                 ))}
               </div>
-            </div>
-            <div className='gallery_container'>
+            </div> */}
+            {/* <div className='gallery_container'>
               <div className='section_title'>{t('activities')}</div>
               <div className='section_desc text-center'>
                 {t('desc4')}
@@ -118,8 +129,8 @@ function Gallery() {
                   </a>
                 ))}
               </div>
-            </div>
-            <div className='gallery_container'>
+            </div> */}
+            {/* <div className='gallery_container'>
               <div className='section_title'>{t('media')}</div>
               <div className='section_desc text-center'>
                 {t('desc5')}
@@ -142,7 +153,7 @@ function Gallery() {
                   </a>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -9,6 +9,13 @@ import useEmblaCarousel from 'embla-carousel-react'
 
 import choseHome1 from '@/public/images/choseHome1.png'
 import choseHome2 from '@/public/images/choseHome2.png'
+import choseHome3 from '@/public/images/choseHome3.png'
+import choseHome4 from '@/public/images/choseHome4.png'
+
+
+
+
+
 import Image from 'next/image'
 
 type PropType = {
@@ -31,6 +38,8 @@ const ChooseSlider: React.FC<PropType> = (props) => {
   const sliders = [
     { image: choseHome1 },
     { image: choseHome2 },
+    { image: choseHome3 },
+    { image: choseHome4 },
   ]
 
   return (

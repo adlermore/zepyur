@@ -7,10 +7,21 @@ import Iconfilter from '@/public/icons/Iconfilter'
 import IconChecked from '@/public/icons/IconChecked'
 import '@/styles/homes.scss'
 import { Range } from 'react-range'
-import apartament1 from '@/public/images/apartament1.png'
 import IconClose from '@/public/icons/IconClose'
 import Link from 'next/link'
 import { parseSearchParams } from '@/utils/parseSearchParams'
+import apartament1 from '@/public/images/apartament1.png'
+import apartament2 from '@/public/images/apartament2.png'
+import apartament3 from '@/public/images/apartament3.png'
+import apartament4 from '@/public/images/apartament4.png'
+import apartament5 from '@/public/images/apartament5.png'
+import apartament6 from '@/public/images/apartament6.png'
+import apartament7 from '@/public/images/apartament7.png'
+import apartament8 from '@/public/images/apartament8.png'
+import apartament9 from '@/public/images/apartament9.png'
+import apartament10 from '@/public/images/apartament10.png'
+import apartament11 from '@/public/images/apartament11.png'
+import apartament12 from '@/public/images/apartament12.png'
 
 const API_URL = 'https://admin.zepyur.am/api/searchLands'
 
@@ -35,6 +46,7 @@ const RESIDENTIAL_AREAS = [
   { label: '150-200 m2', value: '4' },
   { label: '200+ m2', value: '5' },
 ]
+
 
 const PAYMENT_FORMS = [
   { label: 'cash', value: 'cash' },
@@ -88,6 +100,19 @@ async function fetchHomes(filters: any, page: number): Promise<{ lands: LandItem
   return { lands: data.lands ?? [], total: data.total ?? 0 }
 }
 
+// Create an array of images
+const APARTAMENT_IMAGES = [
+  apartament1, apartament2, apartament3, apartament4,
+  apartament5, apartament6, apartament7, apartament8,
+  apartament9, apartament10, apartament11, apartament12
+]
+
+// Helper to get a random image
+function getRandomApartamentImg() {
+  const idx = Math.floor(Math.random() * APARTAMENT_IMAGES.length)
+  return APARTAMENT_IMAGES[idx]
+}
+
 
 function Homes() {
   const [activeFilter, setActiveFilter] = useState<boolean>(false)
@@ -113,6 +138,8 @@ function Homes() {
   const [error, setError] = useState<string | null>(null)
     const searchParams = useSearchParams();
 
+const [homeImages, setHomeImages] = useState<{ [id: number]: any }>({});
+
 
   // Fetch homes on filters/page change
   useEffect(() => {
@@ -126,6 +153,17 @@ function Homes() {
           setTotal(total)
           setHasMore((page - 1) * PAGE_SIZE + lands.length < total)
           setLoading(false)
+
+              setHomeImages(prevImages => {
+          const newImages = { ...prevImages };
+          lands.forEach(home => {
+            // Only assign if not already set
+            if (!newImages[home.id]) {
+              newImages[home.id] = getRandomApartamentImg();
+            }
+          });
+          return newImages;
+        });
         }
       })
       .catch(() => {
@@ -395,7 +433,7 @@ function Homes() {
                         <div className='home_image_container'>
                           <div className='home_image'>
                             <Image
-                              src={apartament1}
+                              src={homeImages[home.id] || apartament1}
                               alt={`Home ${home.id}`}
                               fill
                               style={{ objectFit: 'cover' }}

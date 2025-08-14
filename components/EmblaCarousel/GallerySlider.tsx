@@ -11,6 +11,10 @@ import gallery1 from '@/public/images/gallery1.png'
 import gallery2 from '@/public/images/gallery2.png'
 import gallery3 from '@/public/images/gallery3.png'
 import gallery4 from '@/public/images/gallery4.png'
+import gallery5 from '@/public/images/gallery5.png'
+import gallery6 from '@/public/images/gallery6.png'
+import gallery7 from '@/public/images/gallery7.png'
+import gallery8 from '@/public/images/gallery8.png'
 
 import Image from 'next/image'
 
@@ -32,12 +36,14 @@ const GallerySlider: React.FC<PropType> = (props) => {
   } = usePrevNextButtons(emblaApi)
 
   const sliders = [
+    { image: gallery7 },
+    { image: gallery8 },
+    { image: gallery5 },
+    { image: gallery6 },
     { image: gallery1 },
     { image: gallery2 },
     { image: gallery3 },
     { image: gallery4 },
-    { image: gallery4 },
-    { image: gallery2 },
   ]
 
   return (
