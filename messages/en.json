@@ -67,15 +67,27 @@
     "blockdesc5": "Our apartments come in three sizes: small (1 bedroom), medium (2 bedrooms), and large (3 bedrooms). ",
     "blockdesc6": "Designed with a kitchen, living room, and up to two bathrooms, offering a stylish, compact living solution in a vibrant community."
   },
-  "communitySlider": {
-    "foodCourtTitle": "FOOD COURT",
-    "foodCourtDesc": "A blend of local and international cuisines served in a contemporary setting, ideal for any meal.",
-    "wellnessComplexTitle": "WELLNESS COMPLEX",
-    "wellnessComplexDesc": "State-of-the-art gym, pool, and steam room designed for ultimate fitness and deep relaxation.",
-    "supermarketTitle": "SUPERMARKET",
-    "supermarketDesc": "Stocked with fresh produce and daily essentials, meeting all your grocery shopping needs efficiently.",
-    "sportsArenaTitle": "SPORTS ARENA",
-    "sportsArenaDesc": "Courts for football, basketball, volleyball, and tennis, perfect for maintaining an active lifestyle."
+   "communitySlider": {
+    "01Title": "SUPERMARKET",
+    "01Desc": "Conveniently located, our Marketplace provides fresh produce, daily essentials, and household goods. Designed for comfort and ease, it ensures your shopping experience is efficient and enjoyable, right at your doorstep.",
+
+    "02Title": "FOOD COURT",
+    "02Desc": "Enjoy diverse dining experiences at our Dining Plaza. Featuring local favorites and international cuisines, it’s the ideal gathering spot for casual meals, special occasions, or quick bites in a modern, inviting atmosphere.",
+
+    "03Title": "ZEPYUR COMPLEX",
+    "03Desc": "Our Wellness Complex promotes a healthy lifestyle with exceptional facilities, including an indoor swimming pool, state-of-the-art gym, and relaxing steam room. It’s your personal sanctuary for fitness and relaxation, year-round.",
+
+    "04Title": "SPORTS ARENA",
+    "04Desc": "Designed for active residents, the Sports Arena offers outdoor courts for football, basketball, volleyball, and tennis. Whether you’re a casual player or a sports enthusiast, you’ll enjoy maintaining your active lifestyle here.",
+
+    "05Title": "COMMUNITY LOUNGE",
+    "05Desc": "Meet neighbors, relax with friends, or simply enjoy quiet time at our Community Lounge. Offering a warm atmosphere and a great selection of beverages and snacks, it’s an inviting place to unwind.",
+
+    "06Title": "KIDSNEST (Child Daycare)",
+    "06Desc": "At KidsNest, your children aged 3-9 are in caring hands. Drop them off with their lunchboxes, and our dedicated staff will engage them in fun, creative, and educational activities until you return. KidsNest ensures your peace of mind and their joyful experience.",
+
+    "07Title": "GAME HUB",
+    "07Desc": "Dive into immersive gaming at our Game Hub, a modern video arcade featuring the latest PlayStation games. Ideal for individual play or friendly competitions, it’s a vibrant spot for entertainment."
   },
   "footer": {
     "about": {
@@ -185,7 +197,8 @@
     "blocktitle1": "Zepyur Commercial Complex",
     "blockDesc1": "Residents of ZEPYUR will enjoy access to thoughtfully curated amenities designed to enhance lifestyle and provide convenience. The project has a Marketplace, Dining plaza, Events hall, Wellness complex, Sports arena, Community cafe, Cine lounge, Game hub.",
     "blocktitle2": "Zepyur Commercial Units",
-    "blockDesc2": "Full-service supermarket stocked with fresh produce and daily essentials. Diverse food court offering a mix of local and international flavors. Outdoor sports facilities include a universal court for football, basketball, volleyball, and tennis, encouraging active and social lifestyles and others."
+    "blockDesc2": "Full-service supermarket stocked with fresh produce and daily essentials. Diverse food court offering a mix of local and international flavors. Outdoor sports facilities include a universal court for football, basketball, volleyball, and tennis, encouraging active and social lifestyles and others.",
+    "longDesc": "At «ZEPYUR» Residential Area, every amenity has been thoughtfully planned to enhance your living experience. Our comprehensive facilities ensure residents can enjoy convenience, recreation, wellness, and leisure — all within their own community."
   },
   "gallery": {
     "title": "Gallery",

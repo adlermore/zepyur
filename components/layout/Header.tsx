@@ -24,7 +24,6 @@ function Header() {
     router.replace(newPath);
   };
 
-
   useEffect(() => {
     if (document.body.classList.contains('menu_opened')) {
       setOpen(false)

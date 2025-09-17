@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { EmblaOptionsType } from 'embla-carousel'
 import {
   PrevButton,
@@ -12,11 +12,8 @@ import choseHome2 from '@/public/images/choseHome2.png'
 import choseHome3 from '@/public/images/choseHome3.png'
 import choseHome4 from '@/public/images/choseHome4.png'
 
-
-
-
-
 import Image from 'next/image'
+import { Fancybox } from '@fancyapps/ui'
 
 type PropType = {
   options?: EmblaOptionsType
@@ -42,6 +39,15 @@ const ChooseSlider: React.FC<PropType> = (props) => {
     { image: choseHome4 },
   ]
 
+  useEffect(() => {
+    Fancybox.bind('[data-fancybox="gallery"]', {});
+
+    return () => {
+      Fancybox.destroy();
+    };
+  }, []);
+
+
   return (
     <section className="embla chose_slider">
       <div className="embla__viewport" ref={emblaRef}>
@@ -49,6 +55,10 @@ const ChooseSlider: React.FC<PropType> = (props) => {
           {sliders.map((item, index) => (
             <div className="embla__slide" key={index}>
               <div className="slide_block">
+                <a
+                    href={item.image.src}
+                    data-fancybox="gallery"
+                  >
                 <Image
                   src={item.image}
                   alt={`Choose Home ${index + 1}`}
@@ -57,6 +67,7 @@ const ChooseSlider: React.FC<PropType> = (props) => {
                   fill
                   style={{ objectFit: 'cover' }}
                 />
+                </a>
               </div>
             </div>
           ))}

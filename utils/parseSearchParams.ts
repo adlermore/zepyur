@@ -6,13 +6,13 @@ export function parseSearchParams(searchParams: URLSearchParams): {
   paymentForm: string[],
 } {
   function parsePriceRange(val: string | null): [number, number] {
-    if (!val) return [0, 1000000];
+    if (!val) return [0, 80750000];
     if (val.endsWith('+')) {
       const from = Number(val.replace(/[^0-9]/g, '')) * 1000;
-      return [from, 1000000];
+      return [from, 80750000];
     }
     if (val.includes('-')) {
-      const [min, max] = val.split('-').map(v => Number(v.replace(/[^0-9]/g, '')) * 1000);
+      const [min, max] = val.split('-').map(v => Number(v.replace(/[^0-9]/g, '')) * 100000);
       return [min, max];
     }
     const num = Number(val.replace(/[^0-9]/g, '')) * 1000;

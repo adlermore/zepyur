@@ -11,6 +11,7 @@ import IconCar from '@/public/icons/IconCar'
 import successImg from '@/public/images/successImg.png';
 import Link from 'next/link'
 import { useTranslations } from 'next-intl';
+import { Fancybox } from '@fancyapps/ui'
 
 interface AreaBookProps {
   lands: any[];
@@ -46,13 +47,17 @@ const AreaBook: React.FC<AreaBookProps> = ({ lands, selectedArea, onClose }) => 
   }, [lands, selectedArea]);
 
   useEffect(() => {
-    const handleOutsideClick = (event: MouseEvent) => {
+   const handleOutsideClick = (event: MouseEvent) => {
+    // If Fancybox is active → don't close parent popup
+    if (Fancybox.getInstance()) {
+      return;
+    }
 
-      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
-        setStep(0);
-        onClose();
-      }
-    };
+    if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+      setStep(0);
+      onClose();
+    }
+  };
 
     if (selectedArea) {
       document.addEventListener('mousedown', handleOutsideClick);
@@ -215,7 +220,7 @@ const AreaBook: React.FC<AreaBookProps> = ({ lands, selectedArea, onClose }) => 
             />
           </div>
           <div className='area_slider'>
-            <SimpleAreaSlider />
+            <SimpleAreaSlider selectedType={selectedType ?? ''} />
           </div>
           <div className='property_line'>
             <div className='property_item areaSize'>
@@ -262,7 +267,7 @@ const AreaBook: React.FC<AreaBookProps> = ({ lands, selectedArea, onClose }) => 
               </div>
               <span className='text-[#5B5D2C]'>{t('book.sqm')}</span>
               <div className='price'>
-                {chosenOption?.price ? chosenOption.price.toLocaleString() : '58,743,689'} <span>֏</span>
+                {chosenOption?.price ? (chosenOption?.price + selectedAreaLandData.price).toLocaleString() : '58,743,689'} <span>֏</span>
               </div>
             </div>
           </div>
