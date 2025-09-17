@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { EmblaOptionsType } from 'embla-carousel'
 import {
   PrevButton,
@@ -7,21 +7,44 @@ import {
 } from './EmblaCarouselArrowButtons'
 import useEmblaCarousel from 'embla-carousel-react'
 
-import option1 from '@/public/images/aboutBanner.png'
-import option2 from '@/public/images/amenitiesBanner.png'
-import option3 from '@/public/images/contactsBanner.png'
-import option4 from '@/public/images/homesBaner.png'
-
 import Image from 'next/image'
+import { Fancybox } from '@fancyapps/ui'
+
+// --- Import Z01 Images ---
+import z01image1 from '@/public/images/Z01/Z01-01.png'
+import z01image2 from '@/public/images/Z01/Z01-02.png'
+import z01image3 from '@/public/images/Z01/Z01-03.png'
+import z01image4 from '@/public/images/Z01/Z01-04.png'
+import z01image5 from '@/public/images/Z01/Z01-05.png'
+import z01image6 from '@/public/images/Z01/Z01-06.png'
+import z01image7 from '@/public/images/Z01/Z01-07.png'
+import z01image8 from '@/public/images/Z01/Z01-08.png'
+import z01image9 from '@/public/images/Z01/Z01-09.png'
+import z01image10 from '@/public/images/Z01/Z01-10.png'
+import z01image11 from '@/public/images/Z01/Z01-11.png'
+import z01image12 from '@/public/images/Z01/Z01-12.png'
+
+// --- Import Z02 Images ---
+import z02image1 from '@/public/images/Z02/Z02-01.png'
+import z02image2 from '@/public/images/Z02/Z02-02.png'
+import z02image3 from '@/public/images/Z02/Z02-03.png'
+import z02image4 from '@/public/images/Z02/Z02-04.png'
+import z02image5 from '@/public/images/Z02/Z02-05.png'
+import z02image6 from '@/public/images/Z02/Z02-06.png'
+import z02image7 from '@/public/images/Z02/Z02-07.png'
+import z02image8 from '@/public/images/Z02/Z02-08.png'
+import z02image9 from '@/public/images/Z02/Z02-09.png'
+import z02image10 from '@/public/images/Z02/Z02-10.png'
+import z02image11 from '@/public/images/Z02/Z02-11.png'
+import z02image12 from '@/public/images/Z02/Z02-12.png'
 
 type PropType = {
   options?: EmblaOptionsType
+  selectedType?: 'z01' | 'z02' | string
 }
 
-const SingleProductSlider: React.FC<PropType> = (props) => {
-
+const SingleProductSlider: React.FC<PropType> = ({ selectedType = 'z01' }) => {
   const options: EmblaOptionsType = { align: 'start' }
-
   const [emblaRef, emblaApi] = useEmblaCarousel(options)
 
   const {
@@ -31,12 +54,28 @@ const SingleProductSlider: React.FC<PropType> = (props) => {
     onNextButtonClick
   } = usePrevNextButtons(emblaApi)
 
-  const sliders = [
-    { image: option1 },
-    { image: option2 },
-    { image: option3 },
-    { image: option4 }
+  // Prepare images
+  const z01Images = [
+    z01image1, z01image2, z01image3, z01image4, z01image5, z01image6,
+    z01image7, z01image8, z01image9, z01image10, z01image11, z01image12
   ]
+  const z02Images = [
+    z02image1, z02image2, z02image3, z02image4, z02image5, z02image6,
+    z02image7, z02image8, z02image9, z02image10, z02image11, z02image12
+  ]
+
+  const sliders = selectedType === 'z01' ? z01Images.map((image) => ({ image })) :
+    selectedType === 'z02'
+      ? z02Images.map((image) => ({ image }))
+      : [...z01Images, ...z02Images].map((image) => ({ image }))
+
+  // Fancybox bind
+  useEffect(() => {
+    Fancybox.bind('[data-fancybox="gallery"]', {})
+    return () => {
+      Fancybox.destroy()
+    }
+  }, [])
 
   return (
     <section className="embla single_product_slider">
@@ -45,14 +84,19 @@ const SingleProductSlider: React.FC<PropType> = (props) => {
           {sliders.map((item, index) => (
             <div className="embla__slide" key={index}>
               <div className="slide_block">
-                <Image
-                  src={item.image}
-                  alt={`Choose Home ${index + 1}`}
-                  className="w-full h-auto"
-                  unoptimized
-                  fill
-                  style={{ objectFit: 'cover' }}
-                />
+                <a
+                  href={item.image.src}
+                  data-fancybox="gallery"
+                >
+                  <Image
+                    src={item.image}
+                    alt={`Choose Home ${index + 1}`}
+                    className="w-full h-auto"
+                    unoptimized
+                    fill
+                    style={{ objectFit: 'cover' }}
+                  />
+                </a>
               </div>
             </div>
           ))}

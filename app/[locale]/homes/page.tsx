@@ -22,11 +22,11 @@ import apartament9 from '@/public/images/apartament9.png'
 import apartament10 from '@/public/images/apartament10.png'
 import apartament11 from '@/public/images/apartament11.png'
 import apartament12 from '@/public/images/apartament12.png'
+import { useDebounce } from 'use-debounce';
 
 const API_URL = 'https://admin.zepyur.am/api/searchLands'
 
 const ROOMS = [
-  { label: '1 room', value: '1' },
   { label: '2 room', value: '2' },
   { label: '3 room', value: '3' },
 ]
@@ -53,8 +53,8 @@ const PAYMENT_FORMS = [
   { label: 'mortgage', value: 'mortgage' },
 ]
 
-const MIN_PRICE = 0
-const MAX_PRICE = 1000000
+const MIN_PRICE = 1000000
+const MAX_PRICE = 90000000
 const STEP = 10000
 const PAGE_SIZE = 9
 
@@ -79,26 +79,52 @@ type LandItem = {
 }
 
 async function fetchHomes(filters: any, page: number): Promise<{ lands: LandItem[], total: number }> {
-  // Build query string
-  const params = new URLSearchParams()
-  if (filters.rooms.length) filters.rooms.forEach((v: string) => params.append('rooms[]', v))
-  if (filters.landArea.length) filters.landArea.forEach((v: string) => params.append('land_area[]', v))
-  if (filters.residentialArea.length) filters.residentialArea.forEach((v: string) => params.append('residential_area[]', v))
-  // type is omitted as your UI does not support it yet
-  if (filters.priceRange[0] > MIN_PRICE) params.append('price_from', filters.priceRange[0].toString())
-  if (filters.priceRange[1] < MAX_PRICE) params.append('price_to', filters.priceRange[1].toString())
-  params.append('offset', ((page - 1) * PAGE_SIZE).toString())
-  params.append('limit', PAGE_SIZE.toString())
-  // Payment form is not in API, so it's ignored
+  const params = new URLSearchParams();
 
-  const url = `${API_URL}?${params.toString()}`
-  const res = await fetch(url)
-  if (!res.ok) {
-    throw new Error('Failed to fetch')
+  // Rooms (array of integers)
+  if (filters.rooms?.length) {
+    filters.rooms.forEach((v: number | string) => params.append("rooms[]", String(v)));
   }
-  const data = await res.json()
-  return { lands: data.lands ?? [], total: data.total ?? 0 }
+
+  // Apartment type (integer)
+  if (filters.type) {
+    params.append("type", String(filters.type));
+  }
+
+  // Land area (array of integers)
+  if (filters.landArea?.length) {
+    filters.landArea.forEach((v: number | string) => params.append("land_area[]", String(v)));
+  }
+
+  // Residential area (array of integers)
+  if (filters.residentialArea?.length) {
+    filters.residentialArea.forEach((v: number | string) => params.append("residential_area[]", String(v)));
+  }
+
+  // Price range
+  if (filters.priceRange?.[0] > MIN_PRICE) {
+    params.append("price_from", String(filters.priceRange[0]));
+  }
+  if (filters.priceRange?.[1] < MAX_PRICE) {
+    params.append("price_to", String(filters.priceRange[1]));
+  }
+
+  // Pagination
+  params.append("offset", String((page - 1) * PAGE_SIZE));
+  params.append("limit", String(PAGE_SIZE));
+
+  // Final URL
+  const url = `${API_URL}?${params.toString()}`;
+  const res = await fetch(url, { method: "GET" });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch");
+  }
+
+  const data = await res.json();
+  return { lands: data.lands ?? [], total: data.total ?? 0 };
 }
+
 
 // Create an array of images
 const APARTAMENT_IMAGES = [
@@ -115,7 +141,7 @@ function getRandomApartamentImg() {
 
 
 function Homes() {
-  const [activeFilter, setActiveFilter] = useState<boolean>(false)
+
   const [selected, setSelected] = useState<{
     priceRange: [number, number]
     rooms: string[]
@@ -131,39 +157,50 @@ function Homes() {
   })
 
   const [page, setPage] = useState(1)
+  const [debouncedSelected] = useDebounce(selected, 500);
+  const [debouncedPage] = useDebounce(page, 500);
+
+  const router = useRouter()
+
+  const [activeFilter, setActiveFilter] = useState<boolean>(false)
   const [homes, setHomes] = useState<LandItem[]>([])
   const [total, setTotal] = useState(0)
   const [loading, setLoading] = useState(false)
   const [hasMore, setHasMore] = useState(true)
   const [error, setError] = useState<string | null>(null)
-    const searchParams = useSearchParams();
+  const searchParams = useSearchParams();
 
-const [homeImages, setHomeImages] = useState<{ [id: number]: any }>({});
+  const [homeImages, setHomeImages] = useState<{ [id: number]: any }>({});
 
+  const handleHomeClick = (home: LandItem) => {
+    // Save full home data to localStorage
+    localStorage.setItem("selectedHome", JSON.stringify(home))
 
-  // Fetch homes on filters/page change
+    // Navigate to details page
+    router.push(`/home/${home.id}`)
+  }
   useEffect(() => {
     let isCancelled = false
     setLoading(true)
     setError(null)
-    fetchHomes(selected, page)
+
+    fetchHomes(debouncedSelected, debouncedPage)
       .then(({ lands, total }) => {
         if (!isCancelled) {
-          setHomes(prev => (page === 1 ? lands : [...prev, ...lands]))
+          setHomes(prev => (debouncedPage === 1 ? lands : [...prev, ...lands]))
           setTotal(total)
-          setHasMore((page - 1) * PAGE_SIZE + lands.length < total)
+          setHasMore((debouncedPage - 1) * PAGE_SIZE + lands.length < total)
           setLoading(false)
 
-              setHomeImages(prevImages => {
-          const newImages = { ...prevImages };
-          lands.forEach(home => {
-            // Only assign if not already set
-            if (!newImages[home.id]) {
-              newImages[home.id] = getRandomApartamentImg();
-            }
+          setHomeImages(prevImages => {
+            const newImages = { ...prevImages };
+            lands.forEach(home => {
+              if (!newImages[home.id]) {
+                newImages[home.id] = getRandomApartamentImg();
+              }
+            });
+            return newImages;
           });
-          return newImages;
-        });
         }
       })
       .catch(() => {
@@ -173,17 +210,19 @@ const [homeImages, setHomeImages] = useState<{ [id: number]: any }>({});
         }
       })
     return () => { isCancelled = true }
-  }, [selected, page])
+  }, [debouncedSelected, debouncedPage])
 
   useEffect(() => {
     if (!searchParams) return;
     const parsed = parseSearchParams(searchParams);
+    console.log('parsed', parsed);
+    
     setSelected(prev => ({
       ...prev,
       ...parsed,
     }));
     setPage(1);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
 
   // Handlers
@@ -234,6 +273,9 @@ const [homeImages, setHomeImages] = useState<{ [id: number]: any }>({});
     setActiveFilter(false)
   }
 
+  console.log('selected', selected);
+  
+
   return (
     <div className='homes_page'>
       <div className='banner_img'>
@@ -268,7 +310,7 @@ const [homeImages, setHomeImages] = useState<{ [id: number]: any }>({});
                 <div className="price_slider">
                   <div className="price_inputs">
                     <label>
-                      Up to ${' '}
+                      From ֏{' '}
                       <input
                         type="number"
                         min={MIN_PRICE}
@@ -278,7 +320,7 @@ const [homeImages, setHomeImages] = useState<{ [id: number]: any }>({});
                       />
                     </label>
                     <label>
-                      From ${' '}
+                      Up to ֏{' '}
                       <input
                         type="number"
                         min={selected.priceRange[0]}
@@ -287,18 +329,27 @@ const [homeImages, setHomeImages] = useState<{ [id: number]: any }>({});
                         onChange={(e) => onPriceRangeChange(e, 1)}
                       />
                     </label>
+
                   </div>
                   <Range
                     step={STEP}
                     min={MIN_PRICE}
                     max={MAX_PRICE}
                     values={selected.priceRange}
-                    onChange={(values) =>
+                    onChange={(values) => {
+                      // live update UI (but no API call yet)
                       setSelected((prev) => ({
                         ...prev,
                         priceRange: values as [number, number],
-                      }))
-                    }
+                      }));
+                    }}
+                    onFinalChange={(values) => {
+                      // trigger API fetch only once after drag ends
+                      setSelected((prev) => ({
+                        ...prev,
+                        priceRange: values as [number, number],
+                      }));
+                    }}
                     renderTrack={({ props, children }) => (
                       <div
                         {...props}
@@ -390,24 +441,6 @@ const [homeImages, setHomeImages] = useState<{ [id: number]: any }>({});
                   </label>
                 ))}
               </div>
-              <div className="filter_section">
-                <span className="filter_label">Payment Form</span>
-                {PAYMENT_FORMS.map(opt => (
-                  <label key={opt.value} className='checkbox_label'>
-                    <input
-                      type="checkbox"
-                      checked={selected.paymentForm.includes(opt.value)}
-                      onChange={() => onCheckboxChange('paymentForm', opt.value)}
-                    />
-                    <span className="square_block">
-                      <span className='square_check'><IconChecked /></span>
-                    </span>
-                    <span className='checkbox_label_text'>
-                      {opt.label}
-                    </span>
-                  </label>
-                ))}
-              </div>
               <div className="filter_buttons">
                 <button type="button" className="reset_btn" onClick={resetFilters}>
                   <Iconfilter />
@@ -429,7 +462,8 @@ const [homeImages, setHomeImages] = useState<{ [id: number]: any }>({});
                     <div>No homes found</div>
                   ) : (
                     homes.map((home, i) => (
-                      <Link href={`/home/${home.id}`} className="home_card" key={`home_card_${home.id}_${i}`}>
+                      <div onClick={() => handleHomeClick(home)} role="button"
+                        tabIndex={0} className="home_card" key={`home_card_${home.id}_${i}`}>
                         <div className='home_image_container'>
                           <div className='home_image'>
                             <Image
@@ -445,15 +479,11 @@ const [homeImages, setHomeImages] = useState<{ [id: number]: any }>({});
                             <div className='cart_title'>Price</div>
                             <div className='cart_price'>
                               <div className="home_price">
-                                {home.total_price.toFixed(2)}  AMD
+                                {home.total_price.toLocaleString()}  ֏
                               </div>
                               <div className='old_price'>
-                                {home.total_price + 15000}  AMD
+                                {(home.total_price + 15000).toLocaleString()}  ֏
                               </div>
-                            </div>
-                            <div className='mortage_line'>
-                              <div className='title'>Mortgage</div>
-                              <div className='desc'>since 300 000 AMD / month</div>
                             </div>
                             <div className='home_type'>
                               <span className='type_name'>{home.apartment?.type?.name || 'Apartment'}</span>
@@ -464,7 +494,7 @@ const [homeImages, setHomeImages] = useState<{ [id: number]: any }>({});
                             </div>
                           </div>
                         </div>
-                      </Link>
+                      </div>
                     ))
                   )}
                 </div>

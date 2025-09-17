@@ -153,20 +153,24 @@
     margin-top: 10px;
     gap: 10px;
     white-space: nowrap;
+    position: relative;
   }
 
   .home_price {
     font-size: 16px;
     font-weight: 600;
-    color: black;
+    color: #52542c;
   }
 
   .old_price {
-    font-size: 14px;
+   font-size: 12px;
     font-weight: 400;
-    color: #999999;
+    color: #bba082;
     padding-top: 2px;
     text-decoration: line-through;
+    position: absolute;
+    right: -2px;
+    top: -33px;
   }
 
   .home_type {

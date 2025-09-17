@@ -19,7 +19,6 @@ import galler13 from '@/public/images/gallery/gallery13.png'
 import galler14 from '@/public/images/gallery/gallery14.png'
 import galler15 from '@/public/images/gallery/gallery15.png'
 import { Fancybox } from '@fancyapps/ui'
-import '@fancyapps/ui/dist/fancybox/fancybox.css'
 import { useTranslations } from 'next-intl'
 
 function Gallery() {

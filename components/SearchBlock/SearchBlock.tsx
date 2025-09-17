@@ -11,7 +11,7 @@ const DROPDOWNS = [
   },
   {
     label: 'Rooms',
-    options: ['1', '2', '3', '4+'],
+    options: ['2', '3', '4+'],
     key: 'rooms',
   },
   {

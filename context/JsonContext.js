@@ -8,6 +8,7 @@ const JsonContextProvider = ({ children }) => {
   const [silverMode, setSilverMode] = useState(false);
   const [currency, setCurrency ] = useState('amd');
   const [activeLg, setActiveLg] = useState("en-Us"); 
+  const [lands, setLands] = useState([]);
 
   useEffect(() => {
     
@@ -27,7 +28,8 @@ const JsonContextProvider = ({ children }) => {
       value={{
         silverMode, setSilverMode,
         currency, setCurrency,
-        activeLg , setActiveLg
+        activeLg , setActiveLg,
+        lands, setLands
       }}
     >
       {children}

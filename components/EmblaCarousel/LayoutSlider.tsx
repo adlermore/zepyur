@@ -35,9 +35,9 @@ const LayoutSlider: React.FC<PropType> = (props) => {
   const sliders = [
     { image: option1 },
     { image: option2 },
-    { image: option3 },
-    { image: option4 },
-    { image: option5 },
+    // { image: option3 },
+    // { image: option4 },
+    // { image: option5 },
   ]
 
   return (
@@ -53,7 +53,7 @@ const LayoutSlider: React.FC<PropType> = (props) => {
                   className="w-full h-auto"
                   unoptimized
                   fill
-                  style={{ objectFit: 'cover' }}
+                  style={{ objectFit: 'contain' }}
                 />
               </Link>
             </div>

@@ -7,6 +7,7 @@ import Footer from '@/components/layout/Footer';
 import { JsonContextProvider } from "@/context/JsonContext";
 import "@/styles/globals.scss";
 import { Poppins, Montserrat } from 'next/font/google';
+import '@fancyapps/ui/dist/fancybox/fancybox.css'
 
 const poppins = Poppins({
   subsets: ['latin'], 

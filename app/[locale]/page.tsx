@@ -12,22 +12,26 @@ import ChooseSlider from '@/components/EmblaCarousel/ChooseSlider';
 import LayoutSlider from '@/components/EmblaCarousel/LayoutSlider';
 import AmentiesSlider from '@/components/EmblaCarousel/AmentiesSlider';
 import ZepyurSvg from '@/components/ZepyurArea/ZepyurSvg';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import AreaBook from '@/components/ZepyurArea/AreaBook';
 import GallerySlider from '@/components/EmblaCarousel/GallerySlider';
 import PartnersSlider from '@/components/EmblaCarousel/PartnersSlider';
 import PageLoader from '@/components/PageLoader/PageLoader';
 import SearchBlock from '@/components/SearchBlock/SearchBlock';
 import HomeMobileSlider from '@/components/EmblaCarousel/HomeMobileSlider';
+import { JsonContext } from '@/context/JsonContext';
 
 export default function HomePage() {
   const t = useTranslations();
 
   const [selectedArea, setSelectedArea] = useState<string | null>(null);
-  const [lands, setLands] = useState<any[]>([]);
+  const {lands, setLands} = useContext(JsonContext);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
+    if (lands.length > 0) {
+      return;
+    }
     async function fetchLands() {
       setIsLoading(true);
       try {
@@ -150,7 +154,7 @@ export default function HomePage() {
           {t('home.communityAmenities')}
         </div>
         <ComunitySlider />
-        <Link href="/community" className='more_btn disabled'>{t('home.showMore')}</Link>
+        <Link href="/amenities" className='more_btn'>{t('home.showMore')}</Link>
       </div>
       <div className='choose_section'>
         <div className='section_title'>
