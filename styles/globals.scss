@@ -198,6 +198,115 @@ ul {
   overflow: hidden;
 }
 
+
+.team_slider {
+
+  //   .embla__controls{
+  //   z-index: 0 !important;
+  //   position: relative;
+  // }
+  .embla__container {
+    z-index: 99 !important;
+    position: relative;
+  }
+
+  .slide_block {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    perspective: 1000px; // 3D effect
+
+    .slide_inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.7s ease;
+      transform-style: preserve-3d;
+    }
+
+    &:hover .slide_inner {
+      transform: rotateY(180deg);
+    }
+
+    .slide_front,
+    .slide_back {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 16px; // soft rounded corners
+      overflow: hidden;
+    }
+
+
+    /* FRONT SIDE */
+    .slide_front {
+      .slide_info {
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .slide_position {
+          font-size: 16px;
+          flex: 1;
+        }
+
+        .slide_desc {
+          font-size: 12px;
+          color: #8B94A8;
+        }
+
+        .slide_name {
+          font-size: 12px;
+          font-weight: 600;
+          color: #000;
+          margin-top: 4px;
+        }
+      }
+    }
+
+    /* BACK SIDE */
+    .slide_back {
+      background: #3E4018;
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+
+      .slide_name {
+        color: #989F42;
+        font-size: 20px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 0px;
+        margin-top: 10px;
+
+      }
+
+      .slide_position {
+        color: #fff;
+        font-size: 12px;
+        margin-top: 10px;
+
+        margin-bottom: 8px;
+      }
+
+      .slide_desc {
+        color: #fff;
+        font-size: 11px;
+        line-height: 1.5;
+      }
+    }
+  }
+}
+
+
+
 .more_btn {
   display: flex;
   align-items: center;
@@ -1258,7 +1367,7 @@ hr {
   }
 }
 
-.scale13{
+.scale13 {
   transform: scale(2);
 }
 

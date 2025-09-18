@@ -145,25 +145,63 @@
     "devTeam": "Development Team",
     "partners": "Partners & Affiliates"
   },
-  "teamSlider": {
-    "team1Name": "Hayk S.",
-    "team1Position": "Chief Executive Officer",
-    "team1Desc": "Overall leadership and strategic direction.",
-    "team2Name": "Margarita A.",
-    "team2Position": "Chief Technology Officer",
-    "team2Desc": "Management of daily operations and logistics.",
-    "team3Name": "Armen T.",
-    "team3Position": "Chief Financial Officer",
-    "team3Desc": "Financial planning and risk management.",
-    "team4Name": "Anna K.",
-    "team4Position": "Chief Marketing Officer",
-    "team4Desc": "Marketing strategy and brand management.",
-    "team5Name": "Vardan P.",
-    "team5Position": "Chief Operations Officer",
-    "team5Desc": "Overseeing daily operations and logistics.",
-    "team6Name": "Lilit G.",
-    "team6Position": "Chief Technology Officer",
-    "team6Desc": "Technology strategy and innovation."
+"teamSlider": {
+    "team1": {
+      "name": { "before": "Hayk Safaryan", "after": "HAYK SAFARYAN" },
+      "position": { "before": "Co-Founder & CEO", "after": "Co-Founder & CEO" },
+      "desc": {
+        "before": "Leadership & Strategic Direction",
+        "after": "Entrepreneur, specializing in business strategy and the development of organizational efficiency. Co-founder of the «Rock Four» retail chain."
+      }
+    },
+    "team2": {
+      "name": { "before": "Mushegh Avetisyan", "after": "MUSHEGH AVETISYAN" },
+      "position": { "before": "Co-Founder & COO", "after": "Management of daily operations" },
+      "desc": {
+        "before": "Management of daily operations",
+        "after": "Civil Engineer and Project Management Specialist. Has many years of experience in the field of construction project management, specializing in the effective organization of construction and development processes."
+      }
+    },
+    "team3": {
+      "name": { "before": "Lusine Karapetyan", "after": "LUSINE KARAPETYAN" },
+      "position": { "before": "Co-Founder & CTO", "after": "Supervising Technical Aspects" },
+      "desc": {
+        "before": "Supervising Technical Aspects",
+        "after": "Candidate of Sciences, Associate Professor — a specialist with many years of experience in the development and management of construction projects. Author of several significant projects and co-founder of the «Zepyur» residential district."
+      }
+    },
+    "team4": {
+      "name": { "before": "Hayk Dallakyan", "after": "HAYK DALLAKYAN" },
+      "position": { "before": "Chief Architect", "after": "Chief Architect" },
+      "desc": {
+        "before": "Architectural, Aesthetics, and Design Oversight",
+        "after": "Architect with extensive experience in designing multi-apartment buildings, private houses, and public structures. Author of several significant projects."
+      }
+    },
+    "team5": {
+      "name": { "before": "Sarkis Sarkissian", "after": "SARKIS SARKISSIAN" },
+      "position": { "before": "CBO • Chief Brand Officer", "after": "CBO • Chief Brand Officer" },
+      "desc": {
+        "before": "Brand Management & Marketing Consulting",
+        "after": "With over two decades of experience in concept development and strategic branding, he leads the creative direction of the project as Brand Manager and Marketing Consultant, shaping «ZEPYUR»’s identity, market positioning, communications, and public reputation across all platforms."
+      }
+    },
+    "team6": {
+      "name": { "before": "Tatevik Papanyan", "after": "TATEVIK PAPANYAN" },
+      "position": { "before": "Finance Manager", "after": "Finance Manager" },
+      "desc": {
+        "before": "Financial planning, budgeting, and overall fiscal oversight",
+        "after": "Finance Director — Qualified Accountant (ACCA Level 9) with extensive experience in financial management, planning, and cost optimization."
+      }
+    },
+    "team7": {
+      "name": { "before": "Ghukas Sahakyan", "after": "GHUKAS SAHAKYAN" },
+      "position": { "before": "Project Director", "after": "Project Director" },
+      "desc": {
+        "before": "Overall supervision of executions and timelines",
+        "after": "Construction project manager, specialized in effective organization and management of construction processes, with extensive experience in project leadership and supervision."
+      }
+    }
   },
   "amentiesSlider": {
     "amentiesTitle1": "Supermarket",
