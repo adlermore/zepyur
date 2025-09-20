@@ -190,6 +190,7 @@ export default function HomePage() {
         <PartnersSlider />
       </div>
       <div className='home_bottom_banner relative mt-[50px] h-[900px]'>
+        <Link className='map_link' href="https://www.google.com/maps/place/40%C2%B019'07.6%22N+44%C2%B033'13.5%22E/@40.318788,44.553739,829m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d40.318788!4d44.553739?entry=tts&g_ep=EgoyMDI1MDkxMC4wIPu8ASoASAFQAw%3D%3D&skid=459f0f5e-24f5-442c-bdb3-74b5fbbf1e8b" target='_blank'></Link>
         <Image
           src={homeBottomBanner}
           alt="homeBottomBanner"

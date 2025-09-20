@@ -10,10 +10,8 @@ import image360 from '@/public/images/gallery6.png';
 import interier1 from '@/public/images/interier1.png';
 import interier2 from '@/public/images/interier2.png';
 import interier3 from '@/public/images/interier3.png';
-import GallerySlider from "@/components/EmblaCarousel/GallerySlider";
 import { useEffect, useState } from "react";
 import { Fancybox } from "@fancyapps/ui";
-import { Inter } from "next/font/google";
 import InterierSlider from "@/components/EmblaCarousel/InterierSlider";
 
 type HomeType = {

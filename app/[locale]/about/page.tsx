@@ -1,17 +1,38 @@
 'use client'
 
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect } from 'react'
 import aboutBanner from '@/public/images/aboutBanner.png'
 import aboutSvg from '@/public/images/about_svg.png'
 import GallerySlider from '@/components/EmblaCarousel/GallerySlider'
 import TeamSlider from '@/components/EmblaCarousel/TeamSlider'
 import AboutPartners from '@/components/EmblaCarousel/AboutPartners'
 import { useTranslations } from 'next-intl'
+import { usePathname, useSearchParams } from 'next/navigation'
+
 
 function About() {
   const t = useTranslations();
 
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  
+useEffect(() => {
+  if (typeof window !== 'undefined') {
+    const section = searchParams.get('section');
+    if (section === 'partner') {
+      const el = document.getElementById('partnerSection');
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 200);
+      }
+    }
+  }
+}, [pathname, searchParams]);
+
+
+  // handle scroll when route changes or params update
   return (
     <div className='about_page pb-[40px]'>
       <div className='banner_img'>
@@ -24,7 +45,7 @@ function About() {
           unoptimized
         />
         <div className='custom_container'>
-          <h1>{t('about.title')}</h1>
+          {/* <h1>{t('about.title')}</h1> */}
         </div>
       </div>
       <div className='about_section'>
@@ -81,7 +102,7 @@ function About() {
         <div className='section_title'>
           {t('about.partners')}
         </div>
-        <div className='partners_slider_container'>
+        <div className='partners_slider_container' id='partnerSection' >
           <AboutPartners />
         </div>
       </div>

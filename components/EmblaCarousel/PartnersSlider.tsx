@@ -17,6 +17,7 @@ import partners7 from '@/public/images/partners7.png'
 import partners9 from '@/public/images/partners9.png'
 
 import Image from 'next/image'
+import Link from 'next/link'
 
 type PropType = {
   options?: EmblaOptionsType
@@ -52,7 +53,7 @@ const PartnersSlider: React.FC<PropType> = (props) => {
         <div className="embla__container">
           {sliders.map((item, index) => (
             <div className="embla__slide" key={index}>
-              <div className="slide_block">
+              <Link href={`/about?section=partner`} scroll={false} className="block slide_block">
                 <Image
                   src={item.image}
                   alt={`Choose Home ${index + 1}`}
@@ -61,7 +62,7 @@ const PartnersSlider: React.FC<PropType> = (props) => {
                   fill
                   style={{ objectFit: 'contain' }}
                 />
-              </div>
+              </Link>
             </div>
           ))}
         </div>

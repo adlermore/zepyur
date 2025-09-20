@@ -220,15 +220,6 @@
 
     "showMore": "Show More"
   },
-  "partnersSlider": {
-    "partner1Desc": "Brief descriptive text about the organization and the industry, highlighting specialty, experience, and anything important to include in this introductory text.",
-    "partner2Desc": "Brief descriptive text about the organization and the industry, highlighting specialty, experience, and anything important to include in this introductory text.",
-    "partner3Desc": "Brief descriptive text about the organization and the industry, highlighting specialty, experience, and anything important to include in this introductory text.",
-    "partner4Desc": "Brief descriptive text about the organization and the industry, highlighting specialty, experience, and anything important to include in this introductory text.",
-    "partner5Desc": "Brief descriptive text about the organization and the industry, highlighting specialty, experience, and anything important to include in this introductory text.",
-    "partner6Desc": "Brief descriptive text about the organization and the industry, highlighting specialty, experience, and anything important to include in this introductory text.",
-    "learnMore": "Learn More"
-  },
   "amenities": {
     "title": "Our Amenities",
     "desc1": "Residents of ZEPYUR will have access to thoughtfully designed amenities aimed at enhancing lifestyle and providing comfort. These include a supermarket, food court, wellness complex, sports arena, gaming club, and cine lounge.",
@@ -262,5 +253,173 @@
   },
   "searchBlock": {
     "button": "Search"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "questions": [
+      {
+        "q": "Where is ZEPYUR located?",
+        "a": "ZEPYUR is located just 21km from Yerevan, in Nor Geghi village, Kotayk region. A short drive from the city — and a world away in atmosphere — it offers natural views, clean air, and thoughtful design in every direction."
+      },
+      {
+        "q": "What types of properties are available?",
+        "a": "ZEPYUR includes:\n107 single-level houses with private yards and two parking spaces\n45 two-story townhouses, uniformly designed for modern lifestyles\n96 stylish apartments in 1, 2, and 3-bedroom formats\nEach residence is part of a unified architectural vision, yet offers layout flexibility for different needs."
+      },
+      {
+        "q": "What amenities are included?",
+        "a": "ZEPYUR is a self-contained residential area with:\nSupermarket, bakery, food court\nIndoor swimming pool, gym, steam room\nSports arena (football, basketball, volleyball, tennis)\nEvents hall, community café\nKidsNest daycare, Cine Lounge, Game Hub\nEvery feature is designed to enhance daily life — all within walking distance."
+      },
+      {
+        "q": "Is ZEPYUR a gated community?",
+        "a": "No. ZEPYUR is not gated, by design. It’s an open, inclusive, master-planned area with smart infrastructure and spatial layout that ensures privacy, safety, and accessibility — without walls."
+      },
+      {
+        "q": "Is ZEPYUR family-friendly?",
+        "a": "Yes — ZEPYUR was designed for families. From child daycare and safe play areas to walkable streets and wellness zones, everything supports a balanced lifestyle for parents, children, and even multigenerational households."
+      },
+      {
+        "q": "What is the construction timeline?",
+        "a": "First phase (homes): Ready by end of 2026\nFull project: Expected completion by end of 2029\nYour individual unit can be completed within 3 to 6 months from contract signing and delivered to you for instant usage — there is no need to wait for the full project to finish."
+      },
+      {
+        "q": "How long does it take to build a unit?",
+        "a": "Once your agreement is signed, your home can be completed in just 3 to 6 months, depending on the property type and size. Multiple units are constructed simultaneously with professional supervision."
+      },
+      {
+        "q": "Do I need to wait for the entire project to end before I can use my home?",
+        "a": "No. You can move in and begin using your home as soon as it is built and officially delivered to you — regardless of whether the rest of the project is still under construction."
+      },
+      {
+        "q": "Who is behind the ZEPYUR project?",
+        "a": "ZEPYUR is developed by Housing Club LLC. Construction is led by AVETISYAN Estate, and the full sales process is managed by EXACT Management — a trusted name in real estate marketing and customer experience."
+      },
+      {
+        "q": "What type of ownership does ZEPYUR offer?",
+        "a": "All ZEPYUR properties are sold as full private ownership under a single agreement. No shared or partial ownership models are offered — your name, your property."
+      },
+      {
+        "q": "Are payment plans or bank financing accepted?",
+        "a": "Yes. ZEPYUR accepts multiple financial arrangements, including:\nBank mortgage financing\nStaged payment contracts\nCustomized payment solutions based on buyer needs\nOur team will guide you through available options during your reservation process."
+      },
+      {
+        "q": "Can I reserve a unit online?",
+        "a": "Yes. Online reservations are available and will hold your selected unit for 3 working days. During that time, you're invited to visit the sales office, finalize terms, and sign your agreement."
+      }
+    ]
+  },
+   "partnersSlider": {
+    "learnMore": "Learn More",
+    "HousingClub": {
+      "name": "HOUSING CLUB",
+      "desc": "Housing Club LLC is the developer of the Zepyur residential community and will manage the service infrastructure within the community.",
+      "social": {
+        "facebook": "",
+        "instagram": "",
+        "youtube": "",
+        "x": "",
+        "linkedin": "",
+        "contact": "",
+        "email": "",
+        "website": ""
+      }
+    },
+    "AmeriaBank": {
+      "name": "AMERIA BANK",
+      "desc": "A leading Armenian financial institution known for innovation, customer-centric digital services, and a strong presence in the banking sector.",
+      "social": {
+        "facebook": "https://www.facebook.com/Ameriabank",
+        "instagram": "https://instagram.com/ameriabank",
+        "youtube": "https://www.youtube.com/user/AmeriabankCJSC",
+        "x": "",
+        "linkedin": "https://www.linkedin.com/company/ameriabank-cjsc",
+        "contact": "+374 (10) 56 11 11",
+        "email": "info@ameriabank.am",
+        "website": "www.ameriabank.am"
+      }
+    },
+    "Exact": {
+      "name": "EXACT",
+      "desc": "A reliable partner in construction project management — from planning to completion. A professional team ensuring quality and on-time delivery of construction projects. Project management that is efficient, precise, and risk-free.",
+      "social": {
+        "facebook": "https://www.facebook.com/exactam",
+        "instagram": "https://www.instagram.com/exactam",
+        "youtube": "",
+        "x": "",
+        "linkedin": "",
+        "contact": "+374 (10) 131 020",
+        "email": "info@exact.am",
+        "website": "www.exact.am"
+      }
+    },
+    "EvocaBank": {
+      "name": "EVOCA BANK",
+      "desc": "A modern, tech-first Armenian bank reshaping personal finance with intuitive apps, smart banking tools, and a youthful approach to digital customer service.",
+      "social": {
+        "facebook": "https://www.facebook.com/evocabank",
+        "instagram": "https://www.instagram.com/evocabank",
+        "youtube": "https://www.youtube.com/channel/UCX1h31_vVfNdSATrEnWTWRA",
+        "x": "",
+        "linkedin": "https://www.linkedin.com/company/evocabank",
+        "contact": "+374 (10) 60 55 55",
+        "email": "info@evoca.am",
+        "website": "www.evoca.am"
+      }
+    },
+    "Avetisyan": {
+      "name": "AVETISYAN HOLDING",
+      "desc": "A construction company that, with many years of experience and a team of skilled professionals, has successfully implemented projects of various types and complexities. It is specialized particularly in the construction of civil buildings and structures, ensuring quality and reliability.",
+      "social": {
+        "facebook": "",
+        "instagram": "",
+        "youtube": "",
+        "x": "",
+        "linkedin": "",
+        "contact": "",
+        "email": "info@avetisyanholding.am",
+        "website": "www.avetisyanholding.am"
+      }
+    },
+    "AcbaBank": {
+      "name": "ACBA BANK",
+      "desc": "A trusted Armenian bank rooted in cooperative values, offering comprehensive services to individuals, SMEs, and rural sectors with a focus on community growth.",
+      "social": {
+        "facebook": "https://www.facebook.com/acbabank.ojsc",
+        "instagram": "https://www.instagram.com/acbabank",
+        "youtube": "http://www.youtube.com/c/ACBABankOJSC",
+        "x": "",
+        "linkedin": "https://linkedin.com/company/acbabank",
+        "contact": "+374 (10) 31 88 88",
+        "email": "info@acba.am",
+        "website": "www.acba.am"
+      }
+    },
+    "NoshN": {
+      "name": "NOSHN",
+      "desc": "An international brand and concept firm specializing in full-spectrum business strategy, identity, marketing, and creative direction — from idea to execution.",
+      "social": {
+        "facebook": "https://www.facebook.com/noshnc",
+        "instagram": "https://www.instagram.com/_noshn_",
+        "youtube": "https://www.youtube.com/@Noshn",
+        "x": "https://x.com/noshnc",
+        "linkedin": "https://www.linkedin.com/company/noshn",
+        "contact": "+374 (11) 5995 11",
+        "email": "info@noshn.com",
+        "website": "www.noshn.com"
+      }
+    },
+    "Betton": {
+      "name": "BETTON",
+      "desc": "An architectural company with extensive experience and having completed many different projects, specializing in an integrated approach to projects of various types of buildings (residential, public, industrial) - from idea to implementation.",
+      "social": {
+        "facebook": "https://www.facebook.com/Betton.architecture/",
+        "instagram": "https://www.instagram.com/betton_architectural_studio/",
+        "youtube": "",
+        "x": "",
+        "linkedin": "",
+        "contact": "+374 (55) 110 003",
+        "email": "haik.dallakyan@gmail.com",
+        "website": "www.betton.am"
+      }
+    }
   }
 }

@@ -12,12 +12,14 @@ import IconInsta from '@/public/icons/IconInsta';
 import IconYoutube from '@/public/icons/IconYoutube';
 import IconWhatsapp from '@/public/icons/IconWhatsapp';
 import IconTelegram from '@/public/icons/IconTelegram';
+import ScrollProgress from '../ScrollToTop';
 
 function Footer() {
   const t = useTranslations();
 
   return (
     <div className='footer'>
+      <ScrollProgress />
       <div className='custom_container'>
         <div className='footer_menu'>
           <div className='footer_line py-[30px] mobile:py-[10px]'>
@@ -35,7 +37,7 @@ function Footer() {
             <Link href='/about'>{t('footer.about.vision')}</Link>
             <Link href='/about'>{t('footer.about.team')}</Link>
             <Link href='/about'>{t('footer.about.partners')}</Link>
-            <Link href='/about'>{t('footer.about.faq')}</Link>
+            <Link href='/faq'>{t('footer.about.faq')}</Link>
             <Link href='/policy'>{t('footer.about.privacy')}</Link>
             <Link href='/terms'>{t('footer.about.terms')}</Link>
           </div>
@@ -59,24 +61,23 @@ function Footer() {
 
           <div className='footer_line complex'>
             <div className='footer_title'>{t('footer.complex.title')}</div>
-            <Link href='/gallery'>{t('footer.complex.event')}</Link>
+            <Link href='/gallery' className='pointer-events-none !opacity-30'>{t('footer.complex.event')}</Link>
             <Link href='/gallery'>{t('footer.complex.gallery')}</Link>
-            <Link href='/gallery'>{t('footer.complex.calendar')}</Link>
-            <Link href='/gallery'>{t('footer.complex.reservation')}</Link>
-            <Link href='/gallery'>{t('footer.complex.support')}</Link>
+            {/* <Link href='/gallery'>{t('footer.complex.calendar')}</Link> */}
+            <Link href='/'>{t('footer.complex.reservation')}</Link>
+            <Link href='/contact'>{t('footer.complex.support')}</Link>
           </div>
 
           <div className='footer_line inline'>
             <div>
               <div className='footer_title'>{t('footer.latest.title')}</div>
-              <Link className='block' href='/'>{t('footer.latest.announcements')}</Link>
-              <Link className='block' href='/'>{t('footer.latest.news')}</Link>
-              <Link href='/'>{t('footer.latest.process')}</Link>
+              <Link className='block pointer-events-none !opacity-30' href='/'>{t('footer.latest.announcements')}</Link>
+              <Link className='block pointer-events-none !opacity-30' href='/'>{t('footer.latest.news')}</Link>
+              <Link href='/' className='pointer-events-none !opacity-30'>{t('footer.latest.process')}</Link>
             </div>
             <div>
               <div className='footer_title secount'>{t('footer.contacts.title')}</div>
-              <span>{t('footer.contacts.address')}</span>
-
+              <Link href="https://www.google.com/maps/place/40%C2%B019'07.6%22N+44%C2%B033'13.5%22E/@40.318788,44.553739,829m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d40.318788!4d44.553739?entry=tts&g_ep=EgoyMDI1MDkxMC4wIPu8ASoASAFQAw%3D%3D&skid=459f0f5e-24f5-442c-bdb3-74b5fbbf1e8b" target='_blank'>{t('footer.contacts.address')}</Link>
               <div className='contact_inline'>
                 <Link href='tel:+37455106100' className='footer_phone'>
                   <IconPhone /> {t('footer.contacts.phone')}
@@ -90,11 +91,12 @@ function Footer() {
         </div>
         <div className='foorer_social mt-[50px] mobile:mt-[30px]'>
           <div className='social_list flex justify-center items-center'>
-            <Link href='/'><IconFb /></Link>
-            <Link href='/'><IconInsta /></Link>
-            <Link href='/'><IconYoutube /></Link>
-            <Link href='/'><IconWhatsapp /></Link>
-            <Link href='/'><IconTelegram /></Link>
+            <Link href='https://www.facebook.com/zepyur.am'><IconFb /></Link>
+            <Link href='https://www.instagram.com/zepyur.am'><IconInsta /></Link>
+            <Link href='https://youtube.com/@zepyurresidentialarea'><IconYoutube /></Link>
+            <Link href='https://wa.me/+37455106100'><IconWhatsapp /></Link>
+            {/* <Link href='https://t.me/'><IconTelegram /></Link> */}
+            
           </div>
         </div>
         <div className='pt-[16px] mt-[30px] relative laptopHorizontal:mt-[30px]'>

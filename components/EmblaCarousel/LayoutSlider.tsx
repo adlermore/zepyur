@@ -14,6 +14,7 @@ import option4 from '@/public/images/option4.png'
 import option5 from '@/public/images/option5.png'
 import Image from 'next/image'
 import Link from 'next/link'
+import { url } from 'inspector'
 
 type PropType = {
   options?: EmblaOptionsType
@@ -33,8 +34,8 @@ const LayoutSlider: React.FC<PropType> = (props) => {
   } = usePrevNextButtons(emblaApi)
 
   const sliders = [
-    { image: option1 },
-    { image: option2 },
+    { image: option1 , url: '/home/21'},
+    { image: option2 , url: '/home/22'},
     // { image: option3 },
     // { image: option4 },
     // { image: option5 },
