@@ -37,21 +37,6 @@ const TeamSlider: React.FC<PropType> = (props) => {
 
   const sliders = [
     {
-      image: SoSarkissian,
-      keys: {
-        before: {
-          name: 'teamSlider.team5.name.before',
-          position: 'teamSlider.team5.position.before',
-          desc: 'teamSlider.team5.desc.before'
-        },
-        after: {
-          name: 'teamSlider.team5.name.after',
-          position: 'teamSlider.team5.position.after',
-          desc: 'teamSlider.team5.desc.after'
-        }
-      }
-    },
-    {
       image: Hayk_S,
       keys: {
         before: {
@@ -66,6 +51,7 @@ const TeamSlider: React.FC<PropType> = (props) => {
         }
       }
     },
+
     {
       image: Mushegh,
       keys: {
@@ -108,6 +94,21 @@ const TeamSlider: React.FC<PropType> = (props) => {
           name: 'teamSlider.team4.name.after',
           position: 'teamSlider.team4.position.after',
           desc: 'teamSlider.team4.desc.after'
+        }
+      }
+    },
+    {
+      image: SoSarkissian,
+      keys: {
+        before: {
+          name: 'teamSlider.team5.name.before',
+          position: 'teamSlider.team5.position.before',
+          desc: 'teamSlider.team5.desc.before'
+        },
+        after: {
+          name: 'teamSlider.team5.name.after',
+          position: 'teamSlider.team5.position.after',
+          desc: 'teamSlider.team5.desc.after'
         }
       }
     },
